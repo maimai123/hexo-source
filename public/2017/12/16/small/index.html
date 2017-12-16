@@ -6,25 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://maimai123.github.io">
-  <title>react日常小难题整理（麦麦） | Lvy’s blog</title>
+  <title>vue或其他小难题整理（麦麦） | Lvy’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~ 如有转载，请注明出处。 React1、style问题在react中 大兄弟~ 你是否想在react中使用行内样式如： style=”height:30px”然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~看">
+  <meta name="description" content="初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D 如有转载，请注明出处。 Vue1、emmet在jsx中不能使用的情况 大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet我用的是atom编辑器。首先，当然是打开atom 安装emmet插件 打开设置-&amp;gt;key bindings -&amp;gt; 点击 用户键盘映射 -&amp;gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react日常小难题整理（麦麦）">
-<meta property="og:url" content="https://maimai123.github.io/2017/12/16/react日常小难题/index.html">
+<meta property="og:title" content="vue或其他小难题整理（麦麦）">
+<meta property="og:url" content="https://maimai123.github.io/2017/12/16/small/index.html">
 <meta property="og:site_name" content="Lvy’s blog">
-<meta property="og:description" content="初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~ 如有转载，请注明出处。 React1、style问题在react中 大兄弟~ 你是否想在react中使用行内样式如： style=”height:30px”然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~看">
+<meta property="og:description" content="初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D 如有转载，请注明出处。 Vue1、emmet在jsx中不能使用的情况 大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet我用的是atom编辑器。首先，当然是打开atom 安装emmet插件 打开设置-&amp;gt;key bindings -&amp;gt; 点击 用户键盘映射 -&amp;gt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/style.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/return.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/es6.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx2.png?raw=true">
-<meta property="og:updated_time" content="2017-12-16T05:44:02.000Z">
+<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/router.png?raw=true">
+<meta property="og:updated_time" content="2017-12-16T10:52:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react日常小难题整理（麦麦）">
-<meta name="twitter:description" content="初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~ 如有转载，请注明出处。 React1、style问题在react中 大兄弟~ 你是否想在react中使用行内样式如： style=”height:30px”然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~看">
-<meta name="twitter:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/style.png?raw=true">
+<meta name="twitter:title" content="vue或其他小难题整理（麦麦）">
+<meta name="twitter:description" content="初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D 如有转载，请注明出处。 Vue1、emmet在jsx中不能使用的情况 大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet我用的是atom编辑器。首先，当然是打开atom 安装emmet插件 打开设置-&amp;gt;key bindings -&amp;gt; 点击 用户键盘映射 -&amp;gt;">
+<meta name="twitter:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/router.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="Lvy’s blog" type="application/atom+xml">
   
@@ -152,19 +148,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react日常小难题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-small" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      react日常小难题整理（麦麦）
+      vue或其他小难题整理（麦麦）
     </h1>
   
 
         
-        <a href="/2017/12/16/react日常小难题/" class="archive-article-date">
+        <a href="/2017/12/16/small/" class="archive-article-date">
   	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
 </a>
         
@@ -172,40 +168,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~</p>
+        <p>初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D</p>
 <p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
-<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h2 id="1、style问题在react中"><a href="#1、style问题在react中" class="headerlink" title="1、style问题在react中"></a>1、style问题在react中</h2><blockquote>
-<p>大兄弟~ 你是否想在react中使用行内样式<br>如： style=”height:30px”<br>然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~<br>看！写成这样就没错列~<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/style.png?raw=true"></p>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h2 id="1、emmet在jsx中不能使用的情况"><a href="#1、emmet在jsx中不能使用的情况" class="headerlink" title="1、emmet在jsx中不能使用的情况"></a>1、emmet在jsx中不能使用的情况</h2><blockquote>
+<p>大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet<br>我用的是atom编辑器。<br>首先，当然是打开atom 安装emmet插件 打开设置-&gt;key bindings -&gt; 点击 用户键盘映射 -&gt;修改文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'atom-text-editor[data-grammar="source js jsx vue"]'</span>:</span><br><span class="line">  <span class="string">'F12'</span>:<span class="string">'atom-html-preview:toggle'</span>,</span><br><span class="line">  <span class="string">'tab'</span>: <span class="string">'emmet:expand-abbreviation-with-tab'</span></span><br></pre></td></tr></table></figure></p>
+<p>这样就ok啦~ 尽情的使用emmet吧！</p>
 </blockquote>
-<h2 id="2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别"><a href="#2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别" class="headerlink" title="2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别"></a>2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别</h2><blockquote>
-<p>在用antd表格的时候，我曾遇到过这个问题。后台传过来的是数组，遍历成n个带url的a标签 显示在表格的操作栏<br>一开始我先将数组遍历加入字符串a标签放入一个新数组 最后将此数组转成字符串 return出去变成了字符串 没有被浏览器识别 看下图<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/return.png?raw=true"><br>后来找到了解决方法 如下 (ps:千万不要忘了给数组加上key，否则控制台会提示哦)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> files.map(<span class="function">(<span class="params">file,index</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &lt;a key=&#123;index&#125; href=""&gt;&lt;Icon type="paper-clip" /&gt; &#123;file&#125; &lt;/a&gt;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="2、一个关于webpack的问题。"><a href="#2、一个关于webpack的问题。" class="headerlink" title="2、一个关于webpack的问题。"></a>2、一个关于webpack的问题。</h2><blockquote>
+<p>起服务以后，用localhost访问可以访问，<br>用具体ip 如：192.168.91.75:8080/index 却访问不到地址<br>这是啥问题呐(⊙o⊙)?<br>原来原来 只要在配置文件中加上 –host 0.0.0.0 就可以啦<br>具体在哪里加呢 答案就是在<strong>package.json</strong>中的start中啦~<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"webpack-dev-server --progress --profile --colors --hot --host 0.0.0.0"</span>,</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"webpack --progress --profile --colors --config webpack.production.config.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="3、说个vue的-外链css的问题"><a href="#3、说个vue的-外链css的问题" class="headerlink" title="3、说个vue的 外链css的问题"></a>3、说个vue的 外链css的问题</h2><blockquote>
+<p>再写vue的时候，虽说在页面内部可以写style来增加样式，但还是推荐外链css<br>于是我import ‘xxx.less’ —&gt;报错！！！我简直一个大写的懵逼啊 因为我在react中都是这么引入css的<br>后来我才知道 vue中 外链css 要卸载style标签内部 然后@import ‘xxx.less’<br>这样就没问题了~<br>还有个如果你想在页面的style中使用less或sass要怎么办呢<br>给style加个 lang=”less”就可以啦</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="3、value-和-defaultValue-表格中回显问题—组件使用的是ant-design"><a href="#3、value-和-defaultValue-表格中回显问题—组件使用的是ant-design" class="headerlink" title="3、value 和 defaultValue 表格中回显问题—组件使用的是ant design"></a>3、value 和 defaultValue 表格中回显问题—组件使用的是<a href="https://ant.design/" target="_blank" rel="noopener">ant design</a></h2><blockquote>
-<p>对于表格回显问题 拿到数据以后（暂且用暂存state的方法）显示到表单中，如果用defaultValue的话，只在第一次有效，点击其他详情出现的永远是第一个详情。<br>如果用value的话，回显正常，但当要修改的时候是不能修改的。因为value是受限的。<br>目前的解决方法，每次关闭model以后都销毁里面的form，再次打开的时候新引一遍model。传值的话用props传，再用defaultValue就没有问题了。做法如下：<br>新建一个form的组件，如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">const</span> FromModel =React.createClass(&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">const</span> formItemLayout = &#123;</span><br><span class="line">      labelCol: &#123; <span class="attr">span</span>: <span class="number">6</span> &#125;,</span><br><span class="line">      wrapperCol: &#123; <span class="attr">span</span>: <span class="number">14</span> &#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;Form horizontal&gt;</span><br><span class="line">        &lt;Row gutter=&#123;<span class="number">24</span>&#125;&gt;</span><br><span class="line">          &lt;Col sm=&#123;<span class="number">12</span>&#125;&gt;</span><br><span class="line">            &lt;FormItem</span><br><span class="line">              label=<span class="string">"人才姓名"</span></span><br><span class="line">              &#123;...formItemLayout&#125;</span><br><span class="line">            &gt;</span><br><span class="line">              &lt;Input size=<span class="string">"default"</span> defaultValue=&#123;<span class="keyword">this</span>.props.record.name&#125; /&gt;</span><br><span class="line">            &lt;<span class="regexp">/FormItem&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>Col&gt;</span><br><span class="line">        &lt;<span class="regexp">/Row&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Form&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">引用model的情况如下，亲测没有任何问题：</span><br><span class="line">&lt;Modal title=<span class="string">"修改"</span> visible=&#123;<span class="keyword">this</span>.state.visible&#125;</span><br><span class="line">       onOk=&#123;<span class="keyword">this</span>.handleOk&#125; onCancel=&#123;<span class="keyword">this</span>.handleCancel&#125;</span><br><span class="line"> &gt;</span><br><span class="line">   &#123;</span><br><span class="line">      self.state.visible ?  <span class="comment">//判断visible为true还是false false的话设为null</span></span><br><span class="line">      &lt;FromModel ref=<span class="string">"modelform"</span> record=&#123;self.state.record&#125;/&gt;</span><br><span class="line">       :<span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/Modal&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="4、对于github一直要输入账户名密码问题"><a href="#4、对于github一直要输入账户名密码问题" class="headerlink" title="4、对于github一直要输入账户名密码问题"></a>4、对于github一直要输入账户名密码问题</h2><blockquote>
+<p>git config – global user.name “maimai123”<br>git config –global user.email maimaixxx@163.com<br>git config – global credential.helperstore</p>
 </blockquote>
-<h2 id="4、url地址栏中一直有-xxx的问题"><a href="#4、url地址栏中一直有-xxx的问题" class="headerlink" title="4、url地址栏中一直有/#/xxx的问题"></a>4、url地址栏中一直有/#/xxx的问题</h2><blockquote>
-<p>这是一个你会获取到的默认 history ，如果你不指定某个 history 。<br>它用到的是 URL 中的 hash（#）部分去创建形如 example.com/#/some/path 的路由。这个 支持 ie8＋ 的浏览器，但是因为是 hash 值，所以不推荐使用。<br>browserHistory 是由 React Router 创建浏览器应用推荐的 history。<br>它使用 History API 在浏览器中被创建用于处理 URL，新建一个像这样真实的 URL example.com/some/path。<br>使用 <strong>browserHistory</strong> 代替 <strong>hashHistory</strong>就可以解决这个问题啦~</p>
+<h2 id="5、vue中路由在浏览器地址栏显示-的问题-与react-router中的hashHistory-browserHistory-一样的道理，"><a href="#5、vue中路由在浏览器地址栏显示-的问题-与react-router中的hashHistory-browserHistory-一样的道理，" class="headerlink" title="5、vue中路由在浏览器地址栏显示/#/的问题 与react-router中的hashHistory browserHistory 一样的道理，"></a>5、vue中路由在浏览器地址栏显示/#/的问题 与react-router中的hashHistory browserHistory 一样的道理，</h2><blockquote>
+<p>路由中换个模式就好了<br>那么怎么写呢 参考地址：<a href="http://router.vuejs.org/en/essentials/history-mode.html" target="_blank" rel="noopener">vue-router</a></p>
 </blockquote>
-<h2 id="5、es5和es6写法对比"><a href="#5、es5和es6写法对比" class="headerlink" title="5、es5和es6写法对比"></a>5、es5和es6写法对比</h2><p><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/es6.png?raw=true"></p>
-<h2 id="6、jsx语法中不允许判断的问题"><a href="#6、jsx语法中不允许判断的问题" class="headerlink" title="6、jsx语法中不允许判断的问题"></a>6、jsx语法中不允许判断的问题</h2><blockquote>
-<p>在jsx语法内部是不允许if判断的，即如下代码是会报错的：<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx.png?raw=true"><br>对于判断条件简单的用三目运算符 如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">React.render(</span><br><span class="line">  <span class="keyword">return</span>(</span><br><span class="line">      &lt;div id=&#123;condition ? <span class="string">'true的情况'</span> : <span class="string">'false的情况'</span>&#125;&gt;</span><br><span class="line">          Hello World!</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">, mountNode);</span></span><br></pre></td></tr></table></figure></p>
-<p>对于判断条件复杂的用变量 如：<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx2.png?raw=true"></p>
+<p><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/router.png?raw=true"></p>
+<h2 id="6、vue-cli-webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack-config-json中的-devServer-中，写法如下："><a href="#6、vue-cli-webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack-config-json中的-devServer-中，写法如下：" class="headerlink" title="6、vue-cli+webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack.config.json中的 devServer 中，写法如下："></a>6、vue-cli+webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack.config.json中的 devServer 中，写法如下：</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  devServer:&#123; <span class="comment">//配置服务器环境</span></span><br><span class="line">    colors:<span class="literal">true</span>,</span><br><span class="line">    historyApiFallback:<span class="literal">true</span>,</span><br><span class="line">    inline:<span class="literal">true</span>, <span class="comment">//自动刷新</span></span><br><span class="line">    port:<span class="string">'1234'</span>, <span class="comment">//修改端口号</span></span><br><span class="line">    host : <span class="string">'0.0.0.0'</span>,</span><br><span class="line">    progress:<span class="literal">true</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>There are some additional options:</p>
+<p>–content-base <file directory="" url="" port="">: base path for the content.<br>–quiet: don’t output anything to the console.<br>–no-info: suppress boring information.<br>–colors: add some colors to the output.<br>–no-colors: don’t use colors in the output.<br>–compress: use gzip compression.<br>–host <hostname ip="">: hostname or IP. 0.0.0.0 binds to all hosts.<br>–port <number>: port.<br>–inline: embed the webpack-dev-server runtime into the bundle.<br>–hot: adds the HotModuleReplacementPlugin and switch the server to hot mode. Note: make sure you don’t add HotModuleReplacementPlugin twice.<br>–hot –inline also adds the webpack/hot/dev-server entry.<br>–public: overrides the host and port used in –inline mode for the client (useful for a VM or Docker).<br>–lazy: no watching, compiles on request (cannot be combined with –hot).<br>–https: serves webpack-dev-server over HTTPS Protocol. Includes a self-signed certificate that is used when serving the requests.<br>–cert, –cacert, –key: Paths the certificate files.<br>–open: opens the url in default browser (for webpack-dev-server versions &gt; 2.0).<br>–history-api-fallback: enables support for history API fallback.<br>–client-log-level: controls the console log messages shown in the browser. Use error, warning, info or none.</number></hostname></file></p>
+<blockquote>
+<p>也可以写在package.json的start中。如：webpack-dev-server –devtool eval –progress –colors –inline –hot –content-base build –port1234<br>但vue-cli中如果希望修改端口号，则进入~\config\index.js，修改dev下的port为希望启动的端口号。例如: port: 1234,</p>
 </blockquote>
-<h2 id="7、父组件与子组件之间的传值问题"><a href="#7、父组件与子组件之间的传值问题" class="headerlink" title="7、父组件与子组件之间的传值问题"></a>7、父组件与子组件之间的传值问题</h2><blockquote>
-<p>对于不会redux的童鞋，请乖乖的用props来传值吧~ 具体教程参考<a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="noopener">阮一峰—React 入门实例教程</a></p>
+<h2 id="7、在学习vuex的时候，我曾遇到过一个愚蠢的问题-【捂脸】就是在dispatch-action中的方法时显示找不到这个方法"><a href="#7、在学习vuex的时候，我曾遇到过一个愚蠢的问题-【捂脸】就是在dispatch-action中的方法时显示找不到这个方法" class="headerlink" title="7、在学习vuex的时候，我曾遇到过一个愚蠢的问题 【捂脸】就是在dispatch action中的方法时显示找不到这个方法"></a>7、在学习vuex的时候，我曾遇到过一个愚蠢的问题 【捂脸】就是在dispatch action中的方法时显示找不到这个方法</h2><blockquote>
+<p>我左看右看没找出问题在哪，最后求救师傅，才知道问题所在。<br>我在actions、mutations和getters中都默认输出了，即：export default{ … }, 而在store中还以<br>import * as actions from ‘./actions’<br>这种方法引入。。。简直作死啊~~<br>以后你们可别犯这种傻错啊</p>
 </blockquote>
-<h2 id="8、关于在react中想要使用jquery操作dom的问题"><a href="#8、关于在react中想要使用jquery操作dom的问题" class="headerlink" title="8、关于在react中想要使用jquery操作dom的问题"></a>8、关于在react中想要使用jquery操作dom的问题</h2><blockquote>
-<p>虽然react很好用是吧，但在jquery中一行代码实现切换class的工作量在react中却要考虑很多，所以我就比较喜欢引入jquery解决这种问题啦~<br>直接用$(this)并不能获取到你想要的东西，你必须在onclick={(ev)=&gt;self.doSomething(ev)}中将事件传递过去，然后在方法中你就可以使用$(ev.target)获取到啦 :-D</p>
+<h2 id="8、换了新电脑是-–air-用不惯，以前windows下个git就能完成的事现在需要安装一个xcode、sourcetree等搞得我用不惯-不过在努力学"><a href="#8、换了新电脑是-–air-用不惯，以前windows下个git就能完成的事现在需要安装一个xcode、sourcetree等搞得我用不惯-不过在努力学" class="headerlink" title="8、换了新电脑是 –air 用不惯，以前windows下个git就能完成的事现在需要安装一个xcode、sourcetree等搞得我用不惯 不过在努力学"></a>8、换了新电脑是 –air 用不惯，以前windows下个git就能完成的事现在需要安装一个xcode、sourcetree等搞得我用不惯 不过在努力学</h2><blockquote>
+<p>真是一步一个坎啊 我先跟大家说一下 我把我的博客的挣个文件夹都从原来的电脑里copy了过来，很难想象我要是脑筋粗大一点没拷过来会是怎样<br>我在github上新建了仓库，里面啥东西也没有 我是打算用来存放我的hexo源文件的。<br>然后我下载了git、xcode、sourcetree等工具。废话有点多 别介意啊<br>我先查了一下我git 安装完成没有 git –vertion看一下版本号有版本号就是安装完成了<br>当然你首先要安装node。这个总不用我教了吧？<br>在安装hexo -&gt; npm install -g hexo-cli<br>安装完也看一下安装了没 然后在命令里新建个ssh文件 命令-&gt;ssh-keygen -t rsa -C youremail@example.com(你的Github登录名)<br>然后复制id_rsa.pub的内容并将其填入Github那边的key。<br>安装完 sourcetree 之后你就可以点击新仓库 从url克隆，把你的新仓库复制来放进去，选好文件夹拖进你的hexo源文件<br>最后提交一下就好啦~<br>你试着在hexo源文件下打hexo s 看看有没有起本地服务吧~<br>当然在此之前你需要npm install一下来安装依赖啦 :-D</p>
 </blockquote>
-<h2 id="9、数组嵌套深层拷贝问题"><a href="#9、数组嵌套深层拷贝问题" class="headerlink" title="9、数组嵌套深层拷贝问题"></a>9、数组嵌套深层拷贝问题</h2><blockquote>
-<p>近期遇到的一个头疼的问题，后台返回数据（数组嵌套对象再嵌套数组）一次性给我，我得去处理第一次显示一部分，<br>第二次才显示完整，用到了concat()拷贝深度数组并不起效果，<br>最后。。。终于给我找出来了 记录一下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">source</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result;</span><br><span class="line">  (source <span class="keyword">instanceof</span> <span class="built_in">Array</span>) ? (result = []) : (result = &#123;&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> source) &#123;</span><br><span class="line">  result[key] = (<span class="keyword">typeof</span> source[key]===<span class="string">'object'</span>) ? clone(source[key]) : source[key];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="9、vue的小问题"><a href="#9、vue的小问题" class="headerlink" title="9、vue的小问题"></a>9、vue的小问题</h2><blockquote>
+<p>vue图片地址为空会报错 所以需要先给图片要做一个判断-&gt;v-if<br>地址为空的时候不渲染<br>Img 添加路径（循环取变量）时要加bind 即:src=“item.imgUrl”<br>href、id、disabled也是一样<br>如果是添加行内样式则是:style=“{backgroundImage:’url(‘+list.url+’)’}”<br>双引号单引号你就自己看吧 哈哈 毕竟我也是一脸懵逼</p>
 </blockquote>
-<h2 id="10、对于在react中字符拼接的问题"><a href="#10、对于在react中字符拼接的问题" class="headerlink" title="10、对于在react中字符拼接的问题"></a>10、对于在react中字符拼接的问题</h2><blockquote>
-<p>不知道大家发现没有，在react中在遍历中想要字符拼接变量用以下的方法是行不通的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"xxxxx.html?code="</span>+usercode&gt;我要传参数跳转的啦~&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
-<p>我之前一直深受其扰，只能先定义一个变量，将跳转链接放入变量再拼接方可成功，后来查阅得出<br>改为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&#123;<span class="string">"xxxxx.html?code="</span>+usercode&#125;&gt;我要传参数跳转的啦~&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="10、移动端阻止回弹"><a href="#10、移动端阻止回弹" class="headerlink" title="10、移动端阻止回弹"></a>10、移动端阻止回弹</h2><blockquote>
+<p>一些移动设备有缺省的touchmove行为，比如说经典的iOSoverscroll效果，<br>当滚动超出了内容的界限时就引发视图反弹。<br>这种做法在许多多点触控应用中会带来混乱，所以要禁用它。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'touchmove'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">event.preventDefault();</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h2 id="11、ant-design中的图片轮播报错问题"><a href="#11、ant-design中的图片轮播报错问题" class="headerlink" title="11、ant design中的图片轮播报错问题"></a>11、ant design中的图片轮播报错问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> imgTpl = <span class="function">(<span class="params">IMAGE_DATA || []</span>).<span class="params">map</span>(<span class="params">(item, index</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">   &lt;div key=&#123;index&#125; &gt;</span><br><span class="line">      &lt;a href=&#123;item.bannerUrl == <span class="string">''</span> ? <span class="string">"javascript:;"</span> : item.bannerUrl&#125;&gt;&lt;img src=&#123;item.url&#125; alt=&#123;item.bannerName&#125;/&gt;&lt;/a&gt;</span><br><span class="line">   &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">   );</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp">if (!IMAGE_DATA.length) imgTpl = &lt;div&gt;&lt;/</span>div&gt;;</span><br></pre></td></tr></table></figure>
+<h2 id="11、vue-props传递数据"><a href="#11、vue-props传递数据" class="headerlink" title="11、vue props传递数据"></a>11、vue props传递数据</h2><blockquote>
+<p>众所周知，vue中的props和react中的props一样，都是用来父子组件通信用的<br>在父组件中传递给子组件 只需要在子组件上加要传递的数据 ps:注意动态的要用v-bind/:哦~<br>还有个字面量语法问题 <comp some-prop="1"></comp> 这样传递的是一个字符串<br>如果想要传递number，也要使用v-bind<br>在子组件中用props接收即可<br>那么如果在子组件中调用父组件的方法呢？ 也是可以的<br>vue 使用v-on绑定自定义事件<br>使用 \$on(eventName) 监听事件<br>使用 \$emit(eventName) 触发事件<br>父组件在使用子组件的地方直接用 v-on 来监听子组件触发的事件，直接在模板里绑定<br>如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button-counter @increment=<span class="string">"incrementTotal"</span>&gt;&lt;/button-counter&gt;</span><br></pre></td></tr></table></figure></p>
+<p>incrementTotal是父组件的方法 increment是传递给子组件的props名字<br>子组件用 this.$emit(‘increment’) 调用</p>
+</blockquote>
 <h2 id="12、请耐心等待，麦麦会不定期更新哒"><a href="#12、请耐心等待，麦麦会不定期更新哒" class="headerlink" title="12、请耐心等待，麦麦会不定期更新哒~"></a>12、请耐心等待，麦麦会不定期更新哒~</h2><p>More info: <a href="https://github.com/maimai123" target="_blank" rel="noopener">麦麦</a></p>
 
       
@@ -291,7 +295,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://maimai123.github.io/2017/12/16/react日常小难题/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://maimai123.github.io/2017/12/16/small/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,20 +309,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/12/16/轮播图/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/16/yyf/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          jquery 轮播图插件教程（麦麦）
+          hexo博客搭建（麦麦）
         
       </div>
     </a>
   
-  
-    <a href="/2017/12/16/vuex学习小计/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vuex学习小计（麦麦）</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -364,7 +363,7 @@
 </style>
 <script>
 var gitment = new Gitment({
-  id: "https://maimai123.github.io/2017/12/16/react日常小难题/",
+  id: "https://maimai123.github.io/2017/12/16/small/",
   owner: 'maimai123',
   repo: 'maimai123.github.io',
   oauth: {

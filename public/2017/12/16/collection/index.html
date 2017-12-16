@@ -6,25 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://maimai123.github.io">
-  <title>react日常小难题整理（麦麦） | Lvy’s blog</title>
+  <title>整理各对象常用属性与方法（麦麦） | Lvy’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~ 如有转载，请注明出处。 React1、style问题在react中 大兄弟~ 你是否想在react中使用行内样式如： style=”height:30px”然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~看">
+  <meta name="description" content="如有转载，请注明出处。String对象的各种属性与方法 属性：   i、length 字符串长度   “aaa”.length -&amp;gt; 3 ii、prototype允许您向对象添加属性和方法 12345例：   String.prototype.spacify=function(str)&amp;#123;     return(str.split(&quot;&quot;).join(&quot; &quot;))   &amp;#125;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react日常小难题整理（麦麦）">
-<meta property="og:url" content="https://maimai123.github.io/2017/12/16/react日常小难题/index.html">
+<meta property="og:title" content="整理各对象常用属性与方法（麦麦）">
+<meta property="og:url" content="https://maimai123.github.io/2017/12/16/collection/index.html">
 <meta property="og:site_name" content="Lvy’s blog">
-<meta property="og:description" content="初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~ 如有转载，请注明出处。 React1、style问题在react中 大兄弟~ 你是否想在react中使用行内样式如： style=”height:30px”然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~看">
+<meta property="og:description" content="如有转载，请注明出处。String对象的各种属性与方法 属性：   i、length 字符串长度   “aaa”.length -&amp;gt; 3 ii、prototype允许您向对象添加属性和方法 12345例：   String.prototype.spacify=function(str)&amp;#123;     return(str.split(&quot;&quot;).join(&quot; &quot;))   &amp;#125;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/style.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/return.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/es6.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx2.png?raw=true">
-<meta property="og:updated_time" content="2017-12-16T05:44:02.000Z">
+<meta property="og:updated_time" content="2017-12-16T10:53:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react日常小难题整理（麦麦）">
-<meta name="twitter:description" content="初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~ 如有转载，请注明出处。 React1、style问题在react中 大兄弟~ 你是否想在react中使用行内样式如： style=”height:30px”然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~看">
-<meta name="twitter:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/style.png?raw=true">
+<meta name="twitter:title" content="整理各对象常用属性与方法（麦麦）">
+<meta name="twitter:description" content="如有转载，请注明出处。String对象的各种属性与方法 属性：   i、length 字符串长度   “aaa”.length -&amp;gt; 3 ii、prototype允许您向对象添加属性和方法 12345例：   String.prototype.spacify=function(str)&amp;#123;     return(str.split(&quot;&quot;).join(&quot; &quot;))   &amp;#125;">
   
     <link rel="alternative" href="/atom.xml" title="Lvy’s blog" type="application/atom+xml">
   
@@ -152,19 +146,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react日常小难题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-collection" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      react日常小难题整理（麦麦）
+      整理各对象常用属性与方法（麦麦）
     </h1>
   
 
         
-        <a href="/2017/12/16/react日常小难题/" class="archive-article-date">
+        <a href="/2017/12/16/collection/" class="archive-article-date">
   	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
 </a>
         
@@ -172,41 +166,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~</p>
-<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
-<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h2 id="1、style问题在react中"><a href="#1、style问题在react中" class="headerlink" title="1、style问题在react中"></a>1、style问题在react中</h2><blockquote>
-<p>大兄弟~ 你是否想在react中使用行内样式<br>如： style=”height:30px”<br>然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~<br>看！写成这样就没错列~<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/style.png?raw=true"></p>
+        <h2 id="如有转载，请注明出处。"><a href="#如有转载，请注明出处。" class="headerlink" title="如有转载，请注明出处。"></a><font size="1"><strong>如有转载，请注明出处。</strong></font></h2><p><strong>String对象的各种属性与方法</strong></p>
+<p>属性：</p>
+<blockquote>
+<p> i、length 字符串长度<br>   “aaa”.length -&gt; 3<br> ii、prototype允许您向对象添加属性和方法<br> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">   String.prototype.spacify=function(str)&#123;</span><br><span class="line">     <span class="keyword">return</span>(str.split(<span class="string">""</span>).join(<span class="string">" "</span>))</span><br><span class="line">   &#125;</span><br><span class="line">   "asasda".spacify("asss") -&gt; "a s s s" 新建的String对象的方法,用于往字符串中插入空格</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h2 id="2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别"><a href="#2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别" class="headerlink" title="2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别"></a>2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别</h2><blockquote>
-<p>在用antd表格的时候，我曾遇到过这个问题。后台传过来的是数组，遍历成n个带url的a标签 显示在表格的操作栏<br>一开始我先将数组遍历加入字符串a标签放入一个新数组 最后将此数组转成字符串 return出去变成了字符串 没有被浏览器识别 看下图<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/return.png?raw=true"><br>后来找到了解决方法 如下 (ps:千万不要忘了给数组加上key，否则控制台会提示哦)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> files.map(<span class="function">(<span class="params">file,index</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &lt;a key=&#123;index&#125; href=""&gt;&lt;Icon type="paper-clip" /&gt; &#123;file&#125; &lt;/a&gt;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>方法：</p>
+<blockquote>
+<p>1、split 讲字符分割成数组显示<br>      “a,s,d”.split(“,”) -&gt; [“a”,”s”,”d”]<br>2、concat 合并字符串火数组<br>     “1”.concat(“sdf”,”555”)-&gt; “1sdf555”<br>      [“1”].concat(“sdf”,”555”) -&gt;[“1”, “sdf”, “555”]<br>3、toLocaleUpperCase同toUpperCase 小写转换成大写<br>     “asaddas”.toLocaleUpperCase()==”asaddas”.toUpperCase() “ASADDAS”<br>4、toLocaleLowerCase同toLowerCase 大写转换成小写<br>     “ASADDAS”.toLocaleLowerCase()==”asaddas”.toLowerCase() “asaddas”<br>5、charAt 从字符串中取出单个字符<br>     “asde”.charAt(2)-&gt; d<br>6、indexOf(“xx”,[从几开始检索]) 从字符串中检索字符是否存在,不存在返回-1,<br>     “woshiyuyafei”.indexOf(“yuyafei”) -&gt;5<br>7、lastIndexOf(“xx”,[从几开始检索]) 从最后往字符串中检索字符是否存在,不存在返回-1,<br>     “woshiyuyafei”.lastIndexOf(“yu”,11) -&gt;5<br>8、match(“xxx”,’regexp’) 检索字符串中指定值返回指定值，或找到一个或多个正则表达式的匹配,<br>     “hello world”.match(“hello”) -&gt; [“hello”]<br>     “he2llo1wo3rld”.match(/\d+/g) -&gt; [“2”, “1”, “3”]<br>9、slice(start,end) 提取字符串的某个部分，并以新的字符串返回被提取的部分(不包括结束),不申明结束则默认为字符串长度-1.若为负数，则变为长度+负数的值取 返回新的字符串<br>     “hello aaaa”.slice(1,6) -&gt; “ello “<br>    “hello aaaa”.slice(-8,-2) -&gt; “hello aaaa”.slice(2,8) -&gt; “llo aa”<br>10、substr(start,length) 从字符串中抽取从 start 下标开始的指定数目的字符,若为负数：-1 指字符串中最后一个字符，-2 指倒数第二个字符，以此类推。  返回新字符串<br>     “hello world”.substr(1,4) -&gt; “ello”<br>     “hello world”.substr(-8,4)-&gt; “hello world”.substr(3,4)  -&gt; “lo w”<br>11、substring(start,end) 提取字符串中介于两个指定下标之间的字符(不包括结束不接受负数)<br>     “hello”.substring(1,3) -&gt; “el”</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="3、value-和-defaultValue-表格中回显问题—组件使用的是ant-design"><a href="#3、value-和-defaultValue-表格中回显问题—组件使用的是ant-design" class="headerlink" title="3、value 和 defaultValue 表格中回显问题—组件使用的是ant design"></a>3、value 和 defaultValue 表格中回显问题—组件使用的是<a href="https://ant.design/" target="_blank" rel="noopener">ant design</a></h2><blockquote>
-<p>对于表格回显问题 拿到数据以后（暂且用暂存state的方法）显示到表单中，如果用defaultValue的话，只在第一次有效，点击其他详情出现的永远是第一个详情。<br>如果用value的话，回显正常，但当要修改的时候是不能修改的。因为value是受限的。<br>目前的解决方法，每次关闭model以后都销毁里面的form，再次打开的时候新引一遍model。传值的话用props传，再用defaultValue就没有问题了。做法如下：<br>新建一个form的组件，如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">const</span> FromModel =React.createClass(&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">const</span> formItemLayout = &#123;</span><br><span class="line">      labelCol: &#123; <span class="attr">span</span>: <span class="number">6</span> &#125;,</span><br><span class="line">      wrapperCol: &#123; <span class="attr">span</span>: <span class="number">14</span> &#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;Form horizontal&gt;</span><br><span class="line">        &lt;Row gutter=&#123;<span class="number">24</span>&#125;&gt;</span><br><span class="line">          &lt;Col sm=&#123;<span class="number">12</span>&#125;&gt;</span><br><span class="line">            &lt;FormItem</span><br><span class="line">              label=<span class="string">"人才姓名"</span></span><br><span class="line">              &#123;...formItemLayout&#125;</span><br><span class="line">            &gt;</span><br><span class="line">              &lt;Input size=<span class="string">"default"</span> defaultValue=&#123;<span class="keyword">this</span>.props.record.name&#125; /&gt;</span><br><span class="line">            &lt;<span class="regexp">/FormItem&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>Col&gt;</span><br><span class="line">        &lt;<span class="regexp">/Row&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Form&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">引用model的情况如下，亲测没有任何问题：</span><br><span class="line">&lt;Modal title=<span class="string">"修改"</span> visible=&#123;<span class="keyword">this</span>.state.visible&#125;</span><br><span class="line">       onOk=&#123;<span class="keyword">this</span>.handleOk&#125; onCancel=&#123;<span class="keyword">this</span>.handleCancel&#125;</span><br><span class="line"> &gt;</span><br><span class="line">   &#123;</span><br><span class="line">      self.state.visible ?  <span class="comment">//判断visible为true还是false false的话设为null</span></span><br><span class="line">      &lt;FromModel ref=<span class="string">"modelform"</span> record=&#123;self.state.record&#125;/&gt;</span><br><span class="line">       :<span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/Modal&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>##Number对象的各种属性与方法</p>
+<p>方法：</p>
+<blockquote>
+<p>1、toString([几进制显示数字]) 把数字转换成字符串<br>      123.toString() -&gt; 报错：这是因为javascript引擎在解释代码时对于“1.toString()”认为“.”是浮点符号，但因小数点后面的字符是非法的，所以报语法错误；<br>    而后面的“1..toString()和1.2.toStirng()”写法，javascript引擎认为第一个“.”小数点，的二个为属性访问语法，所以都能正确解释执行；<br>    对于“(1).toStirng()”的写法，用“()”排除了“.”被视为小数点的语法解释，所以这种写法能够被解释执行；<br>       var num = 111; num.toString();  -&gt; “111” 或 (123).toString()<br>       {}.toString() 报错 表達式語句不能以 { 或 function 開頭 改成({}).toString() 输出 “[object Object]”<br>2、toFixed() 把数字四舍五入为指定小数位数的数字<br>      var num = 1223; num.toFixed(2); -&gt; “1223.00”<br>3、toPrecision( 1 ~ 21 之间的整数) 在对象的值超出指定位数时将其转换为指数计数法<br>      var num =10000; num.toPrecision(4) -&gt; “1.000e+4”</p>
 </blockquote>
-<h2 id="4、url地址栏中一直有-xxx的问题"><a href="#4、url地址栏中一直有-xxx的问题" class="headerlink" title="4、url地址栏中一直有/#/xxx的问题"></a>4、url地址栏中一直有/#/xxx的问题</h2><blockquote>
-<p>这是一个你会获取到的默认 history ，如果你不指定某个 history 。<br>它用到的是 URL 中的 hash（#）部分去创建形如 example.com/#/some/path 的路由。这个 支持 ie8＋ 的浏览器，但是因为是 hash 值，所以不推荐使用。<br>browserHistory 是由 React Router 创建浏览器应用推荐的 history。<br>它使用 History API 在浏览器中被创建用于处理 URL，新建一个像这样真实的 URL example.com/some/path。<br>使用 <strong>browserHistory</strong> 代替 <strong>hashHistory</strong>就可以解决这个问题啦~</p>
+<p>##Boolean对象的各种属性与方法</p>
+<p>方法：</p>
+<blockquote>
+<p>1、toSource() 返回表示对象源代码的字符串<br>     function employee(name,job,born)<br>     {<br>       this.name=name;<br>       this.job=job;<br>       this.born=born;<br>    }<br>     var bill=new employee(“Bill Gates”,”Engineer”,1985);<br>     bill.toSource();  -&gt;({name:”Bill Gates”, job:”Engineer”, born:1985})<br>2、toString() 同number与String<br>3、valueOf() 返回 Boolean 对象的原始值<br>      var boo = new Boolean(false)<br>      document.write(boo.valueOf())  -&gt;false</p>
 </blockquote>
-<h2 id="5、es5和es6写法对比"><a href="#5、es5和es6写法对比" class="headerlink" title="5、es5和es6写法对比"></a>5、es5和es6写法对比</h2><p><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/es6.png?raw=true"></p>
-<h2 id="6、jsx语法中不允许判断的问题"><a href="#6、jsx语法中不允许判断的问题" class="headerlink" title="6、jsx语法中不允许判断的问题"></a>6、jsx语法中不允许判断的问题</h2><blockquote>
-<p>在jsx语法内部是不允许if判断的，即如下代码是会报错的：<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx.png?raw=true"><br>对于判断条件简单的用三目运算符 如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">React.render(</span><br><span class="line">  <span class="keyword">return</span>(</span><br><span class="line">      &lt;div id=&#123;condition ? <span class="string">'true的情况'</span> : <span class="string">'false的情况'</span>&#125;&gt;</span><br><span class="line">          Hello World!</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">, mountNode);</span></span><br></pre></td></tr></table></figure></p>
-<p>对于判断条件复杂的用变量 如：<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx2.png?raw=true"></p>
+<p>##Array对象的各种属性与方法<br>属性：</p>
+<blockquote>
+<p>1、length 返回数组的长度<br>      [“1”,”2”].length  -&gt; 2<br>方法：<br>1、concat() 合并数组<br>     [“1”,”2”].concat(“123”,[2]) -&gt; [“1”, “2”, “123”, 2]<br>2、join([分割的符号]) 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。<br>     [“1”,”2”].join(“|”)  -&gt; “1|2”<br>3、pop() 删除数组最后一个元素并返回杯删除的元素<br>     [“s”,”e”].pop()  -&gt; “e”<br>4、push() 往数组中添加一个或更多元素，并返回新的长度。<br>     [“s”,”e”].push(“32”,”45”) -&gt; 4<br>5、reverse() 颠倒顺序<br>     [2,5,3,4,1].reverse()  -&gt; [1, 4, 3, 5, 2]<br>6、sort() 排序（但对数字排序不准确）<br>     [2,5,3,4,21].sort() -&gt; [2, 21, 3, 4, 5]<br>7、shift() 把数组的第一个元素从其中删除，并返回第一个元素的值。<br>     [2,5,3,4,21].shift()  -&gt; 2<br>8、slice(start,end) 从已有的数组中返回选定的元素,返回新数组<br>    [2,5,3,4,21].slice(1,4) -&gt; [5, 3, 4]<br>9、splice(规定添加/删除项目的位置,要删除的项目数量,向数组添加的新项目) 向/从数组中添加/删除项目，返回被删除的项目。<br>     [2,5,3,4,21].splice(1,3,8888) -&gt; [5, 3, 4]<br>10、toString() 把数组转换成字符串<br>     [2,5,3,4,21].toString() -&gt; “2,5,3,4,21”<br>11、unshift() 向数组的开头添加一个或更多元素，并返回新的长度<br>     [2,5,3,4,21].unshift(1) -&gt; 6</p>
 </blockquote>
-<h2 id="7、父组件与子组件之间的传值问题"><a href="#7、父组件与子组件之间的传值问题" class="headerlink" title="7、父组件与子组件之间的传值问题"></a>7、父组件与子组件之间的传值问题</h2><blockquote>
-<p>对于不会redux的童鞋，请乖乖的用props来传值吧~ 具体教程参考<a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="noopener">阮一峰—React 入门实例教程</a></p>
-</blockquote>
-<h2 id="8、关于在react中想要使用jquery操作dom的问题"><a href="#8、关于在react中想要使用jquery操作dom的问题" class="headerlink" title="8、关于在react中想要使用jquery操作dom的问题"></a>8、关于在react中想要使用jquery操作dom的问题</h2><blockquote>
-<p>虽然react很好用是吧，但在jquery中一行代码实现切换class的工作量在react中却要考虑很多，所以我就比较喜欢引入jquery解决这种问题啦~<br>直接用$(this)并不能获取到你想要的东西，你必须在onclick={(ev)=&gt;self.doSomething(ev)}中将事件传递过去，然后在方法中你就可以使用$(ev.target)获取到啦 :-D</p>
-</blockquote>
-<h2 id="9、数组嵌套深层拷贝问题"><a href="#9、数组嵌套深层拷贝问题" class="headerlink" title="9、数组嵌套深层拷贝问题"></a>9、数组嵌套深层拷贝问题</h2><blockquote>
-<p>近期遇到的一个头疼的问题，后台返回数据（数组嵌套对象再嵌套数组）一次性给我，我得去处理第一次显示一部分，<br>第二次才显示完整，用到了concat()拷贝深度数组并不起效果，<br>最后。。。终于给我找出来了 记录一下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">source</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result;</span><br><span class="line">  (source <span class="keyword">instanceof</span> <span class="built_in">Array</span>) ? (result = []) : (result = &#123;&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> source) &#123;</span><br><span class="line">  result[key] = (<span class="keyword">typeof</span> source[key]===<span class="string">'object'</span>) ? clone(source[key]) : source[key];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="10、对于在react中字符拼接的问题"><a href="#10、对于在react中字符拼接的问题" class="headerlink" title="10、对于在react中字符拼接的问题"></a>10、对于在react中字符拼接的问题</h2><blockquote>
-<p>不知道大家发现没有，在react中在遍历中想要字符拼接变量用以下的方法是行不通的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"xxxxx.html?code="</span>+usercode&gt;我要传参数跳转的啦~&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
-<p>我之前一直深受其扰，只能先定义一个变量，将跳转链接放入变量再拼接方可成功，后来查阅得出<br>改为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&#123;<span class="string">"xxxxx.html?code="</span>+usercode&#125;&gt;我要传参数跳转的啦~&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="11、ant-design中的图片轮播报错问题"><a href="#11、ant-design中的图片轮播报错问题" class="headerlink" title="11、ant design中的图片轮播报错问题"></a>11、ant design中的图片轮播报错问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> imgTpl = <span class="function">(<span class="params">IMAGE_DATA || []</span>).<span class="params">map</span>(<span class="params">(item, index</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">   &lt;div key=&#123;index&#125; &gt;</span><br><span class="line">      &lt;a href=&#123;item.bannerUrl == <span class="string">''</span> ? <span class="string">"javascript:;"</span> : item.bannerUrl&#125;&gt;&lt;img src=&#123;item.url&#125; alt=&#123;item.bannerName&#125;/&gt;&lt;/a&gt;</span><br><span class="line">   &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">   );</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp">if (!IMAGE_DATA.length) imgTpl = &lt;div&gt;&lt;/</span>div&gt;;</span><br></pre></td></tr></table></figure>
-<h2 id="12、请耐心等待，麦麦会不定期更新哒"><a href="#12、请耐心等待，麦麦会不定期更新哒" class="headerlink" title="12、请耐心等待，麦麦会不定期更新哒~"></a>12、请耐心等待，麦麦会不定期更新哒~</h2><p>More info: <a href="https://github.com/maimai123" target="_blank" rel="noopener">麦麦</a></p>
+<p>More info: <a href="maimai123.github.io">麦麦</a></p>
 
       
 
@@ -291,7 +275,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://maimai123.github.io/2017/12/16/react日常小难题/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://maimai123.github.io/2017/12/16/collection/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,18 +289,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/12/16/轮播图/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/16/learning-vuex/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          jquery 轮播图插件教程（麦麦）
+          Vuex学习小计（麦麦）
         
       </div>
     </a>
   
   
-    <a href="/2017/12/16/vuex学习小计/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vuex学习小计（麦麦）</div>
+    <a href="/2017/12/16/plugin/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jquery 简单插件教程（麦麦）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -364,7 +348,7 @@
 </style>
 <script>
 var gitment = new Gitment({
-  id: "https://maimai123.github.io/2017/12/16/react日常小难题/",
+  id: "https://maimai123.github.io/2017/12/16/collection/",
   owner: 'maimai123',
   repo: 'maimai123.github.io',
   oauth: {

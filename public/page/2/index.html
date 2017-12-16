@@ -147,19 +147,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-react-daily" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/16/插件/">jquery 简单插件教程（麦麦）</a>
+      <a class="article-title" href="/2017/12/16/react-daily/">react日常小难题整理（麦麦）</a>
     </h1>
   
 
         
-        <a href="/2017/12/16/插件/" class="archive-article-date">
+        <a href="/2017/12/16/react-daily/" class="archive-article-date">
   	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
 </a>
         
@@ -167,13 +167,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>插件的引入使我们的代码变得越来越简单，我们只用过插件却很少有人动手写过插件。本文就以实例形式简单叙述了jQuery插件的实现方法。分享给大家供大家参考之用。</p>
+        <p>初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~</p>
 <p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
-<blockquote>
-<p><i class="icon-cloud"></i>简单的alert<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//弹出alert弹框</span><br><span class="line">$.fn.alert = function(options)&#123;</span><br><span class="line">  var dets = &#123;</span><br><span class="line">    Event : <span class="string">"click"</span>,  //默认使用click事件</span><br><span class="line">    msg : <span class="string">"hello world!"</span> //默认弹出内容为hello，world</span><br><span class="line">  &#125;</span><br><span class="line">  var opts = $.extend(dets,options);</span><br><span class="line">  var $this = $(this);</span><br><span class="line">  $this.on( opts.Event ,function(e)&#123;</span><br><span class="line">    alert(opts.msg);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//调用alert插件</span><br><span class="line">$(<span class="string">"div"</span>).alert(&#123;</span><br><span class="line">  Event :　<span class="string">"mouseover"</span>,</span><br><span class="line">  msg : <span class="string">"我改变了默认弹出内容"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h2 id="1、style问题在react中"><a href="#1、style问题在react中" class="headerlink" title="1、style问题在react中"></a>1、style问题在react中</h2><blockquote>
+<p>大兄弟~ 你是否想在react中使用行内样式<br>如： style=”height:30px”<br>然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~<br>看！写成这样就没错列~<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/style.png?raw=true"></p>
+</blockquote>
+<h2 id="2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别"><a href="#2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别" class="headerlink" title="2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别"></a>2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别</h2><blockquote>
+<p>在用antd表格的时候，我曾遇到过这个问题。后台传过来的是数组，遍历成n个带url的a标签 显示在表格的操作栏<br>一开始我先将数组遍历加入字符串a标签放入一个新数组 最后将此数组转成字符串 return出去变成了字符串 没有被浏览器识别 看下图<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/return.png?raw=true"><br>后来找到了解决方法 如下 (ps:千万不要忘了给数组加上key，否则控制台会提示哦)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> files.map(<span class="function">(<span class="params">file,index</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &lt;a key=&#123;index&#125; href=""&gt;&lt;Icon type="paper-clip" /&gt; &#123;file&#125; &lt;/a&gt;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 </blockquote>
         
-          <a class="article-more-a" href="/2017/12/16/插件/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/16/react-daily/#more">more >></a>
         
       
 
@@ -186,7 +189,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/16/插件/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/16/react-daily/">展开全文 >></a>
         </p>
       
 
@@ -216,19 +219,19 @@
 
 
   
-    <article id="post-日常小计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-react-table" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/16/日常小计/">日常小计（麦麦）</a>
+      <a class="article-title" href="/2017/12/16/react-table/">初学react 简单的table（包含增删查）-by 麦麦</a>
     </h1>
   
 
         
-        <a href="/2017/12/16/日常小计/" class="archive-article-date">
+        <a href="/2017/12/16/react-table/" class="archive-article-date">
   	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
 </a>
         
@@ -236,15 +239,90 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><h1>无图片时显示默认图片</h1><p></p>
-<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
-<p>##第一种</p>
-<blockquote>
-<p>$(“img“).on(‘error’,function(){<br>    this.src = ‘/assets/img/student/null-pic.jpg’;  //默认图片<br>});</p>
+        <blockquote>
+<p><i class="icon-cloud"></i>react table<br>注意：react的script标签必须type为”text/babel”！！！</p>
+<p>#主图<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/react.png?raw=true"></p>
+<p>#点击新增<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/new.png?raw=true"></p>
+<p>#搜索<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/search.png?raw=true"><br>部分代码如下：<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">var CartBox = React.createClass(&#123;</span><br><span class="line">  //初始化数据，由state控制</span><br><span class="line">  getInitialState:function()&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      Itemd :</span><br><span class="line">      [</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"手机"</span>,<span class="string">"batch"</span>:<span class="string">"P1556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"金色"</span>,<span class="string">"price"</span>:<span class="string">"￥5876"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯垫"</span>,<span class="string">"batch"</span>:<span class="string">"P1586"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥56"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯子"</span>,<span class="string">"batch"</span>:<span class="string">"P1542"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥76"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"钢笔"</span>,<span class="string">"batch"</span>:<span class="string">"P7656"</span>,<span class="string">"goodscolor"</span>:<span class="string">"粉色"</span>,<span class="string">"price"</span>:<span class="string">"￥66"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"书本"</span>,<span class="string">"batch"</span>:<span class="string">"P3556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"白色"</span>,<span class="string">"price"</span>:<span class="string">"￥6"</span>&#125;</span><br><span class="line">      ],</span><br><span class="line">      selItem :[</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"手机"</span>,<span class="string">"batch"</span>:<span class="string">"P1556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"金色"</span>,<span class="string">"price"</span>:<span class="string">"￥5876"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯垫"</span>,<span class="string">"batch"</span>:<span class="string">"P1586"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥56"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯子"</span>,<span class="string">"batch"</span>:<span class="string">"P1542"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥76"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"钢笔"</span>,<span class="string">"batch"</span>:<span class="string">"P7656"</span>,<span class="string">"goodscolor"</span>:<span class="string">"粉色"</span>,<span class="string">"price"</span>:<span class="string">"￥66"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"书本"</span>,<span class="string">"batch"</span>:<span class="string">"P3556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"白色"</span>,<span class="string">"price"</span>:<span class="string">"￥6"</span>&#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  handleChange: function (rows) &#123;</span><br><span class="line">       this.setState(&#123;</span><br><span class="line">           selItem : rows</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;,</span><br><span class="line">  render : function()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;WarpLeft onSear=&#123;this.handleChange&#125; Itemdata=&#123;this.state.Itemd&#125; /&gt;</span><br><span class="line">        &lt;Prop onAdd=&#123;this.handleChange&#125; Itemdata=&#123;this.state.Itemd&#125; /&gt;</span><br><span class="line">        &lt;WarpRight onDel=&#123;this.handleChange&#125; Itemdata=&#123;this.state.selItem&#125; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">//搜索</span><br><span class="line">var WarpLeft = React.createClass(&#123;</span><br><span class="line">  handleAdd :function(e)&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    var self = this;</span><br><span class="line">    var string = self.refs.findVal.value;</span><br><span class="line">    var rows = self.props.Itemdata;</span><br><span class="line">    var dataIn = <span class="string">""</span>;</span><br><span class="line">    var array =[];</span><br><span class="line">    <span class="keyword">if</span>(string.length &gt; <span class="number">0</span>)&#123;</span><br><span class="line">      $.each(rows,function(i,item)&#123;</span><br><span class="line">        dataIn = item.goodsname.indexOf(string);</span><br><span class="line">        <span class="keyword">if</span>( dataIn &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">          array.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      array = self.props.Itemdata;</span><br><span class="line">    &#125;</span><br><span class="line">    this.props.onSear(array);</span><br><span class="line">  &#125;,</span><br><span class="line">  render :function()&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div className=<span class="string">"pull-left f2 he6 mt12"</span>&gt;</span><br><span class="line">        &lt;form&gt;</span><br><span class="line">          &lt;input id=<span class="string">"search"</span> ref=<span class="string">"findVal"</span> type=<span class="string">"text"</span> autoComplete=<span class="string">"off"</span> placeholder=<span class="string">"请输入名称搜索"</span>/&gt;</span><br><span class="line">          &lt;button className="btn-sm r btn" onClick=&#123;self.handleAdd&#125;&gt;搜索&lt;/button&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">//新增弹出框</span><br><span class="line">var Prop = React.createClass(&#123;</span><br><span class="line">  handleAdd : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    $(<span class="string">".propBox"</span>).show();</span><br><span class="line">  &#125;,</span><br><span class="line">  handleCan : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    $(<span class="string">".propBox"</span>).hide();</span><br><span class="line">  &#125;,</span><br><span class="line">  handleYes : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    var goodsname = self.refs.goodsname.value.trim();</span><br><span class="line">    var batch = self.refs.batch.value.trim();</span><br><span class="line">    var goodscolor = self.refs.goodscolor.value.trim();</span><br><span class="line">    var prize = self.refs.prize.value.trim();</span><br><span class="line">    var rows = self.props.Itemdata;</span><br><span class="line">    <span class="keyword">if</span> (goodsname != <span class="string">''</span> &amp; batch != <span class="string">''</span> &amp; goodscolor != <span class="string">''</span> &amp; prize != <span class="string">''</span>) &#123;</span><br><span class="line">       rows.push(&#123;<span class="string">'goodsname'</span>:goodsname,<span class="string">'batch'</span>:batch,<span class="string">'goodscolor'</span>:goodscolor,<span class="string">'price'</span>:prize&#125;);</span><br><span class="line">       this.props.onAdd(rows);</span><br><span class="line">    &#125;</span><br><span class="line">    self.refs.goodsname.value = <span class="string">""</span>;</span><br><span class="line">    self.refs.batch.value= <span class="string">""</span>;</span><br><span class="line">    self.refs.goodscolor.value=<span class="string">""</span>;</span><br><span class="line">    self.refs.prize.value=<span class="string">""</span>;</span><br><span class="line">    $(<span class="string">".propBox"</span>).hide();</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p>##第二种</p>
+        
+          <a class="article-more-a" href="/2017/12/16/react-table/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/16/react-table/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-yyf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/16/yyf/">hexo博客搭建（麦麦）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/16/yyf/" class="archive-article-date">
+  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <font size="1"><strong>如有转载，请注明出处。</strong></font>
+
+<p>已经在D盘D:\git\hexo下面装好了hexo 只需要<br><img src="http://a3.qpic.cn/psb?/e780e515-0f41-4fd9-b116-910ac87c9a9d/HbhW5r8SCO9iyIpUE8QS7pfUEqaVShMRHWfXyjCZLSY!/b/dI8AAAAAAAAA&bo=AAOoAAAAAAADB4k!&rf=viewer_4"><br>输入 hexo generate 回车<br>        hexo server就可以启动了<br>本地访问localhost:4000可以访问了<br>不知道github上 ，登录github账号</p>
+<p>在hexo的安装路径D:\git\hexo下找到_config.yml<br><img src="http://a3.qpic.cn/psb?/e780e515-0f41-4fd9-b116-910ac87c9a9d/K7wRFP5VSOigejKjT6vTaOVBvDqHBy1vRsN4TRTDdlw!/b/dA0BAAAAAAAA&bo=0QLWAAAAAAADByc!&rf=viewer_4"><br>deploy:<br>  type: git<br>  repository: git@github.com:maimai123/maimai123.github.io.git<br>  branch: master</p>
+<p>先按ctrl+c停止本地的再<br>输入 hexo generate 回车<br>        hexo deploy就可以部署了</p>
+<p>如果部署失败 则可能是没有设置ssh<br><a href="http://jingyan.baidu.com/article/a65957f4e91ccf24e77f9b11.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/a65957f4e91ccf24e77f9b11.html</a></p>
+<p>ssh内容在C:\Users\Administrator.ssh下<br>设置完以后要查看邮箱<br>ssh密码为空<br>部署到github上<br>npm install hexo-deployer-git –save<br>hexo  generate<br> hexo deploy<br>bugs<br>在github部署完成之后，马上访问可能出现404错误，这是正常的，（最多）等待十分钟左右就可以访问了。如果还不行，那很可能是 github 发送给你的验证邮件你没有打开看，据多方反映，验证后就没问题了</p>
+<p>同步到github上<br>hexo s -g<br>hexo d -g</p>
+<p>#主题丢失问题</p>
 <blockquote>
-<p>imgShow:function(){<br>    var t_img; // 定时器<br>    var isLoad = true; // 控制变量<br>    // imgBlock();<br>    imgReplace();<br>    function imgReplace(){<br>        jquery(“img”).each(function(){<br>            jquery(this).on(‘error’,function(){<br>                jquery(this).attr(‘src’,’/assets/img/student/null-pic.jpg’)<br>            })<br>        })<br>    }<br>    function imgBlock(callback){<br>        $(‘img’).each(function() {<br>            if (!this.complete || typeof this.naturalWidth == “undefined” || this.naturalWidth == 0)  {<br>                this.src = ‘/assets/img/student/null-pic.jpg’;<br>                isLoad = false;<br>                return false;<br>            }<br>        });<br>        if(isLoad){<br>            clearTimeout(t_img); // 清除定时器<br>            // 回调函数<br>            callback;<br>            // 为false，因为找到了没有加载完成的图，将调用定时器递归<br>        }else{<br>            isLoad = true;<br>            t_img = setTimeout(function(){<br>                imgBlock(callback); // 递归扫描<br>            },100); // 我这里设置的是500毫秒就扫描一次，可以自己调整<br>        }<br>    }<br>}</p>
+<p>我发现我的yilia主题push到github尚老师丢失，下下来没有了<br>执行</p>
+<ul>
+<li>git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</li>
+</ul>
 </blockquote>
 <p>More info: <a href="maimai123.github.io">麦麦</a></p>
 
@@ -259,7 +337,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/16/日常小计/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/16/yyf/">展开全文 >></a>
         </p>
       
 
@@ -289,19 +367,19 @@
 
 
   
-    <article id="post-用 cooking 搭建一个多页面易配置的 Vue 2 项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-small" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/16/用 cooking 搭建一个多页面易配置的 Vue 2 项目/">用 cooking 搭建一个多页面易配置的 Vue 2 项目</a>
+      <a class="article-title" href="/2017/12/16/small/">vue或其他小难题整理（麦麦）</a>
     </h1>
   
 
         
-        <a href="/2017/12/16/用 cooking 搭建一个多页面易配置的 Vue 2 项目/" class="archive-article-date">
+        <a href="/2017/12/16/small/" class="archive-article-date">
   	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
 </a>
         
@@ -309,15 +387,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>学vue第一步，那肯定是要搭建一个简单地脚手架啦，用啥搭建呢 vue-cli是一个很好的脚手架组件，但我们今天用cooking来搭建一个多页面（means-&gt; 不是单页哦 单页项目run build以后生成的文件合并成一个，请求文件过于大，所以不建议。所以打包出多页面就刻不容缓啦~接下来跟着麦麦一起去学习吧）本文出自<a href="https://zhuanlan.zhihu.com/p/22610408" target="_blank" rel="noopener">知乎</a></p>
-<h2 id="搭建基础项目–直接通过-cooking-的命令行工具直接生成一个-Vue-项目"><a href="#搭建基础项目–直接通过-cooking-的命令行工具直接生成一个-Vue-项目" class="headerlink" title="搭建基础项目–直接通过 cooking 的命令行工具直接生成一个 Vue 项目"></a>搭建基础项目–<font size="1">直接通过 cooking 的命令行工具直接生成一个 Vue 项目</font></h2><p><strong>npm i cooking-cli -g</strong><br>or 切换至淘宝镜像<br><strong>npm i cooking-cli -g –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></strong><br>完成后可以到你的目录下执行下面指令创建一个目录名 xxx 的 Vue 项目，第一次执行需要安装脚手架的依赖。<br><strong>cooking create xxx vue</strong><br>接下来会让你选择一些选项，我们这次选择 Vue2 + bublé + 全局 cooking 的配置。</p>
-<blockquote>
-<p>[?] Give your app a name: multiple-pages<br>[?] Give your app a description: A vue project.<br>[?] Private? Yes<br>[?] What Vue version do you what? Vue 2<br>[?] What ES2015+ compiler do you what to use? bublé (only use wepback 2)<br>[?] What way use cooking do you want? Global cooking (webpack 2)<br>[?] Need dev server? Yes<br>[?] What CSS preprocessor do you want to use? Only CSS<br>[?] Setup unit tests with Karma + Mocha? No<br>[?] git repository:<br>[?] author:<br>[?] license: ISC<br>[?] Continue? Yes</p>
+        <p>初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D</p>
+<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h2 id="1、emmet在jsx中不能使用的情况"><a href="#1、emmet在jsx中不能使用的情况" class="headerlink" title="1、emmet在jsx中不能使用的情况"></a>1、emmet在jsx中不能使用的情况</h2><blockquote>
+<p>大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet<br>我用的是atom编辑器。<br>首先，当然是打开atom 安装emmet插件 打开设置-&gt;key bindings -&gt; 点击 用户键盘映射 -&gt;修改文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'atom-text-editor[data-grammar="source js jsx vue"]'</span>:</span><br><span class="line">  <span class="string">'F12'</span>:<span class="string">'atom-html-preview:toggle'</span>,</span><br><span class="line">  <span class="string">'tab'</span>: <span class="string">'emmet:expand-abbreviation-with-tab'</span></span><br></pre></td></tr></table></figure></p>
+<p>这样就ok啦~ 尽情的使用emmet吧！</p>
 </blockquote>
-<p>最后可以试试直接运行 npm run dev 看看能不能正常启动。使用全局 cooking 的好处是可以减少项目的依赖。</p>
-<h2 id="多页面项目分析"><a href="#多页面项目分析" class="headerlink" title="多页面项目分析"></a>多页面项目分析</h2><p>写一个名叫 app.json 的配置文件，每个入口共享公共的 CDN 也可以配置私有的 CDN，还可以配置其他基本信息。<br>
+<h2 id="2、一个关于webpack的问题。"><a href="#2、一个关于webpack的问题。" class="headerlink" title="2、一个关于webpack的问题。"></a>2、一个关于webpack的问题。</h2><blockquote>
+<p>起服务以后，用localhost访问可以访问，<br>用具体ip 如：192.168.91.75:8080/index 却访问不到地址<br>这是啥问题呐(⊙o⊙)?<br>原来原来 只要在配置文件中加上 –host 0.0.0.0 就可以啦<br>具体在哪里加呢 答案就是在<strong>package.json</strong>中的start中啦~<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"webpack-dev-server --progress --profile --colors --hot --host 0.0.0.0"</span>,</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"webpack --progress --profile --colors --config webpack.production.config.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="3、说个vue的-外链css的问题"><a href="#3、说个vue的-外链css的问题" class="headerlink" title="3、说个vue的 外链css的问题"></a>3、说个vue的 外链css的问题</h2><blockquote>
+<p>再写vue的时候，虽说在页面内部可以写style来增加样式，但还是推荐外链css<br>于是我import ‘xxx.less’ —&gt;报错！！！我简直一个大写的懵逼啊 因为我在react中都是这么引入css的<br>后来我才知道 vue中 外链css 要卸载style标签内部 然后@import ‘xxx.less’<br>这样就没问题了~<br>还有个如果你想在页面的style中使用less或sass要怎么办呢<br>给style加个 lang=”less”就可以啦</p>
+</blockquote>
         
-          <a class="article-more-a" href="/2017/12/16/用 cooking 搭建一个多页面易配置的 Vue 2 项目/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/16/small/#more">more >></a>
         
       
 
@@ -330,73 +413,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/16/用 cooking 搭建一个多页面易配置的 Vue 2 项目/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-张鑫旭最精简css resetcss通用样式库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/16/张鑫旭最精简css resetcss通用样式库/">张鑫旭最精简css resetcss通用样式库（麦麦）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/16/张鑫旭最精简css resetcss通用样式库/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
-<p></p><h1>CSS reset</h1><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    line-height:<span class="number">1.4</span>;</span><br><span class="line">    color:<span class="comment">#333;</span></span><br><span class="line">    font-family:arial;</span><br><span class="line">    font-size: <span class="number">12</span>px;</span><br><span class="line">    background:white;</span><br><span class="line">&#125;</span><br><span class="line">input,textarea,select&#123;</span><br><span class="line">    font-size:<span class="number">12</span>px;</span><br><span class="line">    font-size:<span class="number">100</span>%;</span><br><span class="line">    font-family:arial;</span><br><span class="line">    font-family:inherit;</span><br><span class="line">&#125;</span><br><span class="line">body,h1,h2,h3,h4,h5,h6,p,ul,ol,form&#123;</span><br><span class="line">    margin:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">h4,h5,h6&#123;</span><br><span class="line">    font-size:<span class="number">1</span>em;</span><br><span class="line">&#125;</span><br><span class="line">ul,ol&#123;</span><br><span class="line">    padding-left:<span class="number">0</span>;</span><br><span class="line">    list-style-type:none;</span><br><span class="line">&#125;</span><br><span class="line">/*image <span class="keyword">with</span> no-border*/</span><br><span class="line">a img&#123;border:<span class="number">0</span>;&#125;</span><br><span class="line">img&#123;border:<span class="number">0</span>;&#125;</span><br></pre></td></tr></table></figure><p></p>
-<p></p><h1>css通用样式库</h1><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.l&#123;float:left;&#125;.r&#123;float:right;&#125;.cl&#123;clear:both;&#125;</span><br><span class="line">.n&#123;font-weight:normal; font-style:normal;&#125;.b&#123;font-weight:bold;&#125;.i&#123;font-style:italic;&#125;</span><br><span class="line">.fa&#123;font-family:Arial;&#125;.fg&#123;font-family:Georgia;&#125;.ft&#123;font-family:Tahoma;&#125;.fl&#123;font-family:Lucida Console;&#125;.fs&#123;font-family:<span class="string">'宋体'</span>;&#125;.fw&#123;font-family:<span class="string">'微软雅黑'</span>;&#125;</span><br><span class="line">.tc&#123;text-align:center;&#125;.tr&#123;text-align:right;&#125;.tl&#123;text-align:left;&#125;</span><br><span class="line">.tdl&#123;text-decoration:underline;&#125;.tdn,.tdn:hover,a.tdl:hover&#123;text-decoration:none;&#125;</span><br><span class="line">.g0&#123;color:<span class="comment">#000000;&#125;.g3&#123;color:#333333;&#125;.g6&#123;color:#666666;&#125;.g9&#123;color:#999999;&#125;.red&#123;color:red;&#125;.wh&#123;color:white;&#125;</span></span><br><span class="line">.f0&#123;font-size:<span class="number">0</span>;&#125;.f10&#123;font-size:<span class="number">10</span>px;&#125;.f12&#123;font-size:<span class="number">12</span>px;&#125;.f13&#123;font-size:<span class="number">13</span>px;&#125;.f14&#123;font-size:<span class="number">14</span>px;&#125;.f16&#123;font-size:<span class="number">16</span>px;&#125;.f20&#123;font-size:<span class="number">20</span>px;&#125;.f24&#123;font-size:<span class="number">24</span>px;&#125;</span><br><span class="line">.vm&#123;vertical-align:middle;&#125;.vtb&#123;vertical-align:text-bottom;&#125;.vt&#123;vertical-align:top;&#125;.vn&#123;vertical-align:<span class="number">-2</span>px;&#125;.vimg&#123;margin-bottom:<span class="number">-3</span>px;&#125;</span><br><span class="line">.m0&#123;margin:<span class="number">0</span>;&#125;.ml1&#123;margin-left:<span class="number">1</span>px;&#125;.ml2&#123;margin-left:<span class="number">2</span>px;&#125;.ml5&#123;margin-left:<span class="number">5</span>px;&#125;.ml10&#123;margin-left:<span class="number">10</span>px;&#125;.ml20&#123;margin-left:<span class="number">20</span>px;&#125;.mr1&#123;margin-right:<span class="number">1</span>;&#125;.mr2&#123;margin-right:<span class="number">2</span>px;&#125;.mr5&#123;margin-right:<span class="number">5</span>px;&#125;.mr10&#123;margin-right:<span class="number">10</span>px;&#125;.mr20&#123;margin-right:<span class="number">20</span>px;&#125;.mt1&#123;margin-top:<span class="number">1</span>;&#125;.mt2&#123;margin-top:<span class="number">2</span>px;&#125;.mt5&#123;margin-top:<span class="number">5</span>px;&#125;.mt10&#123;margin-top:<span class="number">10</span>px;&#125;.mt20&#123;margin-top:<span class="number">20</span>px;&#125;.mb1&#123;margin-bottom:<span class="number">1</span>px;&#125;.mb2&#123;margin-bottom:<span class="number">2</span>px;&#125;.mb5&#123;margin-bottom:<span class="number">5</span>px;&#125;.mb10&#123;margin-bottom:<span class="number">10</span>px;&#125;.mb20&#123;margin-bottom:<span class="number">20</span>px;&#125;.ml<span class="number">-1</span>&#123;margin-left:<span class="number">-1</span>px;&#125;.mt<span class="number">-1</span>&#123;margin-top:<span class="number">-1</span>px;&#125;</span><br><span class="line">.p1&#123;padding:<span class="number">1</span>px;&#125;.pl1&#123;padding-left:<span class="number">1</span>px;&#125;.pt1&#123;padding-top:<span class="number">1</span>px;&#125;.pr1&#123;padding-right:<span class="number">1</span>px;&#125;.pb1&#123;padding-bottom:<span class="number">1</span>px;&#125;.p2&#123;padding:<span class="number">2</span>px;&#125;.pl2&#123;padding-left:<span class="number">2</span>px;&#125;.pt2&#123;padding-top:<span class="number">2</span>px;&#125;.pr2&#123;padding-right:<span class="number">2</span>px;&#125;.pb2&#123;padding-bottom:<span class="number">2</span>px;&#125;.pl5&#123;padding-left:<span class="number">5</span>px;&#125;.p5&#123;padding:<span class="number">5</span>px;&#125;.pt5&#123;padding-top:<span class="number">5</span>px;&#125;.pr5&#123;padding-right:<span class="number">5</span>px;&#125;.pb5&#123;padding-bottom:<span class="number">5</span>px;&#125;.p10&#123;padding:<span class="number">10</span>px;&#125;.pl10&#123;padding-left:<span class="number">10</span>px;&#125;.pt10&#123;padding-top:<span class="number">10</span>px;&#125;.pr10&#123;padding-right:<span class="number">10</span>px;&#125;.pb10&#123;padding-bottom:<span class="number">10</span>px;&#125;.p20&#123;padding:<span class="number">20</span>px;&#125;.pl20&#123;padding-left:<span class="number">20</span>px;&#125;.pt20&#123;padding-top:<span class="number">20</span>px;&#125;.pr20&#123;padding-right:<span class="number">20</span>px;&#125;.pb20&#123;padding-bottom:<span class="number">20</span>px;&#125;</span><br><span class="line">.rel&#123;position:relative;&#125;.abs&#123;position:absolute;&#125;</span><br><span class="line">.dn&#123;display:none;&#125;.db&#123;display:block;&#125;.dib&#123;-moz-inline-stack:inline-block; display:inline-block;&#125;.di&#123;display:inline;&#125;</span><br><span class="line">.ovh&#123;overflow:hidden;&#125;.ovs&#123;overflow:scroll;&#125;.vh&#123;visibility:hidden;&#125;.vv&#123;visibility:visible;&#125;</span><br><span class="line">.lh14&#123;line-height:<span class="number">14</span>px;&#125;.lh16&#123;line-height:<span class="number">16</span>px;&#125;.lh18&#123;line-height:<span class="number">18</span>px;&#125;.lh20&#123;line-height:<span class="number">20</span>px;&#125;.lh22&#123;line-height:<span class="number">22</span>px;&#125;.lh24&#123;line-height:<span class="number">24</span>px;&#125;</span><br><span class="line">.fix&#123;*zoom:<span class="number">1</span>;&#125;.fix:after,.fix:before&#123;display:block; content:<span class="string">"clear"</span>; height:<span class="number">0</span>; clear:both; overflow:hidden; visibility:hidden;&#125;.z&#123;_zoom:<span class="number">1</span>;&#125;</span><br></pre></td></tr></table></figure><p></p>
-<p>More info: <a href="maimai123.github.io">麦麦</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/16/张鑫旭最精简css resetcss通用样式库/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/16/small/">展开全文 >></a>
         </p>
       
 

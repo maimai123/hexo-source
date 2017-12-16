@@ -6,25 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://maimai123.github.io">
-  <title>react日常小难题整理（麦麦） | Lvy’s blog</title>
+  <title>Vuex学习小计（麦麦） | Lvy’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~ 如有转载，请注明出处。 React1、style问题在react中 大兄弟~ 你是否想在react中使用行内样式如： style=”height:30px”然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~看">
+  <meta name="description" content="初学vuex，总得弄懂他的思想。 vuex是什么？ 下面是官网给出的说法。Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。总而">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react日常小难题整理（麦麦）">
-<meta property="og:url" content="https://maimai123.github.io/2017/12/16/react日常小难题/index.html">
+<meta property="og:title" content="Vuex学习小计（麦麦）">
+<meta property="og:url" content="https://maimai123.github.io/2017/12/16/learning-vuex/index.html">
 <meta property="og:site_name" content="Lvy’s blog">
-<meta property="og:description" content="初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~ 如有转载，请注明出处。 React1、style问题在react中 大兄弟~ 你是否想在react中使用行内样式如： style=”height:30px”然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~看">
+<meta property="og:description" content="初学vuex，总得弄懂他的思想。 vuex是什么？ 下面是官网给出的说法。Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。总而">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/style.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/return.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/es6.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx.png?raw=true">
-<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx2.png?raw=true">
-<meta property="og:updated_time" content="2017-12-16T05:44:02.000Z">
+<meta property="og:updated_time" content="2017-12-16T10:51:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react日常小难题整理（麦麦）">
-<meta name="twitter:description" content="初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~ 如有转载，请注明出处。 React1、style问题在react中 大兄弟~ 你是否想在react中使用行内样式如： style=”height:30px”然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~看">
-<meta name="twitter:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/style.png?raw=true">
+<meta name="twitter:title" content="Vuex学习小计（麦麦）">
+<meta name="twitter:description" content="初学vuex，总得弄懂他的思想。 vuex是什么？ 下面是官网给出的说法。Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。总而">
   
     <link rel="alternative" href="/atom.xml" title="Lvy’s blog" type="application/atom+xml">
   
@@ -152,19 +146,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react日常小难题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-learning-vuex" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      react日常小难题整理（麦麦）
+      Vuex学习小计（麦麦）
     </h1>
   
 
         
-        <a href="/2017/12/16/react日常小难题/" class="archive-article-date">
+        <a href="/2017/12/16/learning-vuex/" class="archive-article-date">
   	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
 </a>
         
@@ -172,41 +166,106 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>初学react，在码代码过程中会遇到对大牛来说听起来愚蠢的问题。没错！这篇文章就是来整理这些愚蠢的问题的~ （嘿嘿嘿）下次可不要再丢人啦~</p>
-<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
-<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h2 id="1、style问题在react中"><a href="#1、style问题在react中" class="headerlink" title="1、style问题在react中"></a>1、style问题在react中</h2><blockquote>
-<p>大兄弟~ 你是否想在react中使用行内样式<br>如： style=”height:30px”<br>然后你仰望星空 然后你开始怀疑自己，难道是我写错了？哈哈 其实是在react中的写法不太一样而已~~~<br>看！写成这样就没错列~<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/style.png?raw=true"></p>
+        <p><i class="icon-adjust"></i> 初学vuex，总得弄懂他的思想。</p>
+<font size="2">vuex是什么？ 下面是官网给出的说法。<br>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，<br>并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，<br>提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。<br>总而言之，言而总之。就是用来管理你的state的！！！</font><br><font size="1"><strong>如有转载，请注明出处。</strong></font>
+
+<p><strong>我们从零开始。</strong></p>
+<font size="1">可以参考官网 <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">vuex</a> 以及vuex文档 <a href="https://vuex.vuejs.org/zh-cn/intro.html" target="_blank" rel="noopener">vuex-文档</a> 也可以直接clone我的代码 <a href="https://github.com/maimai123/maimai-vuex-Test.git" target="_blank" rel="noopener">麦麦的github</a></font><br><a id="more"></a><br>&gt; <font size="2">打开一个空的文件夹 dua~ 打开了吧？</font><br>&gt; <font size="2">安装 vue-cli。(确保你有node和npm)</font><br>&gt; <font size="2">npm i -g vue-cli （只需安装一次，日后可省略这步）</font>
+
+<blockquote>
+<font size="2">然后创建一个webpack项目并且下载依赖</font><br><font size="2">vue init webpack Test</font>
+
+<font size="2">进入 你创建的文件夹下 安装依赖</font><br><font size="2">npm install</font>
+
+<font size="2">这些都准备好后，我们需要为我们的路由、vuex和XHR请求下载几个库，我们可以从vue的官网中找到他们。</font><br><font size="2">npm i vue-resource vue-router vuex –save</font>
+
+<font size="2">如果你需要一个css编译器 你可以安装less-loader, vuejs-templates模板默认不安装less</font> less-loader<br><font size="2">npm install less less-loader –save-dev</font>
+
+<font size="2">接着使用 npm run dev 在热加载中运行我们的应用！！！</font>
+
+<font size="2">打开浏览器应该可以看到我们的vue应用啦~</font>
+
+<ul>
+<li><font size="2">我之前启动包了一个错 原因是 vue 的版本和 vue-template-compiler 的版本不一致 ，你可以在 package.json中 修改成相同的版本</font>
+</li>
+<li><font size="2">然后我们就可以开始修改文件啦~ 鸡冻不？</font>
+</li>
+<li><font size="2"><strong>App.vue</strong>是一个类似于layout的文件。路由配置在<strong>router</strong>文件夹下</font>
+</li>
+<li><font size="2"><strong>components</strong>文件夹下用来放你的组件</font>
+</li>
+<li><font size="2"><strong>assets</strong>文件夹下存放你的静态资源</font>
+</li>
+<li><font size="2">我们新建一个<strong>vuex</strong>文件夹，这就开始学习状态管理啦~</font>
+</li>
+<li><font size="2">先新建 <strong>store.js</strong> 用来存放我们的状态</font>
+</li>
+<li><font size="2">再新建 <strong>getters</strong> 文件夹 用来处理state数据</font>
+</li>
+<li><font size="2">再新建 <strong>mutations</strong> 文件夹 用来注册我们各种数据变化的方法</font>
+</li>
+<li><font size="2">再新建 <strong>mutations-types.js</strong> 文件 用来记录我们所有的事件名(要写上备注哦 代码可不只是你一个人看的)</font>
+</li>
+<li><font size="2">再新建 <strong>actions</strong> 文件夹 可以编写异步的逻辑或者是一些逻辑，再去commit 我们的事件</font>
+</li>
+<li><font size="2">文件建好就开始开始写代码了</font>
+</li>
+<li><p><font size="2"> 先在store.js文件中引入 vue 和 vuex 。并写一些state。引入各个文件夹</font></p>
+</li>
+<li>当然 你得在你新建的文件夹下面新建点什么，不然可会报错的哦~</li>
+<li><p><font size="2"> 代码如下：(必须要写 Vue.use(Vuex) )</font></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> actions <span class="keyword">from</span> <span class="string">'./actions'</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> getters <span class="keyword">from</span> <span class="string">'./getters'</span></span><br><span class="line"><span class="keyword">import</span> mutations <span class="keyword">from</span> <span class="string">'./mutations'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> state = &#123;</span><br><span class="line">    total:<span class="number">2</span>,</span><br><span class="line">    lists: [</span><br><span class="line">      &#123;</span><br><span class="line">        id:<span class="number">0</span>,</span><br><span class="line">        articleName : <span class="string">'如何学好vue'</span>,</span><br><span class="line">        avatar : <span class="string">'http://cn.vuejs.org/images/logo.png'</span>,</span><br><span class="line">        date : <span class="string">'2016-12-25'</span>,</span><br><span class="line">        comment : <span class="string">'vue是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层， 并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和 Vue 生态系统支持的库开发的复杂单页应用。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。'</span>,</span><br><span class="line">        likes: <span class="number">113</span>,</span><br><span class="line">        liked:<span class="literal">true</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id:<span class="number">1</span>,</span><br><span class="line">        articleName : <span class="string">'如何完全读懂javascript高级程序设计'</span>,</span><br><span class="line">        avatar : <span class="string">'https://sfault-avatar.b0.upaiyun.com/147/223/147223148-573297d0913c5_huge256'</span>,</span><br><span class="line">        date : <span class="string">'2017-12-25'</span>,</span><br><span class="line">        comment : <span class="string">'从最早期Netscape浏览器中的JavaScript开始讲起，直到当前它对XML和Web服务的具体支持，内容主要涉及JavaScript的语言特点、 JavaScript与浏览器的交互、更高级的JavaScript技巧，以及与在Web应用程序中部署JavaScript解决方案有关的问题，如错误处理、调试、安全性、优化/混淆化、XML和Web服务，最后介绍应用所有这些知识来创建动态用户界面。'</span>,</span><br><span class="line">        likes: <span class="number">564</span>,</span><br><span class="line">        liked:<span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state, <span class="comment">//状态</span></span><br><span class="line">  getters, <span class="comment">//处理state数据</span></span><br><span class="line">  mutations, <span class="comment">// 注册我们各种数据变化的方法</span></span><br><span class="line">  actions, <span class="comment">//可以编写异步的逻辑或者是一些逻辑，再去commit 我们的事件</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><font size="2"> state中是你的数据 </font>
+</li>
+<li><font size="2"> 打开你在各个文件夹下新建的js文件。首先我们先处理数据，即对state进行处理，筛选或过滤或…反正就是当没有这些数据也不至于让你的项目报错！</font>
+</li>
+<li><font size="2"> 怎么做就不用我告诉你了吧~ 你要导出你写的方法哦 不然 在 store 中挂载不上去~</font>
+</li>
+<li><font size="2"> 然后在 <strong>mutations-types.js</strong> 文件中写上你创建的应用需要的事件 可以慢慢写 毕竟都是一步一步来的嘛！</font>
+</li>
+<li><font size="2"> 再在mutations文件夹中写你的方法</font>
+</li>
+<li><font size="2"> actions commit你的事件</font>
+</li>
+<li><font size="2"> 流程清楚了嘛？ 不懂点击上面的链接参考代码~</font>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+</ul>
 </blockquote>
-<h2 id="2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别"><a href="#2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别" class="headerlink" title="2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别"></a>2、从后台拿到数组遍历成字符串类型的标签，如何被浏览器识别</h2><blockquote>
-<p>在用antd表格的时候，我曾遇到过这个问题。后台传过来的是数组，遍历成n个带url的a标签 显示在表格的操作栏<br>一开始我先将数组遍历加入字符串a标签放入一个新数组 最后将此数组转成字符串 return出去变成了字符串 没有被浏览器识别 看下图<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/return.png?raw=true"><br>后来找到了解决方法 如下 (ps:千万不要忘了给数组加上key，否则控制台会提示哦)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> files.map(<span class="function">(<span class="params">file,index</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &lt;a key=&#123;index&#125; href=""&gt;&lt;Icon type="paper-clip" /&gt; &#123;file&#125; &lt;/a&gt;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<a id="more"></a>
-<h2 id="3、value-和-defaultValue-表格中回显问题—组件使用的是ant-design"><a href="#3、value-和-defaultValue-表格中回显问题—组件使用的是ant-design" class="headerlink" title="3、value 和 defaultValue 表格中回显问题—组件使用的是ant design"></a>3、value 和 defaultValue 表格中回显问题—组件使用的是<a href="https://ant.design/" target="_blank" rel="noopener">ant design</a></h2><blockquote>
-<p>对于表格回显问题 拿到数据以后（暂且用暂存state的方法）显示到表单中，如果用defaultValue的话，只在第一次有效，点击其他详情出现的永远是第一个详情。<br>如果用value的话，回显正常，但当要修改的时候是不能修改的。因为value是受限的。<br>目前的解决方法，每次关闭model以后都销毁里面的form，再次打开的时候新引一遍model。传值的话用props传，再用defaultValue就没有问题了。做法如下：<br>新建一个form的组件，如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">const</span> FromModel =React.createClass(&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">const</span> formItemLayout = &#123;</span><br><span class="line">      labelCol: &#123; <span class="attr">span</span>: <span class="number">6</span> &#125;,</span><br><span class="line">      wrapperCol: &#123; <span class="attr">span</span>: <span class="number">14</span> &#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;Form horizontal&gt;</span><br><span class="line">        &lt;Row gutter=&#123;<span class="number">24</span>&#125;&gt;</span><br><span class="line">          &lt;Col sm=&#123;<span class="number">12</span>&#125;&gt;</span><br><span class="line">            &lt;FormItem</span><br><span class="line">              label=<span class="string">"人才姓名"</span></span><br><span class="line">              &#123;...formItemLayout&#125;</span><br><span class="line">            &gt;</span><br><span class="line">              &lt;Input size=<span class="string">"default"</span> defaultValue=&#123;<span class="keyword">this</span>.props.record.name&#125; /&gt;</span><br><span class="line">            &lt;<span class="regexp">/FormItem&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>Col&gt;</span><br><span class="line">        &lt;<span class="regexp">/Row&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>Form&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">引用model的情况如下，亲测没有任何问题：</span><br><span class="line">&lt;Modal title=<span class="string">"修改"</span> visible=&#123;<span class="keyword">this</span>.state.visible&#125;</span><br><span class="line">       onOk=&#123;<span class="keyword">this</span>.handleOk&#125; onCancel=&#123;<span class="keyword">this</span>.handleCancel&#125;</span><br><span class="line"> &gt;</span><br><span class="line">   &#123;</span><br><span class="line">      self.state.visible ?  <span class="comment">//判断visible为true还是false false的话设为null</span></span><br><span class="line">      &lt;FromModel ref=<span class="string">"modelform"</span> record=&#123;self.state.record&#125;/&gt;</span><br><span class="line">       :<span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/Modal&gt;</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="4、url地址栏中一直有-xxx的问题"><a href="#4、url地址栏中一直有-xxx的问题" class="headerlink" title="4、url地址栏中一直有/#/xxx的问题"></a>4、url地址栏中一直有/#/xxx的问题</h2><blockquote>
-<p>这是一个你会获取到的默认 history ，如果你不指定某个 history 。<br>它用到的是 URL 中的 hash（#）部分去创建形如 example.com/#/some/path 的路由。这个 支持 ie8＋ 的浏览器，但是因为是 hash 值，所以不推荐使用。<br>browserHistory 是由 React Router 创建浏览器应用推荐的 history。<br>它使用 History API 在浏览器中被创建用于处理 URL，新建一个像这样真实的 URL example.com/some/path。<br>使用 <strong>browserHistory</strong> 代替 <strong>hashHistory</strong>就可以解决这个问题啦~</p>
-</blockquote>
-<h2 id="5、es5和es6写法对比"><a href="#5、es5和es6写法对比" class="headerlink" title="5、es5和es6写法对比"></a>5、es5和es6写法对比</h2><p><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/es6.png?raw=true"></p>
-<h2 id="6、jsx语法中不允许判断的问题"><a href="#6、jsx语法中不允许判断的问题" class="headerlink" title="6、jsx语法中不允许判断的问题"></a>6、jsx语法中不允许判断的问题</h2><blockquote>
-<p>在jsx语法内部是不允许if判断的，即如下代码是会报错的：<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx.png?raw=true"><br>对于判断条件简单的用三目运算符 如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">React.render(</span><br><span class="line">  <span class="keyword">return</span>(</span><br><span class="line">      &lt;div id=&#123;condition ? <span class="string">'true的情况'</span> : <span class="string">'false的情况'</span>&#125;&gt;</span><br><span class="line">          Hello World!</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">, mountNode);</span></span><br></pre></td></tr></table></figure></p>
-<p>对于判断条件复杂的用变量 如：<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/jsx2.png?raw=true"></p>
-</blockquote>
-<h2 id="7、父组件与子组件之间的传值问题"><a href="#7、父组件与子组件之间的传值问题" class="headerlink" title="7、父组件与子组件之间的传值问题"></a>7、父组件与子组件之间的传值问题</h2><blockquote>
-<p>对于不会redux的童鞋，请乖乖的用props来传值吧~ 具体教程参考<a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="noopener">阮一峰—React 入门实例教程</a></p>
-</blockquote>
-<h2 id="8、关于在react中想要使用jquery操作dom的问题"><a href="#8、关于在react中想要使用jquery操作dom的问题" class="headerlink" title="8、关于在react中想要使用jquery操作dom的问题"></a>8、关于在react中想要使用jquery操作dom的问题</h2><blockquote>
-<p>虽然react很好用是吧，但在jquery中一行代码实现切换class的工作量在react中却要考虑很多，所以我就比较喜欢引入jquery解决这种问题啦~<br>直接用$(this)并不能获取到你想要的东西，你必须在onclick={(ev)=&gt;self.doSomething(ev)}中将事件传递过去，然后在方法中你就可以使用$(ev.target)获取到啦 :-D</p>
-</blockquote>
-<h2 id="9、数组嵌套深层拷贝问题"><a href="#9、数组嵌套深层拷贝问题" class="headerlink" title="9、数组嵌套深层拷贝问题"></a>9、数组嵌套深层拷贝问题</h2><blockquote>
-<p>近期遇到的一个头疼的问题，后台返回数据（数组嵌套对象再嵌套数组）一次性给我，我得去处理第一次显示一部分，<br>第二次才显示完整，用到了concat()拷贝深度数组并不起效果，<br>最后。。。终于给我找出来了 记录一下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">source</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result;</span><br><span class="line">  (source <span class="keyword">instanceof</span> <span class="built_in">Array</span>) ? (result = []) : (result = &#123;&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> source) &#123;</span><br><span class="line">  result[key] = (<span class="keyword">typeof</span> source[key]===<span class="string">'object'</span>) ? clone(source[key]) : source[key];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="10、对于在react中字符拼接的问题"><a href="#10、对于在react中字符拼接的问题" class="headerlink" title="10、对于在react中字符拼接的问题"></a>10、对于在react中字符拼接的问题</h2><blockquote>
-<p>不知道大家发现没有，在react中在遍历中想要字符拼接变量用以下的方法是行不通的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"xxxxx.html?code="</span>+usercode&gt;我要传参数跳转的啦~&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
-<p>我之前一直深受其扰，只能先定义一个变量，将跳转链接放入变量再拼接方可成功，后来查阅得出<br>改为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&#123;<span class="string">"xxxxx.html?code="</span>+usercode&#125;&gt;我要传参数跳转的啦~&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="11、ant-design中的图片轮播报错问题"><a href="#11、ant-design中的图片轮播报错问题" class="headerlink" title="11、ant design中的图片轮播报错问题"></a>11、ant design中的图片轮播报错问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> imgTpl = <span class="function">(<span class="params">IMAGE_DATA || []</span>).<span class="params">map</span>(<span class="params">(item, index</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">   &lt;div key=&#123;index&#125; &gt;</span><br><span class="line">      &lt;a href=&#123;item.bannerUrl == <span class="string">''</span> ? <span class="string">"javascript:;"</span> : item.bannerUrl&#125;&gt;&lt;img src=&#123;item.url&#125; alt=&#123;item.bannerName&#125;/&gt;&lt;/a&gt;</span><br><span class="line">   &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">   );</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp">if (!IMAGE_DATA.length) imgTpl = &lt;div&gt;&lt;/</span>div&gt;;</span><br></pre></td></tr></table></figure>
-<h2 id="12、请耐心等待，麦麦会不定期更新哒"><a href="#12、请耐心等待，麦麦会不定期更新哒" class="headerlink" title="12、请耐心等待，麦麦会不定期更新哒~"></a>12、请耐心等待，麦麦会不定期更新哒~</h2><p>More info: <a href="https://github.com/maimai123" target="_blank" rel="noopener">麦麦</a></p>
+<p>More info: <a href="maimai123.github.io">麦麦</a></p>
 
       
 
@@ -291,7 +350,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://maimai123.github.io/2017/12/16/react日常小难题/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://maimai123.github.io/2017/12/16/learning-vuex/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,18 +364,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/12/16/轮播图/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/16/css/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          jquery 轮播图插件教程（麦麦）
+          张鑫旭最精简css resetcss通用样式库（麦麦）
         
       </div>
     </a>
   
   
-    <a href="/2017/12/16/vuex学习小计/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vuex学习小计（麦麦）</div>
+    <a href="/2017/12/16/collection/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">整理各对象常用属性与方法（麦麦）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -364,7 +423,7 @@
 </style>
 <script>
 var gitment = new Gitment({
-  id: "https://maimai123.github.io/2017/12/16/react日常小难题/",
+  id: "https://maimai123.github.io/2017/12/16/learning-vuex/",
   owner: 'maimai123',
   repo: 'maimai123.github.io',
   oauth: {
