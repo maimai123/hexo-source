@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://maimai123.github.io">
-  <title>Archives: 2017 | Lvy’s blog</title>
+  <title>jquery 简单弹出框插件教程（麦麦） | Lvy’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="生活、工作、家庭、朋友以及世界...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lvy’s blog">
-<meta property="og:url" content="https://maimai123.github.io/archives/2017/index.html">
+  <meta name="description" content="简单的弹出框~(目前一个页面只允许有一个弹出框，多个dom会影响，以后多多改进) 如有转载，请注明出处。  弹出框htm部分 12345678910111213141516171819202122232425262728293031323334353637383940414243444546&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery 简单弹出框插件教程（麦麦）">
+<meta property="og:url" content="https://maimai123.github.io/2017/12/16/弹出框/index.html">
 <meta property="og:site_name" content="Lvy’s blog">
-<meta property="og:description" content="生活、工作、家庭、朋友以及世界...">
+<meta property="og:description" content="简单的弹出框~(目前一个页面只允许有一个弹出框，多个dom会影响，以后多多改进) 如有转载，请注明出处。  弹出框htm部分 12345678910111213141516171819202122232425262728293031323334353637383940414243444546&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/5.png?raw=true">
+<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/65.png?raw=true">
+<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/36.png?raw=true">
+<meta property="og:updated_time" content="2017-12-16T05:44:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lvy’s blog">
-<meta name="twitter:description" content="生活、工作、家庭、朋友以及世界...">
+<meta name="twitter:title" content="jquery 简单弹出框插件教程（麦麦）">
+<meta name="twitter:description" content="简单的弹出框~(目前一个页面只允许有一个弹出框，多个dom会影响，以后多多改进) 如有转载，请注明出处。  弹出框htm部分 12345678910111213141516171819202122232425262728293031323334353637383940414243444546&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt">
+<meta name="twitter:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/5.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="Lvy’s blog" type="application/atom+xml">
   
@@ -145,295 +150,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-弹出框" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jquery 简单弹出框插件教程（麦麦）
+    </h1>
+  
+
+        
+        <a href="/2017/12/16/弹出框/" class="archive-article-date">
+  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单的弹出框~(目前一个页面只允许有一个弹出框，多个dom会影响，以后多多改进)</p>
+<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
+<blockquote>
+<p><i class="icon-cloud"></i>弹出框htm部分<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/5.png?raw=true"><br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/65.png?raw=true"><br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/36.png?raw=true"><br> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;title&gt;dialog弹出框&lt;/title&gt;</span><br><span class="line">  &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"../build/css/a.css"</span>/&gt;</span><br><span class="line">  &lt;script src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js"&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script type="text/javascript" src="../build/js/a.js"&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;button id="btn"&gt;弹出框&lt;/button&gt;&lt;button id="btn1"&gt;弹出框&lt;/button&gt;</span><br><span class="line">  &lt;form id="formAdd" class="hide"&gt;</span><br><span class="line">    &lt;div class="form-group"&gt;</span><br><span class="line">      &lt;label for="exampleInputEmail1"&gt;Email address&lt;/label&gt;</span><br><span class="line">      &lt;input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class="form-group"&gt;</span><br><span class="line">      &lt;label for="exampleInputPassword1"&gt;Password&lt;/label&gt;</span><br><span class="line">      &lt;input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class="form-group"&gt;</span><br><span class="line">      &lt;label for="exampleInputFile"&gt;File input&lt;/label&gt;</span><br><span class="line">      &lt;input type=<span class="string">"file"</span> id=<span class="string">"exampleInputFile"</span>&gt;</span><br><span class="line">      &lt;p class="help-block"&gt;Example block-level help text here.&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class="checkbox"&gt;</span><br><span class="line">      &lt;label&gt;</span><br><span class="line">        &lt;input type=<span class="string">"checkbox"</span>&gt; Check me out</span><br><span class="line">      &lt;/label&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;button type="submit" class="btn btn-default"&gt;Submit&lt;/button&gt;</span><br><span class="line">  &lt;/form&gt;</span><br><span class="line">  &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    $(document).ready(function()&#123;</span><br><span class="line">      $(<span class="string">"#btn"</span>).dialog(&#123;</span><br><span class="line">        width :<span class="number">500</span>,</span><br><span class="line">        // height:<span class="number">120</span>,</span><br><span class="line">        title : <span class="string">"提示信息"</span>,</span><br><span class="line">        //content :<span class="string">"我在测试哦"</span>,</span><br><span class="line">        contentDom :<span class="string">"#formAdd"</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p><i class="icon-cloud"></i>弹出框插件<br>css部分<br>.l{float:left}.r{float:right}.cl{clear:both}.n{font-weight:normal;font-style:normal}.b{font-weight:bold}.i{font-style:italic}.fw{font-family:’微软雅黑’}.tc{text-align:center}.tr{text-align:right}.tl{text-align:left}.tdl{text-decoration:underline}.tdn,.tdn:hover,a.tdl:hover{text-decoration:none}.f0{font-size:0}.f10{font-size:10px}.f12{font-size:12px}.f13{font-size:13px}.f14{font-size:14px}.f16{font-size:16px}.f20{font-size:20px}.f24{font-size:24px}.vm{vertical-align:middle}.vtb{vertical-align:text-bottom}.vt{vertical-align:top}.vn{vertical-align:-2px}.vimg{margin-bottom:-3px}.pl10{padding-left:10px}.mr10{margin-right:10px}.cso{cursor:pointer}.pd10{padding:10px}.dn{display:none}*{box-sizing:border-box}body{background:#f8f8f8;font-size:16px}body .hide{display:none}body .form-group{margin-bottom:15px}body label{display:inline-block;max-width:100%;margin-bottom:5px;font-weight:700}body .form-control{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}body .diaBox{width:100%;height:100%;box-shadow:0 0 7px #aaa;border:1px solid #aaa;border-radius:5px}body .diaBox .y-top{height:30px;line-height:30px;background:rgba(219,235,230,0.2)}body .diaBox .y_center{width:100%;box-sizing:border-box}body .diaBox .y_bottom .btn{display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border:1px solid transparent;border-radius:4px;margin-left:5px}body .diaBox .y_bottom .btn-defalut{color:#333;background-color:#fff;border-color:#ccc}body .diaBox .y_bottom .btn-primary{color:#fff;background-color:#337ab7;border-color:#2e6da4}body .diaBox .y_bottom .btnposi{position:absolute;bottom:10px;right:10px}<br>js部分<br> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!function(t)&#123;t.fn.dialog=function(n)&#123;function i()&#123;t(".diaBox").parent("div").remove(),e=0&#125;var e=0,d=&#123;title:"标题",content:"",contentDom:"",btns:[&#123;elId:"ok",els:"btn btn-primary",text:"确定",handler:function()&#123;alert("确定"),i()&#125;&#125;,&#123;elId:"cancel",els:"btn btn-defalut",text:"取消",handler:function()&#123;alert("取消"),i()&#125;&#125;],width:500,height:"auto"&#125;,s=t.extend(d,n),o=this;o.on("click",function()&#123;if("0"==e)&#123;var n=document.createElement("div");t(n).css(&#123;width:s.width,height:s.height,position:"absolute",top:"10%",left:"30%"&#125;);var i=[];s.btns.length&gt;0&amp;&amp;t.each(s.btns,function(t,n)&#123;i.push("&lt;button id='"+s.btns[t].elId+"' class='"+s.btns[t].els+"'&gt;"+s.btns[t].text+"&lt;/button&gt;")&#125;),i=i.join("");var d="";d=t(s.content.length&gt;0?"&lt;div class='diaBox'&gt;&lt;div class='y-top'&gt;&lt;div class='l pl10'&gt;"+s.title+"&lt;/div&gt;&lt;div class='r mr10 y_close cso'&gt; × &lt;/div&gt;&lt;/div&gt;&lt;div class='pd10 y_center'&gt;"+s.content+"&lt;/div&gt;&lt;div class='pd10 y_bottom'&gt;&lt;div class='r btnposi'&gt;"+i+"&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;":"&lt;div class='diaBox'&gt;&lt;div class='y-top'&gt;&lt;div class='l pl10'&gt;"+s.title+"&lt;/div&gt;&lt;div class='r mr10 y_close cso'&gt; × &lt;/div&gt;&lt;/div&gt;&lt;div class='pd10 y_center'&gt;"+t(s.contentDom).html()+"&lt;/div&gt;&lt;div class='pd10 y_bottom'&gt;&lt;div class='r btnposi'&gt;"+i+"&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;"),d.appendTo(n),t(n).appendTo(t("body")),e=1&#125;t(".y_close").on("click",function()&#123;t(n).remove(),e=0&#125;)&#125;),s.btns.length&gt;0&amp;&amp;t.each(s.btns,function(n,i)&#123;t("body").on("click","#"+s.btns[n].elId,s.btns[n].handler)&#125;)&#125;&#125;(jQuery);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>More info: <a href="maimai123.github.io">麦麦</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://github.com/maimai123/hexo-source/blob/master/source/img/zhifu.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/mac上真机调试/" class="archive-article-date">
-  	<time datetime="2017-12-16T08:43:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/mac上真机调试/">Mac调试真机（麦麦）</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://maimai123.github.io/2017/12/16/弹出框/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/轮播图/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/12/16/react日常小难题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          react日常小难题整理（麦麦）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/16/整理各对象常用方法和属性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">整理各对象常用属性与方法（麦麦）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/轮播图/">jquery 轮播图插件教程（麦麦）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/react-table/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/react-table/">初学react 简单的table（包含增删查）-by 麦麦</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/vuex学习小计/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/vuex学习小计/">Vuex学习小计（麦麦）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/小难题/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/小难题/">vue或其他小难题整理（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/差评小计/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/差评小计/">进入差评后的小笔记（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/yyf/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/yyf/">hexo博客搭建（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/react日常小难题/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/react日常小难题/">react日常小难题整理（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/弹出框/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/弹出框/">jquery 简单弹出框插件教程（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/整理各对象常用方法和属性/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/整理各对象常用方法和属性/">整理各对象常用属性与方法（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<style>
+  .gitment-comment-main, .gitment-editor-main {
+    background: #fff;
+  }
+  a.gitment-comment-name, a.gitment-comment-name:visited {
+    color: #137358;
+    font-size: 18px;
+  }
+</style>
+<script>
+var gitment = new Gitment({
+  id: "https://maimai123.github.io/2017/12/16/弹出框/",
+  owner: 'maimai123',
+  repo: 'maimai123.github.io',
+  oauth: {
+    client_id: 'af6a1c4b1116ca67c445',
+    client_secret: 'd54d714364afc257aa559054a82d0cb79b15b07b',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -454,8 +367,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://maimai123.github.io">
-  <title>Archives: 2017 | Lvy’s blog</title>
+  <title>用 cooking 搭建一个多页面易配置的 Vue 2 项目 | Lvy’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="生活、工作、家庭、朋友以及世界...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lvy’s blog">
-<meta property="og:url" content="https://maimai123.github.io/archives/2017/index.html">
+  <meta name="description" content="学vue第一步，那肯定是要搭建一个简单地脚手架啦，用啥搭建呢 vue-cli是一个很好的脚手架组件，但我们今天用cooking来搭建一个多页面（means-&amp;gt; 不是单页哦 单页项目run build以后生成的文件合并成一个，请求文件过于大，所以不建议。所以打包出多页面就刻不容缓啦~接下来跟着麦麦一起去学习吧）本文出自知乎 搭建基础项目–直接通过 cooking 的命令行工具直接生成一个 Vu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 cooking 搭建一个多页面易配置的 Vue 2 项目">
+<meta property="og:url" content="https://maimai123.github.io/2017/12/16/用 cooking 搭建一个多页面易配置的 Vue 2 项目/index.html">
 <meta property="og:site_name" content="Lvy’s blog">
-<meta property="og:description" content="生活、工作、家庭、朋友以及世界...">
+<meta property="og:description" content="学vue第一步，那肯定是要搭建一个简单地脚手架啦，用啥搭建呢 vue-cli是一个很好的脚手架组件，但我们今天用cooking来搭建一个多页面（means-&amp;gt; 不是单页哦 单页项目run build以后生成的文件合并成一个，请求文件过于大，所以不建议。所以打包出多页面就刻不容缓啦~接下来跟着麦麦一起去学习吧）本文出自知乎 搭建基础项目–直接通过 cooking 的命令行工具直接生成一个 Vu">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-16T05:44:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lvy’s blog">
-<meta name="twitter:description" content="生活、工作、家庭、朋友以及世界...">
+<meta name="twitter:title" content="用 cooking 搭建一个多页面易配置的 Vue 2 项目">
+<meta name="twitter:description" content="学vue第一步，那肯定是要搭建一个简单地脚手架啦，用啥搭建呢 vue-cli是一个很好的脚手架组件，但我们今天用cooking来搭建一个多页面（means-&amp;gt; 不是单页哦 单页项目run build以后生成的文件合并成一个，请求文件过于大，所以不建议。所以打包出多页面就刻不容缓啦~接下来跟着麦麦一起去学习吧）本文出自知乎 搭建基础项目–直接通过 cooking 的命令行工具直接生成一个 Vu">
   
     <link rel="alternative" href="/atom.xml" title="Lvy’s blog" type="application/atom+xml">
   
@@ -145,295 +146,227 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-用 cooking 搭建一个多页面易配置的 Vue 2 项目" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      用 cooking 搭建一个多页面易配置的 Vue 2 项目
+    </h1>
+  
+
+        
+        <a href="/2017/12/16/用 cooking 搭建一个多页面易配置的 Vue 2 项目/" class="archive-article-date">
+  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学vue第一步，那肯定是要搭建一个简单地脚手架啦，用啥搭建呢 vue-cli是一个很好的脚手架组件，但我们今天用cooking来搭建一个多页面（means-&gt; 不是单页哦 单页项目run build以后生成的文件合并成一个，请求文件过于大，所以不建议。所以打包出多页面就刻不容缓啦~接下来跟着麦麦一起去学习吧）本文出自<a href="https://zhuanlan.zhihu.com/p/22610408" target="_blank" rel="noopener">知乎</a></p>
+<h2 id="搭建基础项目–直接通过-cooking-的命令行工具直接生成一个-Vue-项目"><a href="#搭建基础项目–直接通过-cooking-的命令行工具直接生成一个-Vue-项目" class="headerlink" title="搭建基础项目–直接通过 cooking 的命令行工具直接生成一个 Vue 项目"></a>搭建基础项目–<font size="1">直接通过 cooking 的命令行工具直接生成一个 Vue 项目</font></h2><p><strong>npm i cooking-cli -g</strong><br>or 切换至淘宝镜像<br><strong>npm i cooking-cli -g –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></strong><br>完成后可以到你的目录下执行下面指令创建一个目录名 xxx 的 Vue 项目，第一次执行需要安装脚手架的依赖。<br><strong>cooking create xxx vue</strong><br>接下来会让你选择一些选项，我们这次选择 Vue2 + bublé + 全局 cooking 的配置。</p>
+<blockquote>
+<p>[?] Give your app a name: multiple-pages<br>[?] Give your app a description: A vue project.<br>[?] Private? Yes<br>[?] What Vue version do you what? Vue 2<br>[?] What ES2015+ compiler do you what to use? bublé (only use wepback 2)<br>[?] What way use cooking do you want? Global cooking (webpack 2)<br>[?] Need dev server? Yes<br>[?] What CSS preprocessor do you want to use? Only CSS<br>[?] Setup unit tests with Karma + Mocha? No<br>[?] git repository:<br>[?] author:<br>[?] license: ISC<br>[?] Continue? Yes</p>
+</blockquote>
+<p>最后可以试试直接运行 npm run dev 看看能不能正常启动。使用全局 cooking 的好处是可以减少项目的依赖。</p>
+<h2 id="多页面项目分析"><a href="#多页面项目分析" class="headerlink" title="多页面项目分析"></a>多页面项目分析</h2><p>写一个名叫 app.json 的配置文件，每个入口共享公共的 CDN 也可以配置私有的 CDN，还可以配置其他基本信息。<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"pages"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"entry"</span>: <span class="string">"home"</span>,</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"首页"</span>,</span><br><span class="line">      <span class="string">"cdn"</span>: &#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"entry"</span>: <span class="string">"admin"</span>,</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"后台"</span>,</span><br><span class="line">      <span class="string">"cdn"</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"basePath"</span>: <span class="string">"./src/pages/"</span>,</span><br><span class="line">  <span class="string">"cdn"</span>: &#123;</span><br><span class="line">    <span class="string">"js"</span>: [</span><br><span class="line">      <span class="string">"//cdn.jsdelivr.net/vue/2.0.0-rc.7/vue.min.js"</span>,</span><br><span class="line">      <span class="string">"//cdn.jsdelivr.net/vuex/2.0.0-rc.5/vuex.min.js"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"css"</span>: []</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"externals"</span>: &#123;</span><br><span class="line">    <span class="string">"vue"</span>: <span class="string">"Vue"</span>,</span><br><span class="line">    <span class="string">"vuex"</span>: <span class="string">"Vuex"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同时我们在 src/pages 目录下创建 home 和 admin 目录。每个目录下创建一个 index.js 和 app.vue 文件。</p>
+<p><strong>index.js</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./app'</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123; <span class="comment">// eslint-disable-line</span></span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p><strong>app.vue</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;首页&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;p&gt;A vue project.&lt;/</span>p&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    name: <span class="string">'app'</span></span><br><span class="line">  &#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="配置-cooking-–入口文件"><a href="#配置-cooking-–入口文件" class="headerlink" title="配置 cooking –入口文件"></a>配置 cooking –<font size="1">入口文件</font></h2><p>接下来我们在生成的 cooking 配置文件上加工，这里我们要传入多入口的配置，从 app.json 里读取 entry 的信息，通过 basePath 拼接成文件路径。</p>
+<blockquote>
+<p><strong>var App = require(‘./app.json’)<br>var entries = function() {<br>  var result = {}<br>  App.pages.forEach(p =&gt; {<br>    result[p.entry] = path.resolve(App.basePath, p.entry)<br>  })<br>  return result<br>}<br>cooking.set({<br>  entry: entries()<br>})</strong></p>
+</blockquote>
+<h2 id="模板文件"><a href="#模板文件" class="headerlink" title="模板文件"></a>模板文件</h2><p>所有入口的页面我们都是通过 index.tpl 模板配置，只需要将公用 CDN 和私有 CDN 合并后拼接成 HTML 插入到模板内，同时引入入口文件和 vendor，通过 html-webpack-plugin 的配置选项，可以很方便的实现我们的需求。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> App = <span class="built_in">require</span>(<span class="string">'./app.json'</span>)</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">var</span> merge = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    css: (a.css || []).concat(b.css || []),</span><br><span class="line">    js: (a.js || []).concat(b.js || [])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> templates = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> App.pages.map(<span class="function"><span class="params">p</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      title: p.title,</span><br><span class="line">      filename: p.entry + <span class="string">'.html'</span>,</span><br><span class="line">      template: path.resolve(__dirname, <span class="string">'index.tpl'</span>),</span><br><span class="line">      cdn: merge(App.cdn, p.cdn),</span><br><span class="line">      chunks: [<span class="string">'vendor'</span>, <span class="string">'manifest'</span>, p.entry]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">cooking.set(&#123;</span><br><span class="line">  template: templates()</span><br><span class="line">&#125;)</span><br><span class="line">模板文件也要改造一下。支持生成我们指定的 CDN 的 HTML 以及其他配置项。具体语法参考插件文档。</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;%= htmlWebpackPlugin.options.title %&gt;&lt;/title&gt;</span><br><span class="line">    &lt;% <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> htmlWebpackPlugin.options.cdn.css) &#123; %&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"&lt;%= htmlWebpackPlugin.options.cdn.css[i] %&gt;"</span>&gt;&lt;% &#125; %&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;% <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> htmlWebpackPlugin.options.cdn.js) &#123; %&gt;</span><br><span class="line">    &lt;script src=<span class="string">"&lt;%= htmlWebpackPlugin.options.cdn.js[i] %&gt;"</span>&gt;&lt;/script&gt;&lt;% &#125; %&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="最终配置"><a href="#最终配置" class="headerlink" title="最终配置"></a>最终配置</h2><p>最后我们可以优化一下配置，将生成配置的函数提取到另一个文件内，让配置信息更清晰。那么最终的配置内容如下。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">var</span> cooking = <span class="built_in">require</span>(<span class="string">'cooking'</span>)</span><br><span class="line"><span class="keyword">var</span> build = <span class="built_in">require</span>(<span class="string">'./build'</span>)</span><br><span class="line">cooking.set(&#123;</span><br><span class="line">  entry: build.entries(),</span><br><span class="line">  dist: <span class="string">'./dist'</span>,</span><br><span class="line">  template: build.templates(),</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    port: <span class="number">8081</span>,</span><br><span class="line">    publicPath: <span class="string">'/'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  clean: <span class="literal">true</span>,</span><br><span class="line">  hash: <span class="literal">true</span>,</span><br><span class="line">  sourceMap: <span class="literal">true</span>,</span><br><span class="line">  chunk: <span class="literal">true</span>,</span><br><span class="line">  publicPath: <span class="string">'/dist/'</span>,</span><br><span class="line">  extractCSS: <span class="literal">true</span>,</span><br><span class="line">  alias: &#123;</span><br><span class="line">    <span class="string">'src'</span>: path.join(__dirname, <span class="string">'src'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  extends: [<span class="string">'vue2'</span>, <span class="string">'buble'</span>, <span class="string">'lint'</span>, <span class="string">'autoprefixer'</span>],</span><br><span class="line">  externals: build.externals()</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">module</span>.exports = cooking.resolve()</span><br></pre></td></tr></table></figure></p>
+<h2 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h2><p>我们直接通过 cooking 命令行启动项目。<br><strong>cooking watch -p</strong><br>最后我们通过 build 构建项目，最终打包文件在 dist 目录里。<br><strong>cooking build -p</strong></p>
+<h2 id="开发目录说明"><a href="#开发目录说明" class="headerlink" title="开发目录说明"></a>开发目录说明</h2><p>** src –开发目录</p>
+<p> +components 自定义组件</p>
+<p> +pages 页面存放，文件夹名对应页面名字</p>
+<p> +assets 静态资源文件，如公用的样式和字体文件以及图片</p>
+<p>举个栗子：</p>
+<p>pages</p>
+<ul>
+<li>index<br>index.js   //页面初始化<br>app.vue    //页面逻辑，包括tempalte,script,style**</li>
+</ul>
+<h2 id="引入饿了么组件"><a href="#引入饿了么组件" class="headerlink" title="引入饿了么组件"></a>引入饿了么组件</h2><p>饿了么组件一出就引起广大vue爱好者的好评 我们当然不能落下啦 接下来来安装饿了么组件</p>
+<p>安装饿了么组件 引入 Element<br><strong>npm i element-ui -S</strong><br>你可以引入整个 Element，或是根据需要仅引入部分组件。我们先介绍如何引入完整的 Element。</p>
+<blockquote>
+<p>¶ 完整引入<br>在 main.js 中写入以下内容：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> ElementUI <span class="keyword">from</span> <span class="string">'element-ui'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'element-ui/lib/theme-default/index.css'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line">Vue.use(ElementUI)</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>¶ 按需引入<br>借助 babel-plugin-component，我们可以只引入需要的组件，以达到减小项目体积的目的。<br>首先，安装 <strong>babel-plugin-component：npm install babel-plugin-component -D</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./app'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Button, Select &#125; <span class="keyword">from</span> <span class="string">'element-ui'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'element-ui/lib/theme-default/index.css'</span></span><br><span class="line">Vue.use(Button)</span><br><span class="line">Vue.use(Select)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">"#app"</span>,</span><br><span class="line">    render:<span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>然后，将 .babelrc 修改为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [<span class="string">"es2015"</span>, <span class="string">"stage-0"</span>, <span class="string">"stage-2"</span>],</span><br><span class="line">  <span class="string">"comments"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"env"</span>: &#123;</span><br><span class="line">    <span class="string">"production"</span>: &#123;</span><br><span class="line">      <span class="string">"plugins"</span>: [</span><br><span class="line">        [<span class="string">"transform-runtime"</span>, &#123; <span class="string">"polyfill"</span>: <span class="literal">false</span>, <span class="string">"regenerator"</span>: <span class="literal">false</span> &#125;],</span><br><span class="line">        [<span class="string">"component"</span>, [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">"libraryName"</span>: <span class="string">"element-ui"</span>,</span><br><span class="line">            <span class="string">"styleLibraryName"</span>: <span class="string">"theme-default"</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]]</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>参考脚手架：<a href="https://github.com/maimai123/cookingVue2.git" target="_blank" rel="noopener">麦麦的github</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://github.com/maimai123/hexo-source/blob/master/source/img/zhifu.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/mac上真机调试/" class="archive-article-date">
-  	<time datetime="2017-12-16T08:43:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/mac上真机调试/">Mac调试真机（麦麦）</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://maimai123.github.io/2017/12/16/用 cooking 搭建一个多页面易配置的 Vue 2 项目/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/轮播图/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/12/16/日常小计/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          日常小计（麦麦）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/16/张鑫旭最精简css resetcss通用样式库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">张鑫旭最精简css resetcss通用样式库（麦麦）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/轮播图/">jquery 轮播图插件教程（麦麦）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/react-table/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/react-table/">初学react 简单的table（包含增删查）-by 麦麦</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/vuex学习小计/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/vuex学习小计/">Vuex学习小计（麦麦）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/小难题/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/小难题/">vue或其他小难题整理（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/差评小计/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/差评小计/">进入差评后的小笔记（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/yyf/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/yyf/">hexo博客搭建（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/react日常小难题/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/react日常小难题/">react日常小难题整理（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/弹出框/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/弹出框/">jquery 简单弹出框插件教程（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/整理各对象常用方法和属性/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/整理各对象常用方法和属性/">整理各对象常用属性与方法（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<style>
+  .gitment-comment-main, .gitment-editor-main {
+    background: #fff;
+  }
+  a.gitment-comment-name, a.gitment-comment-name:visited {
+    color: #137358;
+    font-size: 18px;
+  }
+</style>
+<script>
+var gitment = new Gitment({
+  id: "https://maimai123.github.io/2017/12/16/用 cooking 搭建一个多页面易配置的 Vue 2 项目/",
+  owner: 'maimai123',
+  repo: 'maimai123.github.io',
+  oauth: {
+    client_id: 'af6a1c4b1116ca67c445',
+    client_secret: 'd54d714364afc257aa559054a82d0cb79b15b07b',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -454,8 +387,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

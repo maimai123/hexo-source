@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://maimai123.github.io">
-  <title>Archives: 2017 | Lvy’s blog</title>
+  <title>vue或其他小难题整理（麦麦） | Lvy’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="生活、工作、家庭、朋友以及世界...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lvy’s blog">
-<meta property="og:url" content="https://maimai123.github.io/archives/2017/index.html">
+  <meta name="description" content="初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D 如有转载，请注明出处。 Vue1、emmet在jsx中不能使用的情况 大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet我用的是atom编辑器。首先，当然是打开atom 安装emmet插件 打开设置-&amp;gt;key bindings -&amp;gt; 点击 用户键盘映射 -&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue或其他小难题整理（麦麦）">
+<meta property="og:url" content="https://maimai123.github.io/2017/12/16/小难题/index.html">
 <meta property="og:site_name" content="Lvy’s blog">
-<meta property="og:description" content="生活、工作、家庭、朋友以及世界...">
+<meta property="og:description" content="初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D 如有转载，请注明出处。 Vue1、emmet在jsx中不能使用的情况 大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet我用的是atom编辑器。首先，当然是打开atom 安装emmet插件 打开设置-&amp;gt;key bindings -&amp;gt; 点击 用户键盘映射 -&amp;gt;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/router.png?raw=true">
+<meta property="og:updated_time" content="2017-12-16T05:44:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lvy’s blog">
-<meta name="twitter:description" content="生活、工作、家庭、朋友以及世界...">
+<meta name="twitter:title" content="vue或其他小难题整理（麦麦）">
+<meta name="twitter:description" content="初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D 如有转载，请注明出处。 Vue1、emmet在jsx中不能使用的情况 大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet我用的是atom编辑器。首先，当然是打开atom 安装emmet插件 打开设置-&amp;gt;key bindings -&amp;gt; 点击 用户键盘映射 -&amp;gt;">
+<meta name="twitter:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/router.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="Lvy’s blog" type="application/atom+xml">
   
@@ -145,295 +148,236 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-小难题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue或其他小难题整理（麦麦）
+    </h1>
+  
+
+        
+        <a href="/2017/12/16/小难题/" class="archive-article-date">
+  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D</p>
+<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h2 id="1、emmet在jsx中不能使用的情况"><a href="#1、emmet在jsx中不能使用的情况" class="headerlink" title="1、emmet在jsx中不能使用的情况"></a>1、emmet在jsx中不能使用的情况</h2><blockquote>
+<p>大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet<br>我用的是atom编辑器。<br>首先，当然是打开atom 安装emmet插件 打开设置-&gt;key bindings -&gt; 点击 用户键盘映射 -&gt;修改文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'atom-text-editor[data-grammar="source js jsx vue"]'</span>:</span><br><span class="line">  <span class="string">'F12'</span>:<span class="string">'atom-html-preview:toggle'</span>,</span><br><span class="line">  <span class="string">'tab'</span>: <span class="string">'emmet:expand-abbreviation-with-tab'</span></span><br></pre></td></tr></table></figure></p>
+<p>这样就ok啦~ 尽情的使用emmet吧！</p>
+</blockquote>
+<h2 id="2、一个关于webpack的问题。"><a href="#2、一个关于webpack的问题。" class="headerlink" title="2、一个关于webpack的问题。"></a>2、一个关于webpack的问题。</h2><blockquote>
+<p>起服务以后，用localhost访问可以访问，<br>用具体ip 如：192.168.91.75:8080/index 却访问不到地址<br>这是啥问题呐(⊙o⊙)?<br>原来原来 只要在配置文件中加上 –host 0.0.0.0 就可以啦<br>具体在哪里加呢 答案就是在<strong>package.json</strong>中的start中啦~<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"webpack-dev-server --progress --profile --colors --hot --host 0.0.0.0"</span>,</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"webpack --progress --profile --colors --config webpack.production.config.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="3、说个vue的-外链css的问题"><a href="#3、说个vue的-外链css的问题" class="headerlink" title="3、说个vue的 外链css的问题"></a>3、说个vue的 外链css的问题</h2><blockquote>
+<p>再写vue的时候，虽说在页面内部可以写style来增加样式，但还是推荐外链css<br>于是我import ‘xxx.less’ —&gt;报错！！！我简直一个大写的懵逼啊 因为我在react中都是这么引入css的<br>后来我才知道 vue中 外链css 要卸载style标签内部 然后@import ‘xxx.less’<br>这样就没问题了~<br>还有个如果你想在页面的style中使用less或sass要怎么办呢<br>给style加个 lang=”less”就可以啦</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="4、对于github一直要输入账户名密码问题"><a href="#4、对于github一直要输入账户名密码问题" class="headerlink" title="4、对于github一直要输入账户名密码问题"></a>4、对于github一直要输入账户名密码问题</h2><blockquote>
+<p>git config – global user.name “maimai123”<br>git config –global user.email maimaixxx@163.com<br>git config – global credential.helperstore</p>
+</blockquote>
+<h2 id="5、vue中路由在浏览器地址栏显示-的问题-与react-router中的hashHistory-browserHistory-一样的道理，"><a href="#5、vue中路由在浏览器地址栏显示-的问题-与react-router中的hashHistory-browserHistory-一样的道理，" class="headerlink" title="5、vue中路由在浏览器地址栏显示/#/的问题 与react-router中的hashHistory browserHistory 一样的道理，"></a>5、vue中路由在浏览器地址栏显示/#/的问题 与react-router中的hashHistory browserHistory 一样的道理，</h2><blockquote>
+<p>路由中换个模式就好了<br>那么怎么写呢 参考地址：<a href="http://router.vuejs.org/en/essentials/history-mode.html" target="_blank" rel="noopener">vue-router</a></p>
+</blockquote>
+<p><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/router.png?raw=true"></p>
+<h2 id="6、vue-cli-webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack-config-json中的-devServer-中，写法如下："><a href="#6、vue-cli-webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack-config-json中的-devServer-中，写法如下：" class="headerlink" title="6、vue-cli+webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack.config.json中的 devServer 中，写法如下："></a>6、vue-cli+webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack.config.json中的 devServer 中，写法如下：</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  devServer:&#123; <span class="comment">//配置服务器环境</span></span><br><span class="line">    colors:<span class="literal">true</span>,</span><br><span class="line">    historyApiFallback:<span class="literal">true</span>,</span><br><span class="line">    inline:<span class="literal">true</span>, <span class="comment">//自动刷新</span></span><br><span class="line">    port:<span class="string">'1234'</span>, <span class="comment">//修改端口号</span></span><br><span class="line">    host : <span class="string">'0.0.0.0'</span>,</span><br><span class="line">    progress:<span class="literal">true</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>There are some additional options:</p>
+<p>–content-base <file directory="" url="" port="">: base path for the content.<br>–quiet: don’t output anything to the console.<br>–no-info: suppress boring information.<br>–colors: add some colors to the output.<br>–no-colors: don’t use colors in the output.<br>–compress: use gzip compression.<br>–host <hostname ip="">: hostname or IP. 0.0.0.0 binds to all hosts.<br>–port <number>: port.<br>–inline: embed the webpack-dev-server runtime into the bundle.<br>–hot: adds the HotModuleReplacementPlugin and switch the server to hot mode. Note: make sure you don’t add HotModuleReplacementPlugin twice.<br>–hot –inline also adds the webpack/hot/dev-server entry.<br>–public: overrides the host and port used in –inline mode for the client (useful for a VM or Docker).<br>–lazy: no watching, compiles on request (cannot be combined with –hot).<br>–https: serves webpack-dev-server over HTTPS Protocol. Includes a self-signed certificate that is used when serving the requests.<br>–cert, –cacert, –key: Paths the certificate files.<br>–open: opens the url in default browser (for webpack-dev-server versions &gt; 2.0).<br>–history-api-fallback: enables support for history API fallback.<br>–client-log-level: controls the console log messages shown in the browser. Use error, warning, info or none.</number></hostname></file></p>
+<blockquote>
+<p>也可以写在package.json的start中。如：webpack-dev-server –devtool eval –progress –colors –inline –hot –content-base build –port1234<br>但vue-cli中如果希望修改端口号，则进入~\config\index.js，修改dev下的port为希望启动的端口号。例如: port: 1234,</p>
+</blockquote>
+<h2 id="7、在学习vuex的时候，我曾遇到过一个愚蠢的问题-【捂脸】就是在dispatch-action中的方法时显示找不到这个方法"><a href="#7、在学习vuex的时候，我曾遇到过一个愚蠢的问题-【捂脸】就是在dispatch-action中的方法时显示找不到这个方法" class="headerlink" title="7、在学习vuex的时候，我曾遇到过一个愚蠢的问题 【捂脸】就是在dispatch action中的方法时显示找不到这个方法"></a>7、在学习vuex的时候，我曾遇到过一个愚蠢的问题 【捂脸】就是在dispatch action中的方法时显示找不到这个方法</h2><blockquote>
+<p>我左看右看没找出问题在哪，最后求救师傅，才知道问题所在。<br>我在actions、mutations和getters中都默认输出了，即：export default{ … }, 而在store中还以<br>import * as actions from ‘./actions’<br>这种方法引入。。。简直作死啊~~<br>以后你们可别犯这种傻错啊</p>
+</blockquote>
+<h2 id="8、换了新电脑是-–air-用不惯，以前windows下个git就能完成的事现在需要安装一个xcode、sourcetree等搞得我用不惯-不过在努力学"><a href="#8、换了新电脑是-–air-用不惯，以前windows下个git就能完成的事现在需要安装一个xcode、sourcetree等搞得我用不惯-不过在努力学" class="headerlink" title="8、换了新电脑是 –air 用不惯，以前windows下个git就能完成的事现在需要安装一个xcode、sourcetree等搞得我用不惯 不过在努力学"></a>8、换了新电脑是 –air 用不惯，以前windows下个git就能完成的事现在需要安装一个xcode、sourcetree等搞得我用不惯 不过在努力学</h2><blockquote>
+<p>真是一步一个坎啊 我先跟大家说一下 我把我的博客的挣个文件夹都从原来的电脑里copy了过来，很难想象我要是脑筋粗大一点没拷过来会是怎样<br>我在github上新建了仓库，里面啥东西也没有 我是打算用来存放我的hexo源文件的。<br>然后我下载了git、xcode、sourcetree等工具。废话有点多 别介意啊<br>我先查了一下我git 安装完成没有 git –vertion看一下版本号有版本号就是安装完成了<br>当然你首先要安装node。这个总不用我教了吧？<br>在安装hexo -&gt; npm install -g hexo-cli<br>安装完也看一下安装了没 然后在命令里新建个ssh文件 命令-&gt;ssh-keygen -t rsa -C youremail@example.com(你的Github登录名)<br>然后复制id_rsa.pub的内容并将其填入Github那边的key。<br>安装完 sourcetree 之后你就可以点击新仓库 从url克隆，把你的新仓库复制来放进去，选好文件夹拖进你的hexo源文件<br>最后提交一下就好啦~<br>你试着在hexo源文件下打hexo s 看看有没有起本地服务吧~<br>当然在此之前你需要npm install一下来安装依赖啦 :-D</p>
+</blockquote>
+<h2 id="9、vue的小问题"><a href="#9、vue的小问题" class="headerlink" title="9、vue的小问题"></a>9、vue的小问题</h2><blockquote>
+<p>vue图片地址为空会报错 所以需要先给图片要做一个判断-&gt;v-if<br>地址为空的时候不渲染<br>Img 添加路径（循环取变量）时要加bind 即:src=“item.imgUrl”<br>href、id、disabled也是一样<br>如果是添加行内样式则是:style=“{backgroundImage:’url(‘+list.url+’)’}”<br>双引号单引号你就自己看吧 哈哈 毕竟我也是一脸懵逼</p>
+</blockquote>
+<h2 id="10、移动端阻止回弹"><a href="#10、移动端阻止回弹" class="headerlink" title="10、移动端阻止回弹"></a>10、移动端阻止回弹</h2><blockquote>
+<p>一些移动设备有缺省的touchmove行为，比如说经典的iOSoverscroll效果，<br>当滚动超出了内容的界限时就引发视图反弹。<br>这种做法在许多多点触控应用中会带来混乱，所以要禁用它。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'touchmove'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">event.preventDefault();</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="11、vue-props传递数据"><a href="#11、vue-props传递数据" class="headerlink" title="11、vue props传递数据"></a>11、vue props传递数据</h2><blockquote>
+<p>众所周知，vue中的props和react中的props一样，都是用来父子组件通信用的<br>在父组件中传递给子组件 只需要在子组件上加要传递的数据 ps:注意动态的要用v-bind/:哦~<br>还有个字面量语法问题 <comp some-prop="1"></comp> 这样传递的是一个字符串<br>如果想要传递number，也要使用v-bind<br>在子组件中用props接收即可<br>那么如果在子组件中调用父组件的方法呢？ 也是可以的<br>vue 使用v-on绑定自定义事件<br>使用 \$on(eventName) 监听事件<br>使用 \$emit(eventName) 触发事件<br>父组件在使用子组件的地方直接用 v-on 来监听子组件触发的事件，直接在模板里绑定<br>如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button-counter @increment=<span class="string">"incrementTotal"</span>&gt;&lt;/button-counter&gt;</span><br></pre></td></tr></table></figure></p>
+<p>incrementTotal是父组件的方法 increment是传递给子组件的props名字<br>子组件用 this.$emit(‘increment’) 调用</p>
+</blockquote>
+<h2 id="12、请耐心等待，麦麦会不定期更新哒"><a href="#12、请耐心等待，麦麦会不定期更新哒" class="headerlink" title="12、请耐心等待，麦麦会不定期更新哒~"></a>12、请耐心等待，麦麦会不定期更新哒~</h2><p>More info: <a href="https://github.com/maimai123" target="_blank" rel="noopener">麦麦</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://github.com/maimai123/hexo-source/blob/master/source/img/zhifu.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/mac上真机调试/" class="archive-article-date">
-  	<time datetime="2017-12-16T08:43:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/mac上真机调试/">Mac调试真机（麦麦）</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://maimai123.github.io/2017/12/16/小难题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/轮播图/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/12/16/vuex学习小计/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vuex学习小计（麦麦）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/16/差评小计/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">进入差评后的小笔记（麦麦）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/轮播图/">jquery 轮播图插件教程（麦麦）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/react-table/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/react-table/">初学react 简单的table（包含增删查）-by 麦麦</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/vuex学习小计/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/vuex学习小计/">Vuex学习小计（麦麦）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/小难题/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/小难题/">vue或其他小难题整理（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/差评小计/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/差评小计/">进入差评后的小笔记（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/yyf/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/yyf/">hexo博客搭建（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/react日常小难题/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/react日常小难题/">react日常小难题整理（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/弹出框/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/弹出框/">jquery 简单弹出框插件教程（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/整理各对象常用方法和属性/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/整理各对象常用方法和属性/">整理各对象常用属性与方法（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<style>
+  .gitment-comment-main, .gitment-editor-main {
+    background: #fff;
+  }
+  a.gitment-comment-name, a.gitment-comment-name:visited {
+    color: #137358;
+    font-size: 18px;
+  }
+</style>
+<script>
+var gitment = new Gitment({
+  id: "https://maimai123.github.io/2017/12/16/小难题/",
+  owner: 'maimai123',
+  repo: 'maimai123.github.io',
+  oauth: {
+    client_id: 'af6a1c4b1116ca67c445',
+    client_secret: 'd54d714364afc257aa559054a82d0cb79b15b07b',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -454,8 +398,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

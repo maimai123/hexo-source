@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://maimai123.github.io">
-  <title>Archives: 2017 | Lvy’s blog</title>
+  <title>初学react 简单的table（包含增删查）-by 麦麦 | Lvy’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="生活、工作、家庭、朋友以及世界...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lvy’s blog">
-<meta property="og:url" content="https://maimai123.github.io/archives/2017/index.html">
+  <meta name="description" content="react table注意：react的script标签必须type为”text/babel”！！！ #主图 #点击新增 #搜索部分代码如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初学react 简单的table（包含增删查）-by 麦麦">
+<meta property="og:url" content="https://maimai123.github.io/2017/12/16/react-table/index.html">
 <meta property="og:site_name" content="Lvy’s blog">
-<meta property="og:description" content="生活、工作、家庭、朋友以及世界...">
+<meta property="og:description" content="react table注意：react的script标签必须type为”text/babel”！！！ #主图 #点击新增 #搜索部分代码如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/react.png?raw=true">
+<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/new.png?raw=true">
+<meta property="og:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/search.png?raw=true">
+<meta property="og:updated_time" content="2017-12-16T05:44:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lvy’s blog">
-<meta name="twitter:description" content="生活、工作、家庭、朋友以及世界...">
+<meta name="twitter:title" content="初学react 简单的table（包含增删查）-by 麦麦">
+<meta name="twitter:description" content="react table注意：react的script标签必须type为”text/babel”！！！ #主图 #点击新增 #搜索部分代码如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768">
+<meta name="twitter:image" content="https://github.com/maimai123/maimai123.github.io/blob/master/img/react.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="Lvy’s blog" type="application/atom+xml">
   
@@ -145,295 +150,202 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-react-table" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      初学react 简单的table（包含增删查）-by 麦麦
+    </h1>
+  
+
+        
+        <a href="/2017/12/16/react-table/" class="archive-article-date">
+  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><i class="icon-cloud"></i>react table<br>注意：react的script标签必须type为”text/babel”！！！</p>
+<p>#主图<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/react.png?raw=true"></p>
+<p>#点击新增<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/new.png?raw=true"></p>
+<p>#搜索<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/search.png?raw=true"><br>部分代码如下：<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">var CartBox = React.createClass(&#123;</span><br><span class="line">  //初始化数据，由state控制</span><br><span class="line">  getInitialState:function()&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      Itemd :</span><br><span class="line">      [</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"手机"</span>,<span class="string">"batch"</span>:<span class="string">"P1556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"金色"</span>,<span class="string">"price"</span>:<span class="string">"￥5876"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯垫"</span>,<span class="string">"batch"</span>:<span class="string">"P1586"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥56"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯子"</span>,<span class="string">"batch"</span>:<span class="string">"P1542"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥76"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"钢笔"</span>,<span class="string">"batch"</span>:<span class="string">"P7656"</span>,<span class="string">"goodscolor"</span>:<span class="string">"粉色"</span>,<span class="string">"price"</span>:<span class="string">"￥66"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"书本"</span>,<span class="string">"batch"</span>:<span class="string">"P3556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"白色"</span>,<span class="string">"price"</span>:<span class="string">"￥6"</span>&#125;</span><br><span class="line">      ],</span><br><span class="line">      selItem :[</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"手机"</span>,<span class="string">"batch"</span>:<span class="string">"P1556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"金色"</span>,<span class="string">"price"</span>:<span class="string">"￥5876"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯垫"</span>,<span class="string">"batch"</span>:<span class="string">"P1586"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥56"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯子"</span>,<span class="string">"batch"</span>:<span class="string">"P1542"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥76"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"钢笔"</span>,<span class="string">"batch"</span>:<span class="string">"P7656"</span>,<span class="string">"goodscolor"</span>:<span class="string">"粉色"</span>,<span class="string">"price"</span>:<span class="string">"￥66"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"书本"</span>,<span class="string">"batch"</span>:<span class="string">"P3556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"白色"</span>,<span class="string">"price"</span>:<span class="string">"￥6"</span>&#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  handleChange: function (rows) &#123;</span><br><span class="line">       this.setState(&#123;</span><br><span class="line">           selItem : rows</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;,</span><br><span class="line">  render : function()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;WarpLeft onSear=&#123;this.handleChange&#125; Itemdata=&#123;this.state.Itemd&#125; /&gt;</span><br><span class="line">        &lt;Prop onAdd=&#123;this.handleChange&#125; Itemdata=&#123;this.state.Itemd&#125; /&gt;</span><br><span class="line">        &lt;WarpRight onDel=&#123;this.handleChange&#125; Itemdata=&#123;this.state.selItem&#125; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">//搜索</span><br><span class="line">var WarpLeft = React.createClass(&#123;</span><br><span class="line">  handleAdd :function(e)&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    var self = this;</span><br><span class="line">    var string = self.refs.findVal.value;</span><br><span class="line">    var rows = self.props.Itemdata;</span><br><span class="line">    var dataIn = <span class="string">""</span>;</span><br><span class="line">    var array =[];</span><br><span class="line">    <span class="keyword">if</span>(string.length &gt; <span class="number">0</span>)&#123;</span><br><span class="line">      $.each(rows,function(i,item)&#123;</span><br><span class="line">        dataIn = item.goodsname.indexOf(string);</span><br><span class="line">        <span class="keyword">if</span>( dataIn &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">          array.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      array = self.props.Itemdata;</span><br><span class="line">    &#125;</span><br><span class="line">    this.props.onSear(array);</span><br><span class="line">  &#125;,</span><br><span class="line">  render :function()&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div className=<span class="string">"pull-left f2 he6 mt12"</span>&gt;</span><br><span class="line">        &lt;form&gt;</span><br><span class="line">          &lt;input id=<span class="string">"search"</span> ref=<span class="string">"findVal"</span> type=<span class="string">"text"</span> autoComplete=<span class="string">"off"</span> placeholder=<span class="string">"请输入名称搜索"</span>/&gt;</span><br><span class="line">          &lt;button className="btn-sm r btn" onClick=&#123;self.handleAdd&#125;&gt;搜索&lt;/button&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">//新增弹出框</span><br><span class="line">var Prop = React.createClass(&#123;</span><br><span class="line">  handleAdd : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    $(<span class="string">".propBox"</span>).show();</span><br><span class="line">  &#125;,</span><br><span class="line">  handleCan : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    $(<span class="string">".propBox"</span>).hide();</span><br><span class="line">  &#125;,</span><br><span class="line">  handleYes : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    var goodsname = self.refs.goodsname.value.trim();</span><br><span class="line">    var batch = self.refs.batch.value.trim();</span><br><span class="line">    var goodscolor = self.refs.goodscolor.value.trim();</span><br><span class="line">    var prize = self.refs.prize.value.trim();</span><br><span class="line">    var rows = self.props.Itemdata;</span><br><span class="line">    <span class="keyword">if</span> (goodsname != <span class="string">''</span> &amp; batch != <span class="string">''</span> &amp; goodscolor != <span class="string">''</span> &amp; prize != <span class="string">''</span>) &#123;</span><br><span class="line">       rows.push(&#123;<span class="string">'goodsname'</span>:goodsname,<span class="string">'batch'</span>:batch,<span class="string">'goodscolor'</span>:goodscolor,<span class="string">'price'</span>:prize&#125;);</span><br><span class="line">       this.props.onAdd(rows);</span><br><span class="line">    &#125;</span><br><span class="line">    self.refs.goodsname.value = <span class="string">""</span>;</span><br><span class="line">    self.refs.batch.value= <span class="string">""</span>;</span><br><span class="line">    self.refs.goodscolor.value=<span class="string">""</span>;</span><br><span class="line">    self.refs.prize.value=<span class="string">""</span>;</span><br><span class="line">    $(<span class="string">".propBox"</span>).hide();</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">render :function()&#123;</span><br><span class="line">  var self = this;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;button onClick=&#123;self.handleAdd&#125; className="addNew btn mt10 btn-primary"&gt;新增&lt;/button&gt;</span><br><span class="line">    &lt;div className="propBox hide"&gt; &lt;div onClick=&#123;self.handleCan&#125; className="close"&gt;×&lt;/div&gt;</span><br><span class="line">    &lt;br/&gt;</span><br><span class="line">      &lt;div className=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;label htmlFor="goodsname"&gt;物品：&lt;/label&gt;&lt;input ref="goodsname" type="text" id="goodsname"/&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div className=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;label htmlFor="batch"&gt;批号：&lt;/label&gt;&lt;input ref="batch" type="text" id="batch"/&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div className=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;label htmlFor="goodscolor"&gt;颜色：&lt;/label&gt;&lt;input ref="goodscolor" type="text" id="goodscolor"/&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div className=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;label htmlFor="prize"&gt;价格：&lt;/label&gt;&lt;input ref="prize" type="text" id="prize"/&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div className=<span class="string">"row tc"</span>&gt;</span><br><span class="line">        &lt;button onClick=&#123;self.handleYes&#125; className="btn btn-sm btn-primary"&gt;确定&lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">);</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">//展示数据</span><br><span class="line">var WarpRight = React.createClass(&#123;</span><br><span class="line">handleDel : function(e)&#123;</span><br><span class="line">  var delIndex = e.target.getAttribute(<span class="string">'data-key'</span>);</span><br><span class="line">  this.props.Itemdata.splice(delIndex, <span class="number">1</span>);</span><br><span class="line">  this.props.onDel(this.props.Itemdata);</span><br><span class="line">&#125;,</span><br><span class="line">render :function()&#123;</span><br><span class="line">  var self = this;</span><br><span class="line">  <span class="keyword">return</span>(</span><br><span class="line">    &lt;div className=<span class="string">"pull-right f6 he6 l"</span>&gt;</span><br><span class="line">    &lt;table className=<span class="string">"table mt10"</span>&gt;</span><br><span class="line">      &lt;thead&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">          &lt;th&gt;物品&lt;/th&gt;</span><br><span class="line">          &lt;th&gt;批号&lt;/th&gt;</span><br><span class="line">          &lt;th&gt;颜色&lt;/th&gt;</span><br><span class="line">          &lt;th&gt;价格&lt;/th&gt;</span><br><span class="line">          &lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">      &lt;/thead&gt;</span><br><span class="line">      &lt;tbody&gt;</span><br><span class="line">      &#123;</span><br><span class="line">        this.props.Itemdata.map( function(item,i)&#123;</span><br><span class="line">          <span class="keyword">return</span> (</span><br><span class="line">            &lt;tr key=&#123;i&#125;&gt;</span><br><span class="line">              &lt;td key=&#123;i&#125;&gt;&#123;item.goodsname&#125;&lt;/td&gt;</span><br><span class="line">              &lt;td&gt;&#123;item.batch&#125;&lt;/td&gt;</span><br><span class="line">              &lt;td&gt;&#123;item.goodscolor&#125;&lt;/td&gt;</span><br><span class="line">              &lt;td&gt;&#123;item.price&#125;&lt;/td&gt;</span><br><span class="line">              &lt;td&gt;&lt;button onClick=&#123;self.handleDel&#125; className="destroy"  data-key=&#123;i&#125; &gt;delete&lt;/button&gt;&lt;/td&gt;</span><br><span class="line">            &lt;/tr&gt;</span><br><span class="line">          )</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      &lt;/tbody&gt;</span><br><span class="line">    &lt;/table&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">ReactDOM.render(</span><br><span class="line">&lt;CartBox /&gt;,</span><br><span class="line">document.getElementById(<span class="string">"warp"</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="maimai123.github.io">麦麦</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://github.com/maimai123/hexo-source/blob/master/source/img/zhifu.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/mac上真机调试/" class="archive-article-date">
-  	<time datetime="2017-12-16T08:43:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/mac上真机调试/">Mac调试真机（麦麦）</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://maimai123.github.io/2017/12/16/react-table/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/轮播图/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/12/16/轮播图/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          jquery 轮播图插件教程（麦麦）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/16/vuex学习小计/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vuex学习小计（麦麦）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/轮播图/">jquery 轮播图插件教程（麦麦）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/react-table/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/react-table/">初学react 简单的table（包含增删查）-by 麦麦</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/vuex学习小计/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/vuex学习小计/">Vuex学习小计（麦麦）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/小难题/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/小难题/">vue或其他小难题整理（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/差评小计/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/差评小计/">进入差评后的小笔记（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/yyf/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/yyf/">hexo博客搭建（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/react日常小难题/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/react日常小难题/">react日常小难题整理（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/弹出框/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/弹出框/">jquery 简单弹出框插件教程（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/整理各对象常用方法和属性/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/整理各对象常用方法和属性/">整理各对象常用属性与方法（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<style>
+  .gitment-comment-main, .gitment-editor-main {
+    background: #fff;
+  }
+  a.gitment-comment-name, a.gitment-comment-name:visited {
+    color: #137358;
+    font-size: 18px;
+  }
+</style>
+<script>
+var gitment = new Gitment({
+  id: "https://maimai123.github.io/2017/12/16/react-table/",
+  owner: 'maimai123',
+  repo: 'maimai123.github.io',
+  oauth: {
+    client_id: 'af6a1c4b1116ca67c445',
+    client_secret: 'd54d714364afc257aa559054a82d0cb79b15b07b',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -454,8 +366,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

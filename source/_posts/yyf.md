@@ -41,6 +41,10 @@ bugs
 hexo s -g
 hexo d -g
 
+#主题丢失问题
+> 我发现我的yilia主题push到github尚老师丢失，下下来没有了
+> 执行
+* git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
 
 
 More info: [麦麦](maimai123.github.io)

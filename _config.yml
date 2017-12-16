@@ -11,8 +11,8 @@ language: zh-CN  #语言，中文
 timezone:
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+## If your site is put in a subdirectory, set url as 'https://maimai123.github.io/child' and root as '/child/'
+url: https://maimai123.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -65,6 +65,24 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: yilia
 
+jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

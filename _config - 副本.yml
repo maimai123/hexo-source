@@ -11,8 +11,8 @@ language: zh-CN  #语言，中文
 timezone:
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+## If your site is put in a subdirectory, set url as 'https://maimai123.github.io/child' and root as '/child/'
+url: https://maimai123.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

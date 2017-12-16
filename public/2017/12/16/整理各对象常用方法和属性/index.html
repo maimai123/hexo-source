@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://maimai123.github.io">
-  <title>Archives: 2017 | Lvy’s blog</title>
+  <title>整理各对象常用属性与方法（麦麦） | Lvy’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="生活、工作、家庭、朋友以及世界...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lvy’s blog">
-<meta property="og:url" content="https://maimai123.github.io/archives/2017/index.html">
+  <meta name="description" content="如有转载，请注明出处。String对象的各种属性与方法 属性：   i、length 字符串长度   “aaa”.length -&amp;gt; 3 ii、prototype允许您向对象添加属性和方法 12345例：   String.prototype.spacify=function(str)&amp;#123;     return(str.split(&quot;&quot;).join(&quot; &quot;))   &amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="整理各对象常用属性与方法（麦麦）">
+<meta property="og:url" content="https://maimai123.github.io/2017/12/16/整理各对象常用方法和属性/index.html">
 <meta property="og:site_name" content="Lvy’s blog">
-<meta property="og:description" content="生活、工作、家庭、朋友以及世界...">
+<meta property="og:description" content="如有转载，请注明出处。String对象的各种属性与方法 属性：   i、length 字符串长度   “aaa”.length -&amp;gt; 3 ii、prototype允许您向对象添加属性和方法 12345例：   String.prototype.spacify=function(str)&amp;#123;     return(str.split(&quot;&quot;).join(&quot; &quot;))   &amp;#125;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-16T05:44:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lvy’s blog">
-<meta name="twitter:description" content="生活、工作、家庭、朋友以及世界...">
+<meta name="twitter:title" content="整理各对象常用属性与方法（麦麦）">
+<meta name="twitter:description" content="如有转载，请注明出处。String对象的各种属性与方法 属性：   i、length 字符串长度   “aaa”.length -&amp;gt; 3 ii、prototype允许您向对象添加属性和方法 12345例：   String.prototype.spacify=function(str)&amp;#123;     return(str.split(&quot;&quot;).join(&quot; &quot;))   &amp;#125;">
   
     <link rel="alternative" href="/atom.xml" title="Lvy’s blog" type="application/atom+xml">
   
@@ -145,295 +146,218 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-整理各对象常用方法和属性" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      整理各对象常用属性与方法（麦麦）
+    </h1>
+  
+
+        
+        <a href="/2017/12/16/整理各对象常用方法和属性/" class="archive-article-date">
+  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="如有转载，请注明出处。"><a href="#如有转载，请注明出处。" class="headerlink" title="如有转载，请注明出处。"></a><font size="1"><strong>如有转载，请注明出处。</strong></font></h2><p><strong>String对象的各种属性与方法</strong></p>
+<p>属性：</p>
+<blockquote>
+<p> i、length 字符串长度<br>   “aaa”.length -&gt; 3<br> ii、prototype允许您向对象添加属性和方法<br> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">   String.prototype.spacify=function(str)&#123;</span><br><span class="line">     <span class="keyword">return</span>(str.split(<span class="string">""</span>).join(<span class="string">" "</span>))</span><br><span class="line">   &#125;</span><br><span class="line">   "asasda".spacify("asss") -&gt; "a s s s" 新建的String对象的方法,用于往字符串中插入空格</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>方法：</p>
+<blockquote>
+<p>1、split 讲字符分割成数组显示<br>      “a,s,d”.split(“,”) -&gt; [“a”,”s”,”d”]<br>2、concat 合并字符串火数组<br>     “1”.concat(“sdf”,”555”)-&gt; “1sdf555”<br>      [“1”].concat(“sdf”,”555”) -&gt;[“1”, “sdf”, “555”]<br>3、toLocaleUpperCase同toUpperCase 小写转换成大写<br>     “asaddas”.toLocaleUpperCase()==”asaddas”.toUpperCase() “ASADDAS”<br>4、toLocaleLowerCase同toLowerCase 大写转换成小写<br>     “ASADDAS”.toLocaleLowerCase()==”asaddas”.toLowerCase() “asaddas”<br>5、charAt 从字符串中取出单个字符<br>     “asde”.charAt(2)-&gt; d<br>6、indexOf(“xx”,[从几开始检索]) 从字符串中检索字符是否存在,不存在返回-1,<br>     “woshiyuyafei”.indexOf(“yuyafei”) -&gt;5<br>7、lastIndexOf(“xx”,[从几开始检索]) 从最后往字符串中检索字符是否存在,不存在返回-1,<br>     “woshiyuyafei”.lastIndexOf(“yu”,11) -&gt;5<br>8、match(“xxx”,’regexp’) 检索字符串中指定值返回指定值，或找到一个或多个正则表达式的匹配,<br>     “hello world”.match(“hello”) -&gt; [“hello”]<br>     “he2llo1wo3rld”.match(/\d+/g) -&gt; [“2”, “1”, “3”]<br>9、slice(start,end) 提取字符串的某个部分，并以新的字符串返回被提取的部分(不包括结束),不申明结束则默认为字符串长度-1.若为负数，则变为长度+负数的值取 返回新的字符串<br>     “hello aaaa”.slice(1,6) -&gt; “ello “<br>    “hello aaaa”.slice(-8,-2) -&gt; “hello aaaa”.slice(2,8) -&gt; “llo aa”<br>10、substr(start,length) 从字符串中抽取从 start 下标开始的指定数目的字符,若为负数：-1 指字符串中最后一个字符，-2 指倒数第二个字符，以此类推。  返回新字符串<br>     “hello world”.substr(1,4) -&gt; “ello”<br>     “hello world”.substr(-8,4)-&gt; “hello world”.substr(3,4)  -&gt; “lo w”<br>11、substring(start,end) 提取字符串中介于两个指定下标之间的字符(不包括结束不接受负数)<br>     “hello”.substring(1,3) -&gt; “el”</p>
+</blockquote>
+<a id="more"></a>
+<p>##Number对象的各种属性与方法</p>
+<p>方法：</p>
+<blockquote>
+<p>1、toString([几进制显示数字]) 把数字转换成字符串<br>      123.toString() -&gt; 报错：这是因为javascript引擎在解释代码时对于“1.toString()”认为“.”是浮点符号，但因小数点后面的字符是非法的，所以报语法错误；<br>    而后面的“1..toString()和1.2.toStirng()”写法，javascript引擎认为第一个“.”小数点，的二个为属性访问语法，所以都能正确解释执行；<br>    对于“(1).toStirng()”的写法，用“()”排除了“.”被视为小数点的语法解释，所以这种写法能够被解释执行；<br>       var num = 111; num.toString();  -&gt; “111” 或 (123).toString()<br>       {}.toString() 报错 表達式語句不能以 { 或 function 開頭 改成({}).toString() 输出 “[object Object]”<br>2、toFixed() 把数字四舍五入为指定小数位数的数字<br>      var num = 1223; num.toFixed(2); -&gt; “1223.00”<br>3、toPrecision( 1 ~ 21 之间的整数) 在对象的值超出指定位数时将其转换为指数计数法<br>      var num =10000; num.toPrecision(4) -&gt; “1.000e+4”</p>
+</blockquote>
+<p>##Boolean对象的各种属性与方法</p>
+<p>方法：</p>
+<blockquote>
+<p>1、toSource() 返回表示对象源代码的字符串<br>     function employee(name,job,born)<br>     {<br>       this.name=name;<br>       this.job=job;<br>       this.born=born;<br>    }<br>     var bill=new employee(“Bill Gates”,”Engineer”,1985);<br>     bill.toSource();  -&gt;({name:”Bill Gates”, job:”Engineer”, born:1985})<br>2、toString() 同number与String<br>3、valueOf() 返回 Boolean 对象的原始值<br>      var boo = new Boolean(false)<br>      document.write(boo.valueOf())  -&gt;false</p>
+</blockquote>
+<p>##Array对象的各种属性与方法<br>属性：</p>
+<blockquote>
+<p>1、length 返回数组的长度<br>      [“1”,”2”].length  -&gt; 2<br>方法：<br>1、concat() 合并数组<br>     [“1”,”2”].concat(“123”,[2]) -&gt; [“1”, “2”, “123”, 2]<br>2、join([分割的符号]) 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。<br>     [“1”,”2”].join(“|”)  -&gt; “1|2”<br>3、pop() 删除数组最后一个元素并返回杯删除的元素<br>     [“s”,”e”].pop()  -&gt; “e”<br>4、push() 往数组中添加一个或更多元素，并返回新的长度。<br>     [“s”,”e”].push(“32”,”45”) -&gt; 4<br>5、reverse() 颠倒顺序<br>     [2,5,3,4,1].reverse()  -&gt; [1, 4, 3, 5, 2]<br>6、sort() 排序（但对数字排序不准确）<br>     [2,5,3,4,21].sort() -&gt; [2, 21, 3, 4, 5]<br>7、shift() 把数组的第一个元素从其中删除，并返回第一个元素的值。<br>     [2,5,3,4,21].shift()  -&gt; 2<br>8、slice(start,end) 从已有的数组中返回选定的元素,返回新数组<br>    [2,5,3,4,21].slice(1,4) -&gt; [5, 3, 4]<br>9、splice(规定添加/删除项目的位置,要删除的项目数量,向数组添加的新项目) 向/从数组中添加/删除项目，返回被删除的项目。<br>     [2,5,3,4,21].splice(1,3,8888) -&gt; [5, 3, 4]<br>10、toString() 把数组转换成字符串<br>     [2,5,3,4,21].toString() -&gt; “2,5,3,4,21”<br>11、unshift() 向数组的开头添加一个或更多元素，并返回新的长度<br>     [2,5,3,4,21].unshift(1) -&gt; 6</p>
+</blockquote>
+<p>More info: <a href="maimai123.github.io">麦麦</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://github.com/maimai123/hexo-source/blob/master/source/img/zhifu.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/mac上真机调试/" class="archive-article-date">
-  	<time datetime="2017-12-16T08:43:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/mac上真机调试/">Mac调试真机（麦麦）</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://maimai123.github.io/2017/12/16/整理各对象常用方法和属性/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/轮播图/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/12/16/弹出框/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          jquery 简单弹出框插件教程（麦麦）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/16/插件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jquery 简单插件教程（麦麦）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/轮播图/">jquery 轮播图插件教程（麦麦）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/react-table/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/react-table/">初学react 简单的table（包含增删查）-by 麦麦</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/vuex学习小计/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/vuex学习小计/">Vuex学习小计（麦麦）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/小难题/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/小难题/">vue或其他小难题整理（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/差评小计/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/差评小计/">进入差评后的小笔记（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/yyf/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/yyf/">hexo博客搭建（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/react日常小难题/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/react日常小难题/">react日常小难题整理（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/弹出框/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/弹出框/">jquery 简单弹出框插件教程（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/16/整理各对象常用方法和属性/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/16/整理各对象常用方法和属性/">整理各对象常用属性与方法（麦麦）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<style>
+  .gitment-comment-main, .gitment-editor-main {
+    background: #fff;
+  }
+  a.gitment-comment-name, a.gitment-comment-name:visited {
+    color: #137358;
+    font-size: 18px;
+  }
+</style>
+<script>
+var gitment = new Gitment({
+  id: "https://maimai123.github.io/2017/12/16/整理各对象常用方法和属性/",
+  owner: 'maimai123',
+  repo: 'maimai123.github.io',
+  oauth: {
+    client_id: 'af6a1c4b1116ca67c445',
+    client_secret: 'd54d714364afc257aa559054a82d0cb79b15b07b',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -454,8 +378,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
