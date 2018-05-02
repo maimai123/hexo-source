@@ -147,6 +147,152 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-react-table" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/16/react-table/">初学react 简单的table（包含增删查）-by 麦麦</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/16/react-table/" class="archive-article-date">
+  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><i class="icon-cloud"></i>react table<br>注意：react的script标签必须type为”text/babel”！！！</p>
+<p>#主图<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/react.png?raw=true"></p>
+<p>#点击新增<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/new.png?raw=true"></p>
+<p>#搜索<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/search.png?raw=true"><br>部分代码如下：<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">var CartBox = React.createClass(&#123;</span><br><span class="line">  //初始化数据，由state控制</span><br><span class="line">  getInitialState:function()&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      Itemd :</span><br><span class="line">      [</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"手机"</span>,<span class="string">"batch"</span>:<span class="string">"P1556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"金色"</span>,<span class="string">"price"</span>:<span class="string">"￥5876"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯垫"</span>,<span class="string">"batch"</span>:<span class="string">"P1586"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥56"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯子"</span>,<span class="string">"batch"</span>:<span class="string">"P1542"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥76"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"钢笔"</span>,<span class="string">"batch"</span>:<span class="string">"P7656"</span>,<span class="string">"goodscolor"</span>:<span class="string">"粉色"</span>,<span class="string">"price"</span>:<span class="string">"￥66"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"书本"</span>,<span class="string">"batch"</span>:<span class="string">"P3556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"白色"</span>,<span class="string">"price"</span>:<span class="string">"￥6"</span>&#125;</span><br><span class="line">      ],</span><br><span class="line">      selItem :[</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"手机"</span>,<span class="string">"batch"</span>:<span class="string">"P1556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"金色"</span>,<span class="string">"price"</span>:<span class="string">"￥5876"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯垫"</span>,<span class="string">"batch"</span>:<span class="string">"P1586"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥56"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯子"</span>,<span class="string">"batch"</span>:<span class="string">"P1542"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥76"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"钢笔"</span>,<span class="string">"batch"</span>:<span class="string">"P7656"</span>,<span class="string">"goodscolor"</span>:<span class="string">"粉色"</span>,<span class="string">"price"</span>:<span class="string">"￥66"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"书本"</span>,<span class="string">"batch"</span>:<span class="string">"P3556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"白色"</span>,<span class="string">"price"</span>:<span class="string">"￥6"</span>&#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  handleChange: function (rows) &#123;</span><br><span class="line">       this.setState(&#123;</span><br><span class="line">           selItem : rows</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;,</span><br><span class="line">  render : function()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;WarpLeft onSear=&#123;this.handleChange&#125; Itemdata=&#123;this.state.Itemd&#125; /&gt;</span><br><span class="line">        &lt;Prop onAdd=&#123;this.handleChange&#125; Itemdata=&#123;this.state.Itemd&#125; /&gt;</span><br><span class="line">        &lt;WarpRight onDel=&#123;this.handleChange&#125; Itemdata=&#123;this.state.selItem&#125; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">//搜索</span><br><span class="line">var WarpLeft = React.createClass(&#123;</span><br><span class="line">  handleAdd :function(e)&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    var self = this;</span><br><span class="line">    var string = self.refs.findVal.value;</span><br><span class="line">    var rows = self.props.Itemdata;</span><br><span class="line">    var dataIn = <span class="string">""</span>;</span><br><span class="line">    var array =[];</span><br><span class="line">    <span class="keyword">if</span>(string.length &gt; <span class="number">0</span>)&#123;</span><br><span class="line">      $.each(rows,function(i,item)&#123;</span><br><span class="line">        dataIn = item.goodsname.indexOf(string);</span><br><span class="line">        <span class="keyword">if</span>( dataIn &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">          array.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      array = self.props.Itemdata;</span><br><span class="line">    &#125;</span><br><span class="line">    this.props.onSear(array);</span><br><span class="line">  &#125;,</span><br><span class="line">  render :function()&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div className=<span class="string">"pull-left f2 he6 mt12"</span>&gt;</span><br><span class="line">        &lt;form&gt;</span><br><span class="line">          &lt;input id=<span class="string">"search"</span> ref=<span class="string">"findVal"</span> type=<span class="string">"text"</span> autoComplete=<span class="string">"off"</span> placeholder=<span class="string">"请输入名称搜索"</span>/&gt;</span><br><span class="line">          &lt;button className="btn-sm r btn" onClick=&#123;self.handleAdd&#125;&gt;搜索&lt;/button&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">//新增弹出框</span><br><span class="line">var Prop = React.createClass(&#123;</span><br><span class="line">  handleAdd : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    $(<span class="string">".propBox"</span>).show();</span><br><span class="line">  &#125;,</span><br><span class="line">  handleCan : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    $(<span class="string">".propBox"</span>).hide();</span><br><span class="line">  &#125;,</span><br><span class="line">  handleYes : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    var goodsname = self.refs.goodsname.value.trim();</span><br><span class="line">    var batch = self.refs.batch.value.trim();</span><br><span class="line">    var goodscolor = self.refs.goodscolor.value.trim();</span><br><span class="line">    var prize = self.refs.prize.value.trim();</span><br><span class="line">    var rows = self.props.Itemdata;</span><br><span class="line">    <span class="keyword">if</span> (goodsname != <span class="string">''</span> &amp; batch != <span class="string">''</span> &amp; goodscolor != <span class="string">''</span> &amp; prize != <span class="string">''</span>) &#123;</span><br><span class="line">       rows.push(&#123;<span class="string">'goodsname'</span>:goodsname,<span class="string">'batch'</span>:batch,<span class="string">'goodscolor'</span>:goodscolor,<span class="string">'price'</span>:prize&#125;);</span><br><span class="line">       this.props.onAdd(rows);</span><br><span class="line">    &#125;</span><br><span class="line">    self.refs.goodsname.value = <span class="string">""</span>;</span><br><span class="line">    self.refs.batch.value= <span class="string">""</span>;</span><br><span class="line">    self.refs.goodscolor.value=<span class="string">""</span>;</span><br><span class="line">    self.refs.prize.value=<span class="string">""</span>;</span><br><span class="line">    $(<span class="string">".propBox"</span>).hide();</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/12/16/react-table/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/16/react-table/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-small" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/16/small/">vue或其他小难题整理（麦麦）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/16/small/" class="archive-article-date">
+  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D</p>
+<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h2 id="1、emmet在jsx中不能使用的情况"><a href="#1、emmet在jsx中不能使用的情况" class="headerlink" title="1、emmet在jsx中不能使用的情况"></a>1、emmet在jsx中不能使用的情况</h2><blockquote>
+<p>大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet<br>我用的是atom编辑器。<br>首先，当然是打开atom 安装emmet插件 打开设置-&gt;key bindings -&gt; 点击 用户键盘映射 -&gt;修改文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'atom-text-editor[data-grammar="source js jsx vue"]'</span>:</span><br><span class="line">  <span class="string">'F12'</span>:<span class="string">'atom-html-preview:toggle'</span>,</span><br><span class="line">  <span class="string">'tab'</span>: <span class="string">'emmet:expand-abbreviation-with-tab'</span></span><br></pre></td></tr></table></figure></p>
+<p>这样就ok啦~ 尽情的使用emmet吧！</p>
+</blockquote>
+<h2 id="2、一个关于webpack的问题。"><a href="#2、一个关于webpack的问题。" class="headerlink" title="2、一个关于webpack的问题。"></a>2、一个关于webpack的问题。</h2><blockquote>
+<p>起服务以后，用localhost访问可以访问，<br>用具体ip 如：192.168.91.75:8080/index 却访问不到地址<br>这是啥问题呐(⊙o⊙)?<br>原来原来 只要在配置文件中加上 –host 0.0.0.0 就可以啦<br>具体在哪里加呢 答案就是在<strong>package.json</strong>中的start中啦~<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"webpack-dev-server --progress --profile --colors --hot --host 0.0.0.0"</span>,</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"webpack --progress --profile --colors --config webpack.production.config.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="3、说个vue的-外链css的问题"><a href="#3、说个vue的-外链css的问题" class="headerlink" title="3、说个vue的 外链css的问题"></a>3、说个vue的 外链css的问题</h2><blockquote>
+<p>再写vue的时候，虽说在页面内部可以写style来增加样式，但还是推荐外链css<br>于是我import ‘xxx.less’ —&gt;报错！！！我简直一个大写的懵逼啊 因为我在react中都是这么引入css的<br>后来我才知道 vue中 外链css 要卸载style标签内部 然后@import ‘xxx.less’<br>这样就没问题了~<br>还有个如果你想在页面的style中使用less或sass要怎么办呢<br>给style加个 lang=”less”就可以啦</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/12/16/small/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/16/small/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-react-daily" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -190,76 +336,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/12/16/react-daily/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-react-table" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/16/react-table/">初学react 简单的table（包含增删查）-by 麦麦</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/16/react-table/" class="archive-article-date">
-  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p><i class="icon-cloud"></i>react table<br>注意：react的script标签必须type为”text/babel”！！！</p>
-<p>#主图<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/react.png?raw=true"></p>
-<p>#点击新增<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/new.png?raw=true"></p>
-<p>#搜索<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/search.png?raw=true"><br>部分代码如下：<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">var CartBox = React.createClass(&#123;</span><br><span class="line">  //初始化数据，由state控制</span><br><span class="line">  getInitialState:function()&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      Itemd :</span><br><span class="line">      [</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"手机"</span>,<span class="string">"batch"</span>:<span class="string">"P1556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"金色"</span>,<span class="string">"price"</span>:<span class="string">"￥5876"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯垫"</span>,<span class="string">"batch"</span>:<span class="string">"P1586"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥56"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯子"</span>,<span class="string">"batch"</span>:<span class="string">"P1542"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥76"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"钢笔"</span>,<span class="string">"batch"</span>:<span class="string">"P7656"</span>,<span class="string">"goodscolor"</span>:<span class="string">"粉色"</span>,<span class="string">"price"</span>:<span class="string">"￥66"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"书本"</span>,<span class="string">"batch"</span>:<span class="string">"P3556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"白色"</span>,<span class="string">"price"</span>:<span class="string">"￥6"</span>&#125;</span><br><span class="line">      ],</span><br><span class="line">      selItem :[</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"手机"</span>,<span class="string">"batch"</span>:<span class="string">"P1556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"金色"</span>,<span class="string">"price"</span>:<span class="string">"￥5876"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯垫"</span>,<span class="string">"batch"</span>:<span class="string">"P1586"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥56"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"杯子"</span>,<span class="string">"batch"</span>:<span class="string">"P1542"</span>,<span class="string">"goodscolor"</span>:<span class="string">"红色"</span>,<span class="string">"price"</span>:<span class="string">"￥76"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"钢笔"</span>,<span class="string">"batch"</span>:<span class="string">"P7656"</span>,<span class="string">"goodscolor"</span>:<span class="string">"粉色"</span>,<span class="string">"price"</span>:<span class="string">"￥66"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"goodsname"</span>:<span class="string">"书本"</span>,<span class="string">"batch"</span>:<span class="string">"P3556"</span>,<span class="string">"goodscolor"</span>:<span class="string">"白色"</span>,<span class="string">"price"</span>:<span class="string">"￥6"</span>&#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  handleChange: function (rows) &#123;</span><br><span class="line">       this.setState(&#123;</span><br><span class="line">           selItem : rows</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;,</span><br><span class="line">  render : function()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;WarpLeft onSear=&#123;this.handleChange&#125; Itemdata=&#123;this.state.Itemd&#125; /&gt;</span><br><span class="line">        &lt;Prop onAdd=&#123;this.handleChange&#125; Itemdata=&#123;this.state.Itemd&#125; /&gt;</span><br><span class="line">        &lt;WarpRight onDel=&#123;this.handleChange&#125; Itemdata=&#123;this.state.selItem&#125; /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">//搜索</span><br><span class="line">var WarpLeft = React.createClass(&#123;</span><br><span class="line">  handleAdd :function(e)&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    var self = this;</span><br><span class="line">    var string = self.refs.findVal.value;</span><br><span class="line">    var rows = self.props.Itemdata;</span><br><span class="line">    var dataIn = <span class="string">""</span>;</span><br><span class="line">    var array =[];</span><br><span class="line">    <span class="keyword">if</span>(string.length &gt; <span class="number">0</span>)&#123;</span><br><span class="line">      $.each(rows,function(i,item)&#123;</span><br><span class="line">        dataIn = item.goodsname.indexOf(string);</span><br><span class="line">        <span class="keyword">if</span>( dataIn &gt; <span class="number">-1</span>)&#123;</span><br><span class="line">          array.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      array = self.props.Itemdata;</span><br><span class="line">    &#125;</span><br><span class="line">    this.props.onSear(array);</span><br><span class="line">  &#125;,</span><br><span class="line">  render :function()&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div className=<span class="string">"pull-left f2 he6 mt12"</span>&gt;</span><br><span class="line">        &lt;form&gt;</span><br><span class="line">          &lt;input id=<span class="string">"search"</span> ref=<span class="string">"findVal"</span> type=<span class="string">"text"</span> autoComplete=<span class="string">"off"</span> placeholder=<span class="string">"请输入名称搜索"</span>/&gt;</span><br><span class="line">          &lt;button className="btn-sm r btn" onClick=&#123;self.handleAdd&#125;&gt;搜索&lt;/button&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">//新增弹出框</span><br><span class="line">var Prop = React.createClass(&#123;</span><br><span class="line">  handleAdd : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    $(<span class="string">".propBox"</span>).show();</span><br><span class="line">  &#125;,</span><br><span class="line">  handleCan : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    $(<span class="string">".propBox"</span>).hide();</span><br><span class="line">  &#125;,</span><br><span class="line">  handleYes : function(e)&#123;</span><br><span class="line">    var self = this;</span><br><span class="line">    var goodsname = self.refs.goodsname.value.trim();</span><br><span class="line">    var batch = self.refs.batch.value.trim();</span><br><span class="line">    var goodscolor = self.refs.goodscolor.value.trim();</span><br><span class="line">    var prize = self.refs.prize.value.trim();</span><br><span class="line">    var rows = self.props.Itemdata;</span><br><span class="line">    <span class="keyword">if</span> (goodsname != <span class="string">''</span> &amp; batch != <span class="string">''</span> &amp; goodscolor != <span class="string">''</span> &amp; prize != <span class="string">''</span>) &#123;</span><br><span class="line">       rows.push(&#123;<span class="string">'goodsname'</span>:goodsname,<span class="string">'batch'</span>:batch,<span class="string">'goodscolor'</span>:goodscolor,<span class="string">'price'</span>:prize&#125;);</span><br><span class="line">       this.props.onAdd(rows);</span><br><span class="line">    &#125;</span><br><span class="line">    self.refs.goodsname.value = <span class="string">""</span>;</span><br><span class="line">    self.refs.batch.value= <span class="string">""</span>;</span><br><span class="line">    self.refs.goodscolor.value=<span class="string">""</span>;</span><br><span class="line">    self.refs.prize.value=<span class="string">""</span>;</span><br><span class="line">    $(<span class="string">".propBox"</span>).hide();</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/12/16/react-table/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/16/react-table/">展开全文 >></a>
         </p>
       
 
@@ -367,19 +443,19 @@
 
 
   
-    <article id="post-small" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-collection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/16/small/">vue或其他小难题整理（麦麦）</a>
+      <a class="article-title" href="/2017/12/16/collection/">整理各对象常用属性与方法（麦麦）</a>
     </h1>
   
 
         
-        <a href="/2017/12/16/small/" class="archive-article-date">
+        <a href="/2017/12/16/collection/" class="archive-article-date">
   	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
 </a>
         
@@ -387,20 +463,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D</p>
-<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
-<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h2 id="1、emmet在jsx中不能使用的情况"><a href="#1、emmet在jsx中不能使用的情况" class="headerlink" title="1、emmet在jsx中不能使用的情况"></a>1、emmet在jsx中不能使用的情况</h2><blockquote>
-<p>大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet<br>我用的是atom编辑器。<br>首先，当然是打开atom 安装emmet插件 打开设置-&gt;key bindings -&gt; 点击 用户键盘映射 -&gt;修改文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'atom-text-editor[data-grammar="source js jsx vue"]'</span>:</span><br><span class="line">  <span class="string">'F12'</span>:<span class="string">'atom-html-preview:toggle'</span>,</span><br><span class="line">  <span class="string">'tab'</span>: <span class="string">'emmet:expand-abbreviation-with-tab'</span></span><br></pre></td></tr></table></figure></p>
-<p>这样就ok啦~ 尽情的使用emmet吧！</p>
+        <h2 id="如有转载，请注明出处。"><a href="#如有转载，请注明出处。" class="headerlink" title="如有转载，请注明出处。"></a><font size="1"><strong>如有转载，请注明出处。</strong></font></h2><p><strong>String对象的各种属性与方法</strong></p>
+<p>属性：</p>
+<blockquote>
+<p> i、length 字符串长度<br>   “aaa”.length -&gt; 3<br> ii、prototype允许您向对象添加属性和方法<br> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">   String.prototype.spacify=function(str)&#123;</span><br><span class="line">     <span class="keyword">return</span>(str.split(<span class="string">""</span>).join(<span class="string">" "</span>))</span><br><span class="line">   &#125;</span><br><span class="line">   "asasda".spacify("asss") -&gt; "a s s s" 新建的String对象的方法,用于往字符串中插入空格</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h2 id="2、一个关于webpack的问题。"><a href="#2、一个关于webpack的问题。" class="headerlink" title="2、一个关于webpack的问题。"></a>2、一个关于webpack的问题。</h2><blockquote>
-<p>起服务以后，用localhost访问可以访问，<br>用具体ip 如：192.168.91.75:8080/index 却访问不到地址<br>这是啥问题呐(⊙o⊙)?<br>原来原来 只要在配置文件中加上 –host 0.0.0.0 就可以啦<br>具体在哪里加呢 答案就是在<strong>package.json</strong>中的start中啦~<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"webpack-dev-server --progress --profile --colors --hot --host 0.0.0.0"</span>,</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"webpack --progress --profile --colors --config webpack.production.config.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="3、说个vue的-外链css的问题"><a href="#3、说个vue的-外链css的问题" class="headerlink" title="3、说个vue的 外链css的问题"></a>3、说个vue的 外链css的问题</h2><blockquote>
-<p>再写vue的时候，虽说在页面内部可以写style来增加样式，但还是推荐外链css<br>于是我import ‘xxx.less’ —&gt;报错！！！我简直一个大写的懵逼啊 因为我在react中都是这么引入css的<br>后来我才知道 vue中 外链css 要卸载style标签内部 然后@import ‘xxx.less’<br>这样就没问题了~<br>还有个如果你想在页面的style中使用less或sass要怎么办呢<br>给style加个 lang=”less”就可以啦</p>
+<p>方法：</p>
+<blockquote>
+<p>1、split 讲字符分割成数组显示<br>      “a,s,d”.split(“,”) -&gt; [“a”,”s”,”d”]<br>2、concat 合并字符串火数组<br>     “1”.concat(“sdf”,”555”)-&gt; “1sdf555”<br>      [“1”].concat(“sdf”,”555”) -&gt;[“1”, “sdf”, “555”]<br>3、toLocaleUpperCase同toUpperCase 小写转换成大写<br>     “asaddas”.toLocaleUpperCase()==”asaddas”.toUpperCase() “ASADDAS”<br>4、toLocaleLowerCase同toLowerCase 大写转换成小写<br>     “ASADDAS”.toLocaleLowerCase()==”asaddas”.toLowerCase() “asaddas”<br>5、charAt 从字符串中取出单个字符<br>     “asde”.charAt(2)-&gt; d<br>6、indexOf(“xx”,[从几开始检索]) 从字符串中检索字符是否存在,不存在返回-1,<br>     “woshiyuyafei”.indexOf(“yuyafei”) -&gt;5<br>7、lastIndexOf(“xx”,[从几开始检索]) 从最后往字符串中检索字符是否存在,不存在返回-1,<br>     “woshiyuyafei”.lastIndexOf(“yu”,11) -&gt;5<br>8、match(“xxx”,’regexp’) 检索字符串中指定值返回指定值，或找到一个或多个正则表达式的匹配,<br>     “hello world”.match(“hello”) -&gt; [“hello”]<br>     “he2llo1wo3rld”.match(/\d+/g) -&gt; [“2”, “1”, “3”]<br>9、slice(start,end) 提取字符串的某个部分，并以新的字符串返回被提取的部分(不包括结束),不申明结束则默认为字符串长度-1.若为负数，则变为长度+负数的值取 返回新的字符串<br>     “hello aaaa”.slice(1,6) -&gt; “ello “<br>    “hello aaaa”.slice(-8,-2) -&gt; “hello aaaa”.slice(2,8) -&gt; “llo aa”<br>10、substr(start,length) 从字符串中抽取从 start 下标开始的指定数目的字符,若为负数：-1 指字符串中最后一个字符，-2 指倒数第二个字符，以此类推。  返回新字符串<br>     “hello world”.substr(1,4) -&gt; “ello”<br>     “hello world”.substr(-8,4)-&gt; “hello world”.substr(3,4)  -&gt; “lo w”<br>11、substring(start,end) 提取字符串中介于两个指定下标之间的字符(不包括结束不接受负数)<br>     “hello”.substring(1,3) -&gt; “el”</p>
 </blockquote>
         
-          <a class="article-more-a" href="/2017/12/16/small/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/16/collection/#more">more >></a>
         
       
 
@@ -413,7 +486,76 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/16/small/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/16/collection/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-plugin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/16/plugin/">jquery 简单插件教程（麦麦）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/16/plugin/" class="archive-article-date">
+  	<time datetime="2017-12-16T05:44:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>插件的引入使我们的代码变得越来越简单，我们只用过插件却很少有人动手写过插件。本文就以实例形式简单叙述了jQuery插件的实现方法。分享给大家供大家参考之用。</p>
+<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
+<blockquote>
+<p><i class="icon-cloud"></i>简单的alert<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//弹出alert弹框</span><br><span class="line">$.fn.alert = function(options)&#123;</span><br><span class="line">  var dets = &#123;</span><br><span class="line">    Event : <span class="string">"click"</span>,  //默认使用click事件</span><br><span class="line">    msg : <span class="string">"hello world!"</span> //默认弹出内容为hello，world</span><br><span class="line">  &#125;</span><br><span class="line">  var opts = $.extend(dets,options);</span><br><span class="line">  var $this = $(this);</span><br><span class="line">  $this.on( opts.Event ,function(e)&#123;</span><br><span class="line">    alert(opts.msg);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//调用alert插件</span><br><span class="line">$(<span class="string">"div"</span>).alert(&#123;</span><br><span class="line">  Event :　<span class="string">"mouseover"</span>,</span><br><span class="line">  msg : <span class="string">"我改变了默认弹出内容"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/12/16/plugin/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/16/plugin/">展开全文 >></a>
         </p>
       
 
@@ -457,7 +599,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 麦麦
+    		&copy; 2018 麦麦
     	</div>
     </div>
   </div>
