@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://maimai123.github.io">
   <title>vue或其他小难题整理（麦麦） | Lvy’s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -39,7 +39,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -190,7 +190,7 @@
 <p><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/router.png?raw=true"></p>
 <h2 id="6、vue-cli-webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack-config-json中的-devServer-中，写法如下："><a href="#6、vue-cli-webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack-config-json中的-devServer-中，写法如下：" class="headerlink" title="6、vue-cli+webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack.config.json中的 devServer 中，写法如下："></a>6、vue-cli+webpack搭建脚手架非常容易，但端口是默认为8080，在react时改变端口一般写在webpack.config.json中的 devServer 中，写法如下：</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  devServer:&#123; <span class="comment">//配置服务器环境</span></span><br><span class="line">    colors:<span class="literal">true</span>,</span><br><span class="line">    historyApiFallback:<span class="literal">true</span>,</span><br><span class="line">    inline:<span class="literal">true</span>, <span class="comment">//自动刷新</span></span><br><span class="line">    port:<span class="string">'1234'</span>, <span class="comment">//修改端口号</span></span><br><span class="line">    host : <span class="string">'0.0.0.0'</span>,</span><br><span class="line">    progress:<span class="literal">true</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <p>There are some additional options:</p>
-<p>–content-base <file directory="" url="" port="">: base path for the content.<br>–quiet: don’t output anything to the console.<br>–no-info: suppress boring information.<br>–colors: add some colors to the output.<br>–no-colors: don’t use colors in the output.<br>–compress: use gzip compression.<br>–host <hostname ip="">: hostname or IP. 0.0.0.0 binds to all hosts.<br>–port <number>: port.<br>–inline: embed the webpack-dev-server runtime into the bundle.<br>–hot: adds the HotModuleReplacementPlugin and switch the server to hot mode. Note: make sure you don’t add HotModuleReplacementPlugin twice.<br>–hot –inline also adds the webpack/hot/dev-server entry.<br>–public: overrides the host and port used in –inline mode for the client (useful for a VM or Docker).<br>–lazy: no watching, compiles on request (cannot be combined with –hot).<br>–https: serves webpack-dev-server over HTTPS Protocol. Includes a self-signed certificate that is used when serving the requests.<br>–cert, –cacert, –key: Paths the certificate files.<br>–open: opens the url in default browser (for webpack-dev-server versions &gt; 2.0).<br>–history-api-fallback: enables support for history API fallback.<br>–client-log-level: controls the console log messages shown in the browser. Use error, warning, info or none.</number></hostname></file></p>
+<p>–content-base <file directory url port>: base path for the content.<br>–quiet: don’t output anything to the console.<br>–no-info: suppress boring information.<br>–colors: add some colors to the output.<br>–no-colors: don’t use colors in the output.<br>–compress: use gzip compression.<br>–host <hostname ip>: hostname or IP. 0.0.0.0 binds to all hosts.<br>–port <number>: port.<br>–inline: embed the webpack-dev-server runtime into the bundle.<br>–hot: adds the HotModuleReplacementPlugin and switch the server to hot mode. Note: make sure you don’t add HotModuleReplacementPlugin twice.<br>–hot –inline also adds the webpack/hot/dev-server entry.<br>–public: overrides the host and port used in –inline mode for the client (useful for a VM or Docker).<br>–lazy: no watching, compiles on request (cannot be combined with –hot).<br>–https: serves webpack-dev-server over HTTPS Protocol. Includes a self-signed certificate that is used when serving the requests.<br>–cert, –cacert, –key: Paths the certificate files.<br>–open: opens the url in default browser (for webpack-dev-server versions &gt; 2.0).<br>–history-api-fallback: enables support for history API fallback.<br>–client-log-level: controls the console log messages shown in the browser. Use error, warning, info or none.</number></hostname></file></p>
 <blockquote>
 <p>也可以写在package.json的start中。如：webpack-dev-server –devtool eval –progress –colors –inline –hot –content-base build –port1234<br>但vue-cli中如果希望修改端口号，则进入~\config\index.js，修改dev下的port为希望启动的端口号。例如: port: 1234,</p>
 </blockquote>
@@ -319,8 +319,8 @@
     </a>
   
   
-    <a href="/2017/12/16/react-daily/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">react日常小难题整理（麦麦）</div>
+    <a href="/2017/12/16/yyf/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo博客搭建（麦麦）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -388,7 +388,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 麦麦
+    		&copy; 2019 麦麦
     	</div>
     </div>
   </div>
