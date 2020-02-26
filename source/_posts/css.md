@@ -1,5 +1,7 @@
 ---
-title: 张鑫旭最精简css resetcss通用样式库（麦麦）
+title: 张鑫旭最精简css reset css通用样式库
+date: 2017-08-14
+tags: css
 ---
 <font size=1>**如有转载，请注明出处。**</font>
 <h1>CSS reset</h1>

@@ -1,5 +1,7 @@
 ---
-title: 初学react 简单的table（包含增删查）-by 麦麦
+title: 初学react 简单的table（包含增删查）
+date: 2017-12-28
+tags: React
 ---
 ><i class="icon-cloud"></i>react table
 > 注意：react的script标签必须type为"text/babel"！！！

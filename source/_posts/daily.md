@@ -1,15 +1,21 @@
 ---
-title: 日常小计（麦麦）
+title: 日常小计:无图片处理
+date: 2017-12-16
+tags: js
 ---
 <h1>无图片时显示默认图片</h1>
 <font size=1>**如有转载，请注明出处。**</font>
-##第一种
->$("img“).on('error',function(){
+
+> 第一种
+```javascript
+$("img“).on('error',function(){
     this.src = '/assets/img/student/null-pic.jpg';  //默认图片
 });
+```
 
-##第二种
->imgShow:function(){
+> 第二种
+```javascript
+imgShow:function(){
     var t_img; // 定时器
     var isLoad = true; // 控制变量
     // imgBlock();
@@ -42,7 +48,7 @@ title: 日常小计（麦麦）
         }
     }
 }
-
+```
 
 
 

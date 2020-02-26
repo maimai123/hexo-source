@@ -1,5 +1,7 @@
 ---
-title: hexo博客搭建（麦麦）
+title: hexo博客搭建
+date: 2018-05-07
+tags: hexo
 ---
 <font size=1>**如有转载，请注明出处。**</font>
 
@@ -42,9 +44,138 @@ hexo s -g
 hexo d -g
 
 #主题丢失问题
-> 我发现我的yilia主题push到github尚老师丢失，下下来没有了
+> 我发现我的yilia主题push到github上老丢失，下下来没有了
 > 执行
 * git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
+
+_config.yml设置如下
+```javascript
+# Header
+
+menu:
+  主页: /
+  所有文章: /archives/
+
+# SubNav
+subnav:
+  github: "https://github.com/maimai123"
+  weibo: "http://weibo.com/marsmaimai"
+  zhihu: "https://www.zhihu.com/people/yu-ya-fei-27/activities"
+  bilibili: "https://space.bilibili.com/57022459?from=search&seid=2536533383147677614"
+  mail: "mailto:15867193547@163.com"
+  #qq: "#"
+  #weixin: "#"
+  #jianshu: "#"
+  #douban: "#"
+  #segmentfault: "#"
+  #acfun: "#"
+  #facebook: "#"
+  #google: "#"
+  #twitter: "#"
+  #linkedin: "#"
+
+rss: /atom.xml
+
+# 是否需要修改 root 路径
+# 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，
+# 请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。
+root: /
+
+# Content
+
+# 文章太长，截断按钮文字
+excerpt_link: more
+# 文章卡片右下角常驻链接，不需要请设置为false
+show_all_link: '展开全文'
+# 数学公式
+mathjax: false
+# 是否在新窗口打开链接
+open_in_new: false
+
+# 打赏
+# 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
+reward_type: 2
+# 打赏wording
+reward_wording: '谢谢你请我吃糖果'
+# 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
+alipay: https://github.com/maimai123/hexo-source/blob/master/source/img/zhifu.jpg?raw=true
+# 微信二维码图片地址
+weixin:
+
+# 目录
+# 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
+toc: 1
+# 根据自己的习惯来设置，如果你的目录标题习惯有标号，置为true即可隐藏hexo重复的序号；否则置为false
+toc_hide_index: true
+# 目录为空时的提示
+toc_empty_wording: '目录，不存在的…'
+
+# 是否有快速回到顶部的按钮
+top: true
+
+# Miscellaneous
+baidu_analytics: ''
+google_analytics: ''
+favicon: /favicon.png
+
+#你的头像url
+avatar: https://tvax1.sinaimg.cn/crop.0.0.1080.1080.180/94304813ly8g0iy75xy2fj20u00u0n0a.jpg?KID=imgbed,tva&Expires=1582716826&ssig=74nyyHMyZV
+
+#是否开启分享
+share_jia: true
+
+#评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus；5、Gitment
+#不需要使用某项，直接设置值为false，或注释掉
+#具体请参考wiki：https://github.com/litten/hexo-theme-yilia/wiki/
+
+#1、多说
+duoshuo: false
+
+#2、网易云跟帖
+wangyiyun: true
+
+#3、畅言
+changyan_appid: false
+changyan_conf: false
+
+#4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
+disqus: false
+
+#5、Gitment
+gitment_owner: false      #你的 GitHub ID
+gitment_repo: ''          #存储评论的 repo
+gitment_oauth:
+  client_id: ''           #client ID
+  client_secret: ''       #client secret
+
+# 样式定制 - 一般不需要修改，除非有很强的定制欲望…
+style:
+  # 头像上面的背景颜色
+  header: '#4d4d4d'
+  # 右滑板块背景
+  slider: 'linear-gradient(200deg,#a0cfe4,#e8c37e)'
+
+# slider的设置
+slider:
+  showTags: true
+
+# 智能菜单
+# 如不需要，将该对应项置为false
+# 比如
+#smart_menu:
+#  friends: false
+smart_menu:
+  innerArchive: '点我搜文章'
+  friends: '友链'
+  aboutme: '关于我'
+
+friends:
+  小雷的博客: http://www.leridy.pw
+  麦麦的博客: https://www.marsmai.club/
+
+aboutme: 很惭愧<br><br>很久没写博客了<br>谢谢你还能来逛逛
+
+```
 
 
 More info: [麦麦](maimai123.github.io)

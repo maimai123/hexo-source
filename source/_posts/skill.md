@@ -1,5 +1,7 @@
 ---
-title: 日常小计~（麦麦）
+title: 日常小计~
+date: 2018-04-28
+tags: 日常
 ---
 讲的都是些很基础的东西，觉得以后写代码能直接复制粘贴的哈哈哈~
 <font size=1>**如有转载，请注明出处。**</font>
@@ -29,7 +31,7 @@ title: 日常小计~（麦麦）
 ## 3、如果你想计算数组中元素出现的次数或者想把数组转为对象，那么你可以使用 reduce 来做到。
 ```javascript
 const cars = ['BMW','Benz', 'Benz', 'Tesla', 'BMW', 'Toyota'];
-const carsObj = cars.reduce((obj, name) => { 
+const carsObj = cars.reduce((obj, name) => {
   obj[name] = obj[name] ? ++obj[name] : 1;
     return obj;
   }, {});
@@ -47,7 +49,7 @@ const carsObj = cars.reduce((obj, name) => {
 })
 ```
 ## 5、Cube-ui slide引用不到的问题
-* SlideItem在slide的Item中 
+* SlideItem在slide的Item中
 * cubeSlideItem: Slide.Item,
 
 ## 6、element-ui中验证对象中的属性

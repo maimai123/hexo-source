@@ -1,5 +1,7 @@
 ---
-title: Vuex学习小计（麦麦）
+title: Vuex学习小计
+date: 2018-12-25
+tags: vuex
 ---
 <i class="icon-adjust"></i> 初学vuex，总得弄懂他的思想。
 <font size=2>vuex是什么？ 下面是官网给出的说法。
