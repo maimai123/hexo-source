@@ -163,6 +163,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-yyf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/07/yyf/">hexo博客搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/07/yyf/" class="archive-article-date">
+  	<time datetime="2018-05-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <font size="1"><strong>如有转载，请注明出处。</strong></font>
+
+<p>已经在D盘D:\git\hexo下面装好了hexo 只需要<br><img src="http://a3.qpic.cn/psb?/e780e515-0f41-4fd9-b116-910ac87c9a9d/HbhW5r8SCO9iyIpUE8QS7pfUEqaVShMRHWfXyjCZLSY!/b/dI8AAAAAAAAA&bo=AAOoAAAAAAADB4k!&rf=viewer_4"><br>输入 hexo generate 回车<br>        hexo server就可以启动了<br>本地访问localhost:4000可以访问了<br>不知道github上 ，登录github账号</p>
+<p>在hexo的安装路径D:\git\hexo下找到_config.yml<br><img src="http://a3.qpic.cn/psb?/e780e515-0f41-4fd9-b116-910ac87c9a9d/K7wRFP5VSOigejKjT6vTaOVBvDqHBy1vRsN4TRTDdlw!/b/dA0BAAAAAAAA&bo=0QLWAAAAAAADByc!&rf=viewer_4"><br>deploy:<br>  type: git<br>  repository: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:maimai123/maimai123.github.io.git<br>  branch: master</p>
+<p>先按ctrl+c停止本地的再<br>输入 hexo generate 回车<br>        hexo deploy就可以部署了</p>
+<p>如果部署失败 则可能是没有设置ssh<br><a href="http://jingyan.baidu.com/article/a65957f4e91ccf24e77f9b11.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/a65957f4e91ccf24e77f9b11.html</a></p>
+<p>ssh内容在C:\Users\Administrator.ssh下<br>设置完以后要查看邮箱<br>ssh密码为空<br>部署到github上<br>npm install hexo-deployer-git –save<br>hexo  generate<br> hexo deploy<br>bugs<br>在github部署完成之后，马上访问可能出现404错误，这是正常的，（最多）等待十分钟左右就可以访问了。如果还不行，那很可能是 github 发送给你的验证邮件你没有打开看，据多方反映，验证后就没问题了</p>
+<p>同步到github上<br>hexo s -g<br>hexo d -g</p>
+<p>#主题丢失问题</p>
+<blockquote>
+<p>我发现我的yilia主题push到github上老丢失，下下来没有了<br>执行</p>
+<ul>
+<li>git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</li>
+</ul>
+</blockquote>
+<p>_config.yml设置如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"># Header</span><br><span class="line"></span><br><span class="line">menu:</span><br><span class="line">  主页: <span class="regexp">/</span></span><br><span class="line"><span class="regexp">  所有文章: /</span>archives/</span><br><span class="line"></span><br><span class="line"># SubNav</span><br><span class="line">subnav:</span><br><span class="line">  github: <span class="string">"https://github.com/maimai123"</span></span><br><span class="line">  weibo: <span class="string">"http://weibo.com/marsmaimai"</span></span><br><span class="line">  zhihu: <span class="string">"https://www.zhihu.com/people/yu-ya-fei-27/activities"</span></span><br><span class="line">  bilibili: <span class="string">"https://space.bilibili.com/57022459?from=search&amp;seid=2536533383147677614"</span></span><br><span class="line">  mail: <span class="string">"mailto:15867193547@163.com"</span></span><br><span class="line">  #qq: "#"</span><br><span class="line">  #weixin: "#"</span><br><span class="line">  #jianshu: "#"</span><br><span class="line">  #douban: "#"</span><br><span class="line">  #segmentfault: "#"</span><br><span class="line">  #acfun: "#"</span><br><span class="line">  #facebook: "#"</span><br><span class="line">  #google: "#"</span><br><span class="line">  #twitter: "#"</span><br><span class="line">  #linkedin: "#"</span><br><span class="line"></span><br><span class="line">rss: <span class="regexp">/atom.xml</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"># 是否需要修改 root 路径</span></span><br><span class="line"><span class="regexp"># 如果您的网站存放在子目录中，例如 http:/</span><span class="regexp">/yoursite.com/</span>blog，</span><br><span class="line"># 请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。</span><br><span class="line">root: <span class="regexp">/</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"># Content</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"># 文章太长，截断按钮文字</span></span><br><span class="line"><span class="regexp">excerpt_link: more</span></span><br><span class="line"><span class="regexp"># 文章卡片右下角常驻链接，不需要请设置为false</span></span><br><span class="line"><span class="regexp">show_all_link: '展开全文'</span></span><br><span class="line"><span class="regexp"># 数学公式</span></span><br><span class="line"><span class="regexp">mathjax: false</span></span><br><span class="line"><span class="regexp"># 是否在新窗口打开链接</span></span><br><span class="line"><span class="regexp">open_in_new: false</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"># 打赏</span></span><br><span class="line"><span class="regexp"># 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏</span></span><br><span class="line"><span class="regexp">reward_type: 2</span></span><br><span class="line"><span class="regexp"># 打赏wording</span></span><br><span class="line"><span class="regexp">reward_wording: '谢谢你请我吃糖果'</span></span><br><span class="line"><span class="regexp"># 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/</span>assets/img/alipay.jpg</span><br><span class="line">alipay: https:<span class="comment">//github.com/maimai123/hexo-source/blob/master/source/img/zhifu.jpg?raw=true</span></span><br><span class="line"># 微信二维码图片地址</span><br><span class="line">weixin:</span><br><span class="line"></span><br><span class="line"># 目录</span><br><span class="line"># 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录</span><br><span class="line">toc: <span class="number">1</span></span><br><span class="line"># 根据自己的习惯来设置，如果你的目录标题习惯有标号，置为true即可隐藏hexo重复的序号；否则置为false</span><br><span class="line">toc_hide_index: <span class="literal">true</span></span><br><span class="line"># 目录为空时的提示</span><br><span class="line">toc_empty_wording: <span class="string">'目录，不存在的…'</span></span><br><span class="line"></span><br><span class="line"># 是否有快速回到顶部的按钮</span><br><span class="line">top: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"># Miscellaneous</span><br><span class="line">baidu_analytics: <span class="string">''</span></span><br><span class="line">google_analytics: <span class="string">''</span></span><br><span class="line">favicon: <span class="regexp">/favicon.png</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">#你的头像url</span></span><br><span class="line"><span class="regexp">avatar: https:/</span><span class="regexp">/tvax1.sinaimg.cn/</span>crop<span class="number">.0</span><span class="number">.0</span><span class="number">.1080</span><span class="number">.1080</span><span class="number">.180</span>/<span class="number">94304813</span>ly8g0iy75xy2fj20u00u0n0a.jpg?KID=imgbed,tva&amp;Expires=<span class="number">1582716826</span>&amp;ssig=<span class="number">74n</span>yyHMyZV</span><br><span class="line"></span><br><span class="line">#是否开启分享</span><br><span class="line">share_jia: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">#评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus；5、Gitment</span><br><span class="line">#不需要使用某项，直接设置值为false，或注释掉</span><br><span class="line">#具体请参考wiki：https://github.com/litten/hexo-theme-yilia/wiki/</span><br><span class="line"></span><br><span class="line">#1、多说</span><br><span class="line">duoshuo: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">#2、网易云跟帖</span><br><span class="line">wangyiyun: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">#3、畅言</span><br><span class="line">changyan_appid: <span class="literal">false</span></span><br><span class="line">changyan_conf: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">#4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的</span><br><span class="line">disqus: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">#5、Gitment</span><br><span class="line">gitment_owner: false      #你的 GitHub ID</span><br><span class="line">gitment_repo: ''          #存储评论的 repo</span><br><span class="line">gitment_oauth:</span><br><span class="line">  client_id: ''           #client ID</span><br><span class="line">  client_secret: ''       #client secret</span><br><span class="line"></span><br><span class="line"># 样式定制 - 一般不需要修改，除非有很强的定制欲望…</span><br><span class="line">style:</span><br><span class="line">  # 头像上面的背景颜色</span><br><span class="line">  header: <span class="string">'#4d4d4d'</span></span><br><span class="line">  # 右滑板块背景</span><br><span class="line">  slider: <span class="string">'linear-gradient(200deg,#a0cfe4,#e8c37e)'</span></span><br><span class="line"></span><br><span class="line"># slider的设置</span><br><span class="line">slider:</span><br><span class="line">  showTags: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"># 智能菜单</span><br><span class="line"># 如不需要，将该对应项置为false</span><br><span class="line"># 比如</span><br><span class="line">#smart_menu:</span><br><span class="line">#  friends: false</span><br><span class="line">smart_menu:</span><br><span class="line">  innerArchive: <span class="string">'点我搜文章'</span></span><br><span class="line">  friends: <span class="string">'友链'</span></span><br><span class="line">  aboutme: <span class="string">'关于我'</span></span><br><span class="line"></span><br><span class="line">friends:</span><br><span class="line">  小雷的博客: http:<span class="comment">//www.leridy.pw</span></span><br><span class="line">  麦麦的博客: https:<span class="comment">//www.marsmai.club/</span></span><br><span class="line"></span><br><span class="line">aboutme: 很惭愧&lt;br&gt;&lt;br&gt;很久没写博客了&lt;br&gt;谢谢你还能来逛逛</span><br></pre></td></tr></table></figure></p>
+<p>More info: <a href="maimai123.github.io">麦麦</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/07/yyf/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-skill" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -890,93 +980,9 @@
 
 
   
-    <article id="post-collection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/05/collection/">整理各对象常用属性与方法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/05/collection/" class="archive-article-date">
-  	<time datetime="2017-04-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="如有转载，请注明出处。"><a href="#如有转载，请注明出处。" class="headerlink" title="如有转载，请注明出处。"></a><font size="1"><strong>如有转载，请注明出处。</strong></font></h2><p><strong>String对象的各种属性与方法</strong></p>
-<p>属性：</p>
-<blockquote>
-<p> i、length 字符串长度<br>   “aaa”.length -&gt; 3<br> ii、prototype允许您向对象添加属性和方法<br> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">   String.prototype.spacify=function(str)&#123;</span><br><span class="line">     <span class="keyword">return</span>(str.split(<span class="string">""</span>).join(<span class="string">" "</span>))</span><br><span class="line">   &#125;</span><br><span class="line">   "asasda".spacify("asss") -&gt; "a s s s" 新建的String对象的方法,用于往字符串中插入空格</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>方法：</p>
-<blockquote>
-<p>1、split 讲字符分割成数组显示<br>      “a,s,d”.split(“,”) -&gt; [“a”,”s”,”d”]<br>2、concat 合并字符串火数组<br>     “1”.concat(“sdf”,”555”)-&gt; “1sdf555”<br>      [“1”].concat(“sdf”,”555”) -&gt;[“1”, “sdf”, “555”]<br>3、toLocaleUpperCase同toUpperCase 小写转换成大写<br>     “asaddas”.toLocaleUpperCase()==”asaddas”.toUpperCase() “ASADDAS”<br>4、toLocaleLowerCase同toLowerCase 大写转换成小写<br>     “ASADDAS”.toLocaleLowerCase()==”asaddas”.toLowerCase() “asaddas”<br>5、charAt 从字符串中取出单个字符<br>     “asde”.charAt(2)-&gt; d<br>6、indexOf(“xx”,[从几开始检索]) 从字符串中检索字符是否存在,不存在返回-1,<br>     “woshiyuyafei”.indexOf(“yuyafei”) -&gt;5<br>7、lastIndexOf(“xx”,[从几开始检索]) 从最后往字符串中检索字符是否存在,不存在返回-1,<br>     “woshiyuyafei”.lastIndexOf(“yu”,11) -&gt;5<br>8、match(“xxx”,’regexp’) 检索字符串中指定值返回指定值，或找到一个或多个正则表达式的匹配,<br>     “hello world”.match(“hello”) -&gt; [“hello”]<br>     “he2llo1wo3rld”.match(/\d+/g) -&gt; [“2”, “1”, “3”]<br>9、slice(start,end) 提取字符串的某个部分，并以新的字符串返回被提取的部分(不包括结束),不申明结束则默认为字符串长度-1.若为负数，则变为长度+负数的值取 返回新的字符串<br>     “hello aaaa”.slice(1,6) -&gt; “ello “<br>    “hello aaaa”.slice(-8,-2) -&gt; “hello aaaa”.slice(2,8) -&gt; “llo aa”<br>10、substr(start,length) 从字符串中抽取从 start 下标开始的指定数目的字符,若为负数：-1 指字符串中最后一个字符，-2 指倒数第二个字符，以此类推。  返回新字符串<br>     “hello world”.substr(1,4) -&gt; “ello”<br>     “hello world”.substr(-8,4)-&gt; “hello world”.substr(3,4)  -&gt; “lo w”<br>11、substring(start,end) 提取字符串中介于两个指定下标之间的字符(不包括结束不接受负数)<br>     “hello”.substring(1,3) -&gt; “el”</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/04/05/collection/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/05/collection/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1108,6 +1114,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">extensions</a>
               </li>
             
             <div class="clearfix"></div>
