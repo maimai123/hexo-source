@@ -87,5 +87,5 @@ jsonContent:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/maimai123/maimai123.github.io.git
+  repository: git@github.com:maimai123/maimai123.github.io.git
   branch: master
