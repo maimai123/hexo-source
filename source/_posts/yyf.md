@@ -172,6 +172,7 @@ smart_menu:
 friends:
   小雷的博客: http://www.leridy.pw
   麦麦的博客: https://www.marsmai.club/
+  李逵的博客: https://www.lcckup.com
 
 aboutme: 很惭愧<br><br>很久没写博客了<br>谢谢你还能来逛逛
 

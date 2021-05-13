@@ -163,6 +163,95 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-small" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/12/small/">vue或其他小难题整理</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/12/small/" class="archive-article-date">
+  	<time datetime="2018-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D</p>
+<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h2 id="1、emmet在jsx中不能使用的情况"><a href="#1、emmet在jsx中不能使用的情况" class="headerlink" title="1、emmet在jsx中不能使用的情况"></a>1、emmet在jsx中不能使用的情况</h2><blockquote>
+<p>大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet<br>我用的是atom编辑器。<br>首先，当然是打开atom 安装emmet插件 打开设置-&gt;key bindings -&gt; 点击 用户键盘映射 -&gt;修改文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'atom-text-editor[data-grammar="source js jsx vue"]'</span>:</span><br><span class="line">  <span class="string">'F12'</span>:<span class="string">'atom-html-preview:toggle'</span>,</span><br><span class="line">  <span class="string">'tab'</span>: <span class="string">'emmet:expand-abbreviation-with-tab'</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>这样就ok啦~ 尽情的使用emmet吧！</p>
+</blockquote>
+<h2 id="2、一个关于webpack的问题。"><a href="#2、一个关于webpack的问题。" class="headerlink" title="2、一个关于webpack的问题。"></a>2、一个关于webpack的问题。</h2><blockquote>
+<p>起服务以后，用localhost访问可以访问，<br>用具体ip 如：192.168.91.75:8080/index 却访问不到地址<br>这是啥问题呐(⊙o⊙)?<br>原来原来 只要在配置文件中加上 –host 0.0.0.0 就可以啦<br>具体在哪里加呢 答案就是在<strong>package.json</strong>中的start中啦~<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"webpack-dev-server --progress --profile --colors --hot --host 0.0.0.0"</span>,</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"webpack --progress --profile --colors --config webpack.production.config.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="3、说个vue的-外链css的问题"><a href="#3、说个vue的-外链css的问题" class="headerlink" title="3、说个vue的 外链css的问题"></a>3、说个vue的 外链css的问题</h2><blockquote>
+<p>再写vue的时候，虽说在页面内部可以写style来增加样式，但还是推荐外链css<br>于是我import ‘xxx.less’ —&gt;报错！！！我简直一个大写的懵逼啊 因为我在react中都是这么引入css的<br>后来我才知道 vue中 外链css 要卸载style标签内部 然后@import ‘xxx.less’<br>这样就没问题了~<br>还有个如果你想在页面的style中使用less或sass要怎么办呢<br>给style加个 lang=”less”就可以啦</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2018/07/12/small/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/12/small/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-yyf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -901,85 +990,6 @@
 
 
   
-    <article id="post-banner" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/09/banner/">jquery 轮播图插件教程</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/09/banner/" class="archive-article-date">
-  	<time datetime="2017-06-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>简单的轮播插件，和一些大牛写的轮播是不能比的，一般简单的应用可以实现。支持淡入淡出和左右移动两种方式，支持自动轮播！</p>
-<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
-<blockquote>
-<p><i class="icon-cloud"></i>简单的图片轮播<br>效果图：<br><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/lbt.png?raw=true"><br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"> ;(function($)&#123;</span><br><span class="line">   $.fn.Carousel = function(options)&#123;</span><br><span class="line">     var obj = $(this);</span><br><span class="line">     var defaults = &#123;</span><br><span class="line">       <span class="string">'width'</span> : <span class="string">"100%"</span>,</span><br><span class="line">       <span class="string">'height'</span> : <span class="string">"480"</span>,</span><br><span class="line">       <span class="string">'speed'</span> : <span class="string">"1000"</span>,</span><br><span class="line">       <span class="string">'effect'</span> : <span class="string">"fade"</span>,</span><br><span class="line">       <span class="string">'delay'</span> : <span class="string">"200"</span>,</span><br><span class="line">       <span class="string">"doc"</span> : true ,</span><br><span class="line">       <span class="string">"arrow"</span> : true</span><br><span class="line">     &#125;;</span><br><span class="line">     var opts = $.extend(defaults,options);</span><br><span class="line">     // 设置容器的宽高</span><br><span class="line">     obj.css(&#123;</span><br><span class="line">       <span class="string">'width'</span>:opts.width,</span><br><span class="line">       <span class="string">'height'</span>:opts.height</span><br><span class="line">     &#125;);</span><br><span class="line">     // 设置图片的宽高和容器一致</span><br><span class="line">     obj.find(<span class="string">"img"</span>).css(&#123;</span><br><span class="line">       <span class="string">'width'</span>:opts.width,</span><br><span class="line">       <span class="string">'height'</span>:opts.height</span><br><span class="line">     &#125;);</span><br><span class="line">     //轮播图片个数 <span class="number">4</span></span><br><span class="line">     var length = obj.find(<span class="string">'li'</span>).length;</span><br><span class="line">     var str = <span class="string">""</span>;</span><br><span class="line">     obj.find(<span class="string">".wrapUl"</span>).css(&#123;<span class="string">"height"</span>:opts.height&#125;);</span><br><span class="line">     obj.find(<span class="string">".warp"</span>).css(&#123;<span class="string">'width'</span>:opts.width * length&#125;);</span><br><span class="line">     <span class="keyword">for</span>(var i = <span class="number">0</span>;i&lt;length;i++)&#123;</span><br><span class="line">       str += <span class="string">"&lt;li&gt;&lt;/li&gt;"</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     // 如果显示小圆点</span><br><span class="line">     <span class="keyword">if</span>( opts.doc )&#123;</span><br><span class="line">       $(<span class="string">"&lt;ul class='docBox'&gt;"</span>+str+<span class="string">"&lt;/ul&gt;"</span>).insertAfter(obj.find(<span class="string">"div"</span>));</span><br><span class="line">       $(<span class="string">".docBox li:first"</span>).addClass(<span class="string">"active"</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     // 小圆点情况下，如果效果为淡入淡出</span><br><span class="line">     <span class="keyword">if</span>( opts.effect == <span class="string">'fade'</span> )&#123;</span><br><span class="line">       obj.find(<span class="string">'.warp li'</span>).css(&#123;</span><br><span class="line">         <span class="string">"position"</span>:<span class="string">'absolute'</span>,</span><br><span class="line">         <span class="string">"display"</span>:<span class="string">'none'</span></span><br><span class="line">       &#125;).first().show();</span><br><span class="line">       var ii = <span class="number">0</span>;</span><br><span class="line">       var setTime = setInterval(function()&#123;</span><br><span class="line">         obj.find(<span class="string">'.warp li'</span>).stop(false,true).fadeOut(opts.delay).eq(ii).fadeIn(opts.delay);</span><br><span class="line">         $(<span class="string">".docBox li"</span>).eq(ii).addClass(<span class="string">"active"</span>).siblings().removeClass(<span class="string">"active"</span>);</span><br><span class="line">         ii++;</span><br><span class="line">         <span class="keyword">if</span>( ii == length )&#123;</span><br><span class="line">           ii = <span class="number">0</span>;</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;,opts.speed);</span><br><span class="line">       $(<span class="string">".docBox li"</span>).on(<span class="string">"click"</span>,function()&#123;</span><br><span class="line">         clearInterval(setTime);</span><br><span class="line">         var index = $(this).index();</span><br><span class="line">         setTimeout(function()&#123;</span><br><span class="line">           obj.find(<span class="string">'.warp li'</span>).stop(false,true).fadeOut(opts.delay).eq(index).fadeIn(opts.delay);</span><br><span class="line">         &#125;,opts.delay);</span><br><span class="line">         $(this).addClass(<span class="string">"active"</span>).siblings().removeClass(<span class="string">"active"</span>);</span><br><span class="line">       &#125;);</span><br><span class="line">     &#125;</span><br><span class="line">     // 小圆点情况下，如果效果为平移</span><br><span class="line">     <span class="keyword">if</span>( opts.effect == <span class="string">'move'</span> )&#123;</span><br><span class="line">       var mm = <span class="number">0</span>;</span><br><span class="line">       var setMove = setInterval(function()&#123;</span><br><span class="line">         obj.children(<span class="string">'.warp'</span>).animate(&#123;<span class="string">"left"</span>:-(mm * opts.width)+<span class="string">"px"</span>&#125;,opts.speed);</span><br><span class="line">         $(<span class="string">".docBox li"</span>).eq(mm).addClass(<span class="string">"active"</span>).siblings().removeClass(<span class="string">"active"</span>);</span><br><span class="line">         mm = mm+<span class="number">1</span>;</span><br><span class="line">         <span class="keyword">if</span>( mm == length )&#123;</span><br><span class="line">           mm = <span class="number">0</span>;</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;,opts.speed);</span><br><span class="line">       $(<span class="string">".docBox li"</span>).on(<span class="string">"click"</span>,function()&#123;</span><br><span class="line">         clearInterval(setMove);</span><br><span class="line">         var index = $(this).index();</span><br><span class="line">         var left = index * opts.width;</span><br><span class="line">         setTimeout(function()&#123;</span><br><span class="line">           obj.children(<span class="string">'.warp'</span>).animate(&#123;<span class="string">"left"</span>:-left+<span class="string">"px"</span>&#125;,opts.speed);</span><br><span class="line">         &#125;,opts.delay);</span><br><span class="line">         $(this).addClass(<span class="string">"active"</span>).siblings().removeClass(<span class="string">"active"</span>);</span><br><span class="line">       &#125;);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;;</span><br><span class="line"></span><br><span class="line"> &#125;)(jQuery);</span><br><span class="line"></span><br><span class="line">//调用</span><br><span class="line">$(<span class="string">".banner"</span>).Carousel(&#123;</span><br><span class="line">  <span class="string">'width'</span> : <span class="string">"1200"</span>,  //设置容器宽度(暂不支持自适应)</span><br><span class="line">  <span class="string">'height'</span> : <span class="string">"700"</span>, //设置容器高度</span><br><span class="line">  <span class="string">'effect'</span> : <span class="string">"move"</span>,  //值为fade为淡入淡出效果 move则为左右移动</span><br><span class="line">  <span class="string">'speed'</span> : <span class="string">"1000"</span>,  //设置左右移动速度</span><br><span class="line">  <span class="string">'delay'</span> : <span class="string">"200"</span>    //设置淡入淡出速度</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>More info: <a href="maimai123.github.io">麦麦</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">jq</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/09/banner/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1077,7 +1087,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1085,15 +1107,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1105,15 +1119,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -163,6 +163,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-animate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/01/animate/">在react中实现滑动到某处执行动画</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/01/animate/" class="archive-article-date">
+  	<time datetime="2020-03-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>hello~ 近日要做个官网。我打算给官网做一丢丢的动效，搜了一下wowjs挺好用的，然后又看到有个react-wow，就是把wow封装了一下，就都拿来试了一下，方法就写在下面拉。<a href="https://www.delac.io/wow/" target="_blank" rel="noopener">wow demo地址</a></p>
+<h1 id="let’s-start"><a href="#let’s-start" class="headerlink" title="let’s start!"></a>let’s start!</h1><font size="1"><strong>如有转载，请注明出处。</strong></font>
+
+<blockquote>
+<p>引入react-wow的用法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ReactWOW <span class="keyword">from</span> <span class="string">'react-wow'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在global.less中引用animate.css</span></span><br><span class="line"></span><br><span class="line">&lt;ReactWOW delay=<span class="string">'0.1s'</span> animation=<span class="string">'rollIn'</span>&gt;</span><br><span class="line">  &lt;div&gt;这里是你需要用到动画的dom&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>ReactWOW&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>引入wow的用法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> wow <span class="keyword">from</span> <span class="string">'wowjs'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在global.less中引用animate.css</span></span><br><span class="line"></span><br><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> wows = <span class="keyword">new</span> wow.WOW(&#123;</span><br><span class="line">    live: <span class="literal">false</span></span><br><span class="line">  &#125;);</span><br><span class="line">  wows.init();</span><br><span class="line">&#125;, []);</span><br><span class="line"></span><br><span class="line">&lt;div className=<span class="string">"wow slideInLeft"</span> data-wow-duration=<span class="string">"2s"</span> data-wow-delay=<span class="string">"0.3s"</span>&gt;这里是你需要用到动画的dom&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="maimai123.github.io">麦麦</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/01/animate/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-chrome" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -242,7 +327,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">extensions</a>
         		</li>
       		
 		</ul>
@@ -982,95 +1067,6 @@
 
 
   
-    <article id="post-small" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/12/small/">vue或其他小难题整理</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/12/small/" class="archive-article-date">
-  	<time datetime="2018-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>初学vue或其他各种构建工具时会遇到各种问题，没错！这篇文章又是来整理这些愚蠢的问题的~ :-D</p>
-<p><font size="1"><strong>如有转载，请注明出处。</strong></font></p>
-<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h2 id="1、emmet在jsx中不能使用的情况"><a href="#1、emmet在jsx中不能使用的情况" class="headerlink" title="1、emmet在jsx中不能使用的情况"></a>1、emmet在jsx中不能使用的情况</h2><blockquote>
-<p>大家一定深受其害吧？不怕不怕 麦麦这就告诉你怎么才能在jsx中使用emmet<br>我用的是atom编辑器。<br>首先，当然是打开atom 安装emmet插件 打开设置-&gt;key bindings -&gt; 点击 用户键盘映射 -&gt;修改文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'atom-text-editor[data-grammar="source js jsx vue"]'</span>:</span><br><span class="line">  <span class="string">'F12'</span>:<span class="string">'atom-html-preview:toggle'</span>,</span><br><span class="line">  <span class="string">'tab'</span>: <span class="string">'emmet:expand-abbreviation-with-tab'</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>这样就ok啦~ 尽情的使用emmet吧！</p>
-</blockquote>
-<h2 id="2、一个关于webpack的问题。"><a href="#2、一个关于webpack的问题。" class="headerlink" title="2、一个关于webpack的问题。"></a>2、一个关于webpack的问题。</h2><blockquote>
-<p>起服务以后，用localhost访问可以访问，<br>用具体ip 如：192.168.91.75:8080/index 却访问不到地址<br>这是啥问题呐(⊙o⊙)?<br>原来原来 只要在配置文件中加上 –host 0.0.0.0 就可以啦<br>具体在哪里加呢 答案就是在<strong>package.json</strong>中的start中啦~<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"webpack-dev-server --progress --profile --colors --hot --host 0.0.0.0"</span>,</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"webpack --progress --profile --colors --config webpack.production.config.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="3、说个vue的-外链css的问题"><a href="#3、说个vue的-外链css的问题" class="headerlink" title="3、说个vue的 外链css的问题"></a>3、说个vue的 外链css的问题</h2><blockquote>
-<p>再写vue的时候，虽说在页面内部可以写style来增加样式，但还是推荐外链css<br>于是我import ‘xxx.less’ —&gt;报错！！！我简直一个大写的懵逼啊 因为我在react中都是这么引入css的<br>后来我才知道 vue中 外链css 要卸载style标签内部 然后@import ‘xxx.less’<br>这样就没问题了~<br>还有个如果你想在页面的style中使用less或sass要怎么办呢<br>给style加个 lang=”less”就可以啦</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/07/12/small/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/12/small/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1168,7 +1164,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1176,15 +1184,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1196,15 +1196,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
