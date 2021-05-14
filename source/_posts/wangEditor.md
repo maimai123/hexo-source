@@ -1,5 +1,5 @@
 ---
-title: [wangEditor](http://www.wangeditor.com/) 在光标处插入变量
+title: wangEditor 在光标处插入变量
 date: 2020-03-26
 tags: react
 ---
