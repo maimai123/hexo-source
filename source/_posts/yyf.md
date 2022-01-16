@@ -119,7 +119,7 @@ google_analytics: ''
 favicon: /favicon.png
 
 #你的头像url
-avatar: https://tvax1.sinaimg.cn/crop.0.0.1080.1080.180/94304813ly8g0iy75xy2fj20u00u0n0a.jpg?KID=imgbed,tva&Expires=1582716826&ssig=74nyyHMyZV
+avatar: https://github.com/maimai123/hexo-source/blob/master/public/img/avatar.jpg
 
 #是否开启分享
 share_jia: true

@@ -45,7 +45,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="https://tvax1.sinaimg.cn/crop.0.0.1080.1080.180/94304813ly8g0iy75xy2fj20u00u0n0a.jpg?KID=imgbed,tva&amp;Expires=1582716826&amp;ssig=74nyyHMyZV" class="js-avatar">
+			<img src="https://github.com/maimai123/hexo-source/blob/master/public/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">麦麦</a></h1>
@@ -107,7 +107,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="https://tvax1.sinaimg.cn/crop.0.0.1080.1080.180/94304813ly8g0iy75xy2fj20u00u0n0a.jpg?KID=imgbed,tva&amp;Expires=1582716826&amp;ssig=74nyyHMyZV" class="js-avatar">
+				<img src="https://github.com/maimai123/hexo-source/blob/master/public/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">麦麦</h1>
@@ -162,6 +162,311 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ssr" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/15/ssr/">服务端渲染原理初探</a>
+    </h1>
+  
+
+        
+        <a href="/2022/01/15/ssr/" class="archive-article-date">
+  	<time datetime="2022-01-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>服务端渲染到底是怎么回事呢？为什么要做服务端渲染，有什么好处？带着这些问题，我们来看看服务端渲染的真面目吧~</p>
+<p>有很多时候，我们做项目的时候，接入服务端渲染都是用一些应用框架，如react的Next.js， vue的Nuxt.js、vue-server-renderer插件，那么本质是什么呢？<br>没有深入了解之前，我知道是通过renderToString()方法，用来将组件输出成 HTML 字符串，node作为中间层，把html字符串返回给浏览器，那么具体实现是怎么样呢？以下以 React 项目举例。</p>
+<h1 id="let’s-start"><a href="#let’s-start" class="headerlink" title="let’s start!"></a>let’s start!</h1><font size=1><strong>如有转载，请注明出处。</strong></font>
+
+<blockquote>
+<p>为什么要做服务端渲染</p>
+</blockquote>
+<ol>
+<li>利于SEO，搜索引擎爬虫工具可以查看到完全渲染的页面，有利于排到搜索引擎的前面。</li>
+<li>提高首屏加载速度，无需等待所有的js加载执行完，用户可以更快地看到完整的页面。<br>在 SPA 单页模式下，所有的数据请求和 Dom 渲染都在浏览器端完成，所以当我们第一次访问页面的时候很可能会存在“白屏”等待，而服务端渲染所有数据请求和 html内容已在服务端处理完成，浏览器收到的是完整的 html 内容，可以更快的看到渲染内容。</li>
+</ol>
+<p>虽然服务端渲染有一说好处，但也有缺点</p>
+<ol>
+<li>需要在node server环境上运行，而完全静态的SPA可以在任何静态文件服务器上运行。</li>
+<li>更多的服务端负载。</li>
+</ol>
+<p>因此在使用ssr之前要权衡下是否真的需要它，取决于对首屏加载时间的要求和SEO优化。服务端渲染适合特别依赖搜索引擎流量或对首屏时间有特殊要求的项目，如官网等。</p>
+<blockquote>
+<p>如何做服务端渲染？</p>
+</blockquote>
+<p>在前文中提到利用renderToString()方法可以有能力将虚拟dom编译成 HTML 字符串，但我们在开发过程中UI有一些事件绑定，编译出来的 HTML 事件绑定无效，因为 renderToString 并没有做事件相关的处理，因此返回给浏览器的内容不会有事件绑定。那么怎么解决这个问题呢？</p>
+<p>这就需要【同构】了。所谓同构，通俗的讲，就是服务端渲染完成页面结构，浏览器端渲染完成事件绑定。即后端渲染和前端交互。</p>
+<p>同构的流程如下：<br>【服务端运行React代码生成HTML】 =&gt; 【发送HTML给浏览器】 =&gt; 【浏览器显示内容】 =&gt; 【浏览器加载js文件】 =&gt; 【执行js并接管页面的操作】</p>
+<p>接下来让我们实践一下吧~</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br><span class="line">npm i react express react-dom react-router-dom</span><br></pre></td></tr></table></figure>
+<p>新建server.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="keyword">const</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;renderToString&#125; = <span class="built_in">require</span>(<span class="string">'react-dom/server'</span>);</span><br><span class="line"><span class="keyword">const</span> App = <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">PureComponent</span></span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span> React.createElement(<span class="string">"h1"</span>,<span class="literal">null</span>,<span class="string">"Hello World"</span>);;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> content = renderToString(React.createElement(App));</span><br><span class="line">  res.send(content);</span><br><span class="line">&#125;);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<p>node server.js启动localhost:3000就能看到浏览器输出的 Hello World。<br>打开源代码也可以看到相对应的Dom。如果是客户端渲染的话，是无法看到了Hello World的。</p>
+<p>上面的代码我们不能使用jsx,也不能使用es6的import、export语法，<br>所以我们加入webpack, 修改webpack配置, 引入babel。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack babel-loader @babel/core @babel/preset-react @babel/preset-env --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新增.babelrc文件，写入</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [<span class="string">"@babel/preset-env"</span>, <span class="string">"@babel/preset-react"</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新建webpack文件 build/webpack.serve.js</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> nodeExternals = <span class="built_in">require</span>(<span class="string">'webpack-node-externals'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry:&#123;</span><br><span class="line">    index:path.resolve(__dirname,<span class="string">'../server.js'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  mode:<span class="string">'development'</span>,</span><br><span class="line">  target:<span class="string">'node'</span>,</span><br><span class="line">  output:&#123;</span><br><span class="line">    filename:<span class="string">'[name].js'</span>,</span><br><span class="line">    path:path.resolve(__dirname,<span class="string">'../dist/server'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  externals:[nodeExternals()],</span><br><span class="line">  resolve:&#123;</span><br><span class="line">    alias:&#123;</span><br><span class="line">      <span class="string">'@'</span>:path.resolve(__dirname,<span class="string">'../src'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    extensions:[<span class="string">'.js'</span>, <span class="string">'.jsx'</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>:&#123;</span><br><span class="line">    rules:[&#123;</span><br><span class="line">      test:<span class="regexp">/\.js|.jsx$/</span>, <span class="comment">// 注意要配置jsx结尾的文件，不然解析不了jsx</span></span><br><span class="line">      use:<span class="string">'babel-loader'</span>,</span><br><span class="line">      exclude:<span class="regexp">/node_modules/</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在package.json中添加script<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"npm-run-all --parallel build:* -l -n"</span>,</span><br><span class="line">  <span class="string">"build:server"</span>: <span class="string">"webpack --config build/webpack.server.js --watch"</span>,</span><br><span class="line">  <span class="string">"build:client"</span>: <span class="string">"webpack --config build/webpack.client.js --watch"</span>,</span><br><span class="line">  <span class="string">"server"</span>: <span class="string">"nodemon dist/server/index.js"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改 server.js</span></span><br><span class="line"><span class="keyword">import</span> express <span class="keyword">from</span> <span class="string">'express'</span>;</span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="keyword">const</span> &#123;renderToString&#125; = <span class="built_in">require</span>(<span class="string">'react-dom/server'</span>);</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'@/index'</span>;</span><br><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> content = renderToString(<span class="xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span>);</span><br><span class="line">  <span class="built_in">console</span>.log(content);</span><br><span class="line">  res.send(content);</span><br><span class="line">&#125;);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// app.jsx</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> handleClick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">111</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;Page&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">            &lt;button onClick=&#123;handleClick&#125;&gt;点击&lt;/</span>button&gt;</span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>npm run server 启动以后我们发现，点击按钮还是没反应的，这时候就需要执行客户端打包，引用打包出来的js代码</p>
+<p>修改如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新增webpack.client.js</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry:&#123;</span><br><span class="line">    index:path.resolve(__dirname,<span class="string">'../src/index.jsx'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  mode:<span class="string">'development'</span>,</span><br><span class="line">  output:&#123;</span><br><span class="line">    filename:<span class="string">'[name].js'</span>,</span><br><span class="line">    path:path.resolve(__dirname,<span class="string">'../dist/client'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve:&#123;</span><br><span class="line">    alias:&#123;</span><br><span class="line">      <span class="string">'@'</span>:path.resolve(__dirname,<span class="string">'../src'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    extensions:[<span class="string">'.js'</span>, <span class="string">'.jsx'</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>:&#123;</span><br><span class="line">    rules:[&#123;</span><br><span class="line">      test:<span class="regexp">/\.js|.jsx$/</span>,</span><br><span class="line">      use:<span class="string">'babel-loader'</span>,</span><br><span class="line">      exclude:<span class="regexp">/node_modules/</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; hydrate &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./app'</span>;</span><br><span class="line">hydrate(<span class="xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span>,<span class="built_in">document</span>.getElementById(<span class="string">"root"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改 server.js</span></span><br><span class="line"><span class="keyword">import</span> express <span class="keyword">from</span> <span class="string">'express'</span>;</span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="keyword">const</span> &#123;renderToString&#125; = <span class="built_in">require</span>(<span class="string">'react-dom/server'</span>);</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'@/App'</span>;</span><br><span class="line">app.use(express.static(<span class="string">"dist"</span>))</span><br><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> content = renderToString(<span class="xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span>);</span><br><span class="line">  res.send(<span class="string">`</span></span><br><span class="line"><span class="string">        &lt;!doctype html&gt;</span></span><br><span class="line"><span class="string">        &lt;html&gt;</span></span><br><span class="line"><span class="string">            &lt;title&gt;ssr&lt;/title&gt;</span></span><br><span class="line"><span class="string">            &lt;body&gt;</span></span><br><span class="line"><span class="string">                &lt;div id="root"&gt;<span class="subst">$&#123;content&#125;</span>&lt;/div&gt;</span></span><br><span class="line"><span class="string">                &lt;script src="/client/index.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">            &lt;/body&gt;</span></span><br><span class="line"><span class="string">        &lt;/html&gt;</span></span><br><span class="line"><span class="string">    `</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure><br>虽然已经可以点击执行函数了，但是chrome会报一个警告：Warning: render(): Calling ReactDOM.render() to hydrate server-rendered markup will stop working in React v18. Replace the ReactDOM.render() call with ReactDOM.hydrate() if you want React to attach to the server HTML.<br>提醒我们在服务端渲染时用ReactDOM.hydrate()来取代ReactDOM.render()，并警告我们在react17时将不能用ReactDOM.render()去混合服务端渲染出来的标签。</p>
+<blockquote>
+<p>ReactDOM.render()会将挂载dom节点的所有子节点全部清空掉，再重新生成子节点。<br>ReactDOM.hydrate()则会复用挂载dom节点的子节点，并将其与react的virtualDom关联上。</p>
+</blockquote>
+<p>改下index.js代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; hydrate &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./app'</span>;</span><br><span class="line">hydrate(<span class="xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span>,<span class="built_in">document</span>.getElementById(<span class="string">"root"</span>));</span><br></pre></td></tr></table></figure></p>
+<p>好啦~ 以上代码已经讲解了如何最简单的实现服务端渲染。下一篇讲如何加入路由、redux等…</p>
+<p>不定期更新~~~</p>
+<p>More info: <a href="https://github.com/maimai123" target="_blank" rel="noopener">麦麦</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssr</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/01/15/ssr/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-doc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/20/doc/">打造自己的组件库</a>
+    </h1>
+  
+
+        
+        <a href="/2021/08/20/doc/" class="archive-article-date">
+  	<time datetime="2021-08-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用dumi+father打造一个自己的组件库</p>
+<h1 id="let’s-start"><a href="#let’s-start" class="headerlink" title="let’s start!"></a>let’s start!</h1><font size=1><strong>如有转载，请注明出处。</strong></font>
+
+<blockquote>
+<p>新建一个文件夹。然后使用脚手架初始项目</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir mars-lib &amp;&amp; cd mars-lib</span><br><span class="line"></span><br><span class="line">npx @umijs/create-dumi-lib</span><br><span class="line"># or</span><br><span class="line">yarn create @umijs/dumi-lib</span><br><span class="line"><span class="comment">// 安装依赖</span></span><br><span class="line">yarn</span><br><span class="line"></span><br><span class="line">yarn start</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.umirc.ts 中可以修改左侧的标题 logo等信息,也可以修改themeConfig配置主题信息<br><a href="https://d.umijs.org/zh-CN/guide" target="_blank" rel="noopener">dumi文档地址</a></p>
+</blockquote>
+<p>More info: <a href="https://github.com/maimai123" target="_blank" rel="noopener">麦麦</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/20/doc/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-dragon" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/19/dragon/">用 canvas 实现泡泡龙</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/19/dragon/" class="archive-article-date">
+  	<time datetime="2021-05-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在掘金上看到一个很有意思的，用一张图片生成泡泡龙，<a href="https://juejin.cn/post/6963476650356916254?utm_source=gold_browser_extension#heading-8" target="_blank" rel="noopener">传送门</a></p>
+<p>效果图是这样的</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d686084e16d4dc88b5b17a1d7cd0e1a~tplv-k3u1fbpfcp-watermark.image" alt="image"></p>
+<h1 id="let’s-start"><a href="#let’s-start" class="headerlink" title="let’s start!"></a>let’s start!</h1><font size=1><strong>如有转载，请注明出处。</strong></font>
+
+<blockquote>
+<p>先找到一张龙的剪映，要是明暗差比较大的那种，将图片绘制到canvas中</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</span><br><span class="line"><span class="keyword">const</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> image = <span class="keyword">new</span> Image();</span><br><span class="line">image.src = jg;</span><br><span class="line"></span><br><span class="line">image.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  canvas.width = image.width;</span><br><span class="line">  canvas.height = image.height;</span><br><span class="line"></span><br><span class="line">  ctx.drawImage(image,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>获取并裁剪画布的点阵信息 (放在img的onload时间内，确保图片已经加载完成)</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> imageData = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, image.width, image.height).data;</span><br><span class="line">ctx.fillStyle = <span class="string">'#ffffff'</span>;</span><br><span class="line">ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, image.width, image.height);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> gap = <span class="number">7</span>; <span class="comment">// 这个是气泡的密度（数值越大越密）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> h = <span class="number">0</span>; h &lt; image.height; h += gap) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> w = <span class="number">0</span>; w &lt; image.width; w += gap) &#123;</span><br><span class="line">    <span class="keyword">const</span> position = (image.width * h + w) * <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">const</span> r = imageData[position];</span><br><span class="line">    <span class="keyword">const</span> g = imageData[position + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">const</span> b = imageData[position + <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (r + g + b == <span class="number">0</span>) &#123;</span><br><span class="line">      ctx.fillStyle = <span class="string">'#000'</span>;</span><br><span class="line">      ctx.fillRect(w, h, <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样我们就得到了 <img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab8c4d11d4e54e0980f0eb02b5426131~tplv-k3u1fbpfcp-watermark.image" alt="dragon"></p>
+<blockquote>
+<p>通过点阵信息生成气泡dom<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">const</span> dragonContainer = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>);</span><br><span class="line"> <span class="keyword">const</span> dragonScale = <span class="number">2</span>; <span class="comment">// 这个是龙的大小</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">let</span> h = <span class="number">0</span>; h &lt; image.height; h += gap) &#123;</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">let</span> w = <span class="number">0</span>; w &lt; image.width; w += gap) &#123;</span><br><span class="line">     <span class="keyword">const</span> position = (image.width * h + w) * <span class="number">4</span>;</span><br><span class="line">     <span class="keyword">const</span> r = imageData[position];</span><br><span class="line">     <span class="keyword">const</span> g = imageData[position + <span class="number">1</span>];</span><br><span class="line">     <span class="keyword">const</span> b = imageData[position + <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">     <span class="keyword">if</span> (r + g + b == <span class="number">0</span>) &#123;</span><br><span class="line">       <span class="keyword">const</span> bubble = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</span><br><span class="line">       bubble.src = bubblej;</span><br><span class="line">       bubble.setAttribute(<span class="string">'class'</span>, <span class="string">'bubble'</span>);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">const</span> bubbleSize = <span class="built_in">Math</span>.random() * <span class="number">10</span> + <span class="number">20</span>;</span><br><span class="line">       bubble.style.left = <span class="string">`<span class="subst">$&#123;w * dragonScale - bubbleSize <span class="regexp">/ 2&#125;px`;</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="regexp">       bubble.style.top = `$&#123;h * dragonScale - bubbleSize /</span> <span class="number">2</span>&#125;</span>px`</span>;</span><br><span class="line">       bubble.style.width = bubble.style.height = <span class="string">`<span class="subst">$&#123;bubbleSize&#125;</span>px`</span>;</span><br><span class="line">       bubble.style.animationDuration = <span class="string">`<span class="subst">$&#123;<span class="built_in">Math</span>.random() * <span class="number">6</span> + <span class="number">4</span>&#125;</span>s`</span>;</span><br><span class="line"></span><br><span class="line">       dragonContainer.appendChild(bubble);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// html的结构是这样的</span></span><br><span class="line"> &lt;div</span><br><span class="line">   id=<span class="string">"container"</span></span><br><span class="line">   style=&#123;&#123;</span><br><span class="line">     width: <span class="string">'100%'</span>,</span><br><span class="line">     height: <span class="string">'100%'</span>,</span><br><span class="line">     position: <span class="string">'absolute'</span>,</span><br><span class="line">     zIndex: <span class="number">2</span>,</span><br><span class="line">     background: <span class="string">'black'</span>,</span><br><span class="line">   &#125;&#125;</span><br><span class="line"> /&gt;</span><br><span class="line"> &lt;canvas id=<span class="string">"canvas"</span> /&gt;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// css代码为</span></span><br><span class="line"> .bubble &#123;</span><br><span class="line">	position: absolute;</span><br><span class="line">	animation-timing-<span class="function"><span class="keyword">function</span>: <span class="title">linear</span>;</span></span><br><span class="line"><span class="function">	<span class="title">animation</span>-<span class="title">name</span>: <span class="title">floating</span>;</span></span><br><span class="line"><span class="function">	<span class="title">animation</span>-<span class="title">iteration</span>-<span class="title">count</span>: <span class="title">infinite</span>;</span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">@<span class="title">keyframes</span> <span class="title">floating</span> </span>&#123;</span><br><span class="line">	<span class="number">0</span>%&#123;</span><br><span class="line">		transform: translateY(<span class="number">0</span>px);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="number">50</span>%&#123;</span><br><span class="line">		transform: translateY(<span class="number">-5</span>px);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="number">100</span>%&#123;</span><br><span class="line">		transform: translateY(<span class="number">0</span>px);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>这里的重点在于取到画布的<code>像素数据</code>，也就是getImageData<br>getImageData() 方法返回 ImageData 对象，该对象拷贝了画布指定矩形的像素数据。</p>
+</blockquote>
+<blockquote>
+<p>对于 ImageData 对象中的每个像素，都存在着四方面的信息，即 RGBA 值：</p>
+</blockquote>
+<blockquote>
+<p>R - 红色 (0-255)<br>G - 绿色 (0-255)<br>B - 蓝色 (0-255)<br>A - alpha 通道 (0-255; 0 是透明的，255 是完全可见的)</p>
+</blockquote>
+<p>color/alpha 以数组形式存在，并存储于 ImageData 对象的 data 属性中。</p>
+<p>提示：在操作完成数组中的 color/alpha 信息之后，您可以使用 putImageData() 方法将图像数据拷贝回画布上</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">red = imgData.data[<span class="number">0</span>];</span><br><span class="line">green = imgData.data[<span class="number">1</span>];</span><br><span class="line">blue = imgData.data[<span class="number">2</span>];</span><br><span class="line">alpha = imgData.data[<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>您也可以使用 getImageData() 方法来反转画布上某个图像的每个像素的颜色。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">red = <span class="number">255</span>-old_red;</span><br><span class="line">green = <span class="number">255</span>-old_green;</span><br><span class="line">blue = <span class="number">255</span>-old_blue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</span><br><span class="line"><span class="keyword">const</span> ctx=c.getContext(<span class="string">"2d"</span>);</span><br><span class="line"><span class="keyword">const</span> img=<span class="built_in">document</span>.getElementById(<span class="string">"tulip"</span>);</span><br><span class="line">ctx.drawImage(img,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">const</span> imgData=ctx.getImageData(<span class="number">0</span>,<span class="number">0</span>,c.width,c.height);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反转颜色</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;imgData.data.length;i+=<span class="number">4</span>)</span><br><span class="line">  &#123;</span><br><span class="line">  imgData.data[i]=<span class="number">255</span>-imgData.data[i];</span><br><span class="line">  imgData.data[i+<span class="number">1</span>]=<span class="number">255</span>-imgData.data[i+<span class="number">1</span>];</span><br><span class="line">  imgData.data[i+<span class="number">2</span>]=<span class="number">255</span>-imgData.data[i+<span class="number">2</span>];</span><br><span class="line">  imgData.data[i+<span class="number">3</span>]=<span class="number">255</span>;</span><br><span class="line">  &#125;</span><br><span class="line">ctx.putImageData(imgData,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 改上面的部分代码，就得到一个被气泡围绕的空心龙</span></span><br><span class="line"><span class="keyword">const</span> r = <span class="number">255</span> - imageData[position];</span><br><span class="line"><span class="keyword">const</span> g = <span class="number">255</span> - imageData[position + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">const</span> b = <span class="number">255</span> - imageData[position + <span class="number">2</span>];</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://github.com/maimai123" target="_blank" rel="noopener">麦麦</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/19/dragon/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-error" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -186,6 +491,7 @@
 <h2 id="尝试解决问题"><a href="#尝试解决问题" class="headerlink" title="尝试解决问题"></a>尝试解决问题</h2><p>我以为是依赖不对 删了以后重装了，结果发现没用<br>然后一顿google，一开始找出来的都是_config.yml配置不对啊之类的，发现也没用<br>然后找到了 hexo GitHub repo 的 issues，其中 关键的一个<a href="https://github.com/hexojs/hexo/issues/4267" target="_blank" rel="noopener">信息</a></p>
 <p>Update on Feb 14th, 2021: the previous reply is outdated. Hexo is compatible with Node.js 14 since version 4.2.1 released on May 14, 2020. See also #4285</p>
 <p>所以我检查了下我的 node 版本是14.x, hexo 版本是3.9.x。是node版本太高了！！！hexo 还不支持。所以我就升级了hexo的版本到 4.2.1 及以上。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>还是得多翻issue，好多解决办法都藏在issue里面~~</p>
 <p>More info: <a href="https://github.com/maimai123" target="_blank" rel="noopener">麦麦</a></p>
 
       
@@ -792,283 +1098,6 @@
 
 
   
-    <article id="post-daily2020_1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/27/daily2020_1/">React Hooks</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/27/daily2020_1/" class="archive-article-date">
-  	<time datetime="2020-02-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <font size=1><strong>转载至<a href="https://juejin.im/post/5e53d9116fb9a07c9070da44" target="_blank" rel="noopener">伐樱大魔</a></strong></font>
-
-<h1 id="useState"><a href="#useState" class="headerlink" title="useState"></a>useState</h1><p><strong>为什么要使用useState？</strong><br>useState 的出现是 ： 在函数组件里面使用 class的setState，刺激!!!<br>解决了的问题是：当我们一个函数组件想要有自己维护的state的时候，不得已只能转换成class。这样很麻烦！</p>
-<p><strong>如何使用useState？</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [visible, setVisible] = useState(<span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>useState踩坑知识点</strong></p>
-<p>👁重点： <strong>useState的初始值，只在第一次有效</strong></p>
-<p>我当时反正没有当回事，直到遇到了坑…</p>
-<p>举个🌰：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Child = memo(<span class="function">(<span class="params">&#123;data&#125;</span>) =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> [name, setName] = useState(data)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;div&gt;child&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;div&gt;&#123;name&#125; --- &#123;data&#125;&lt;/</span>div&gt;</span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const Hook =()=&gt;&#123;</span></span><br><span class="line"><span class="regexp">    const [count, setCount] = useState(0)</span></span><br><span class="line"><span class="regexp">    const [name, setName] = useState('rose')</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    return(</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;div&gt;</span></span><br><span class="line"><span class="regexp">                &#123;count&#125;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">            &lt;button onClick=&#123;()=&gt;setCount(count+<span class="number">1</span>)&#125;&gt;update count &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">            &lt;button onClick=&#123;()=&gt;setName('jack')&#125;&gt;update name &lt;/</span>button&gt;</span><br><span class="line">            &lt;Child data=&#123;name&#125;/&gt;</span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>结论： 实践检验知识点！😭</p>
-</blockquote>
-<h1 id="useEffect"><a href="#useEffect" class="headerlink" title="useEffect"></a>useEffect</h1><p><strong>为什么要使用useEffect？</strong><br>useEffect 的出现是 ： 在函数组件里面使用 class的生命周期函数，还是所以函数的合体！刺激！！！</p>
-<p><strong>如何使用useEffect?</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 你的代码...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p><strong>useEffect知识点合集</strong></p>
-<p>1.只在第一次使用的componentDidMount，可以用来请求异步数据…、</p>
-<p>useEffect最后，加了 <strong>[]</strong> 就表示只第一次执行</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> users = 获取你喜欢的人的信息()</span><br><span class="line">&#125;,[])</span><br></pre></td></tr></table></figure>
-<p>2.用来替代willUpdate等每次渲染都会执行的生命函数</p>
-<p>useEffect最后，不加 <strong>[]</strong> 就表示每一次渲染都执行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> users = 每次渲染都获取你喜欢的人的信息()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><br>3.每次渲染都执行感觉有点费，所以：</p>
-<p>useEffect最后加 <strong>[]</strong> ，并且 <strong>[]</strong> 里面加的字段就表示，这个字段更改了，我这个effect才执行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> users = （name改变了我才获取你喜欢的人的信息()）</span><br><span class="line">&#125;,[name])</span><br></pre></td></tr></table></figure><br>4.如果我们之前订阅了什么，最后在willUnmount这个生命周期里面要取消订阅，这可咋用useEffect实现啊：</p>
-<p>在effect的return里面可以做取消订阅的事<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> subscription = 获取你喜欢的人的信息()</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        我不要在喜欢你了()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,[])</span><br></pre></td></tr></table></figure><br><strong>为什么要取消订阅？</strong><br>大家都知道，render了之后会执行重新useEffect，如果useEffect里面有一个每setInterval…那么每次render了，再次执行useEffect就会再创建一个setInterval，然后就混乱了…可以把下面案例return的内容删掉感受下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'use effect...'</span>,count)</span><br><span class="line">    <span class="keyword">const</span> timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> setCount(count + <span class="number">1</span>), <span class="number">1000</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span>=&gt;</span> clearInterval(timer)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>5.useEffect 里面使用到的state的值, 固定在了useEffect内部， 不会被改变，除非useEffect刷新，重新固定state的值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>)</span><br><span class="line">   useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'use effect...'</span>,count)</span><br><span class="line">       <span class="keyword">const</span> timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">'timer...count:'</span>, count)</span><br><span class="line">           setCount(count + <span class="number">1</span>)</span><br><span class="line">       &#125;, <span class="number">1000</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="function"><span class="params">()</span>=&gt;</span> clearInterval(timer)</span><br><span class="line">   &#125;,[])</span><br></pre></td></tr></table></figure></p>
-<p>6.useEffect不能被判断包裹</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>)</span><br><span class="line">   <span class="keyword">if</span>(<span class="number">2</span> &lt; <span class="number">5</span>)&#123;</span><br><span class="line">   useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">'use effect...'</span>,count)</span><br><span class="line">           <span class="keyword">const</span> timer = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> setCount(count +<span class="number">1</span>), <span class="number">1000</span>)</span><br><span class="line">           <span class="keyword">return</span> <span class="function"><span class="params">()</span>=&gt;</span> clearInterval(timer)</span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>7.useEffect不能被打断<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>)</span><br><span class="line">useEffect(...)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="comment">// 函数提前结束了</span></span><br><span class="line"></span><br><span class="line">useEffect(...)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>还有<strong>useMemo</strong> <strong>useRef</strong>等等… 搬的太辛苦了，大家直接点击<a href="https://juejin.im/post/5e53d9116fb9a07c9070da44" target="_blank" rel="noopener">文章地址</a>去看吧 😭</p>
-<p>More info: <a href="maimai123.github.io">麦麦</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/27/daily2020_1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-daily2020" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/26/daily2020/">React中父组件通过ref调用子组件方法时报错</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/26/daily2020/" class="archive-article-date">
-  	<time datetime="2020-02-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <font size=1><strong>转载至<a href="https://segmentfault.com/a/1190000015172005?utm_source=channel-hottest" target="_blank" rel="noopener">风吹过的夏夜</a></strong></font>
-
-<p>在项目中用了dva，导致了在用Ref方式取子组件的方法时，用常用的方法报错<br>寻寻觅觅找到了解决方法</p>
-<p>接下来我会用一个简单的demo来演示这个问题是如何发生以及如何解决的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里是子组件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            value: <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleAdd = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            value: <span class="keyword">this</span>.state.value + <span class="number">1</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;p&gt;&#123;<span class="keyword">this</span>.state.value&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Child</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里是父组件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    clickHandler = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.child.addHandler();</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">                &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">                    &lt;Child ref=&#123;ref =&gt; <span class="keyword">this</span>.child = ref&#125; /&gt;</span><br><span class="line">                    &lt;button onClick=&#123;<span class="keyword">this</span>.clickHandler&#125;&gt;+<span class="number">1</span>&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">                &lt;/</span>div&gt;</span><br><span class="line">            &lt;<span class="regexp">/Provider&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default Father;</span></span><br></pre></td></tr></table></figure>
-<p>这样是没有问题了，但当子组件需要在Redux/dva（dva基于 redux 和 redux-saga）中读取的一个数据，那么就需要connect一下了</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps, mapDispatchToProps)(Child)</span><br></pre></td></tr></table></figure>
-<p>嗯，看起来很完美，点击，然后….boom( ⊙ o ⊙ )报错了！</p>
-<p>不科学啊，说到这里相信大家都能猜出来事connect过后导致的问题，所以去官方文档翻箱倒柜一下connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])，<br>果不其然，原来connect参数有4个，所以可能是遗漏了某个参数吧，所以继续翻…<br>然后看到这样一段话：</p>
-<blockquote>
-<p>[withRef] (Boolean): If true, stores a ref to the wrapped component instance and makes it available via getWrappedInstance() method. Default value: false</p>
-</blockquote>
-<blockquote>
-<p>简单理解下，就是说connect过后export出去的不是组件本身，而是经过包装处理的组件，官方称之为wrapped component，所以默认是不将ref存储到这个包装对象里的(Default value: false)，因此只有将withRef这个参数置为true，那么Redux就会将ref存储到这个包装对象里以供使用了，并且请注意下via getWrappedInstance() method这段话，即便我们将withRef置为true但没有通过getWrappedInstance()获得原对象的ref(reference)也是不行的。所以说道这里大家也知道解决方案是什么了：</p>
-</blockquote>
-<blockquote>
-<p>1）connect导出Addition组件时候添加withRef参数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps, mapDispatchToProps, <span class="literal">null</span>, &#123;<span class="attr">withRef</span>: <span class="literal">true</span>&#125;)(Addition)</span><br></pre></td></tr></table></figure><br>2）调用addHandler方法前使用getWrappedInstance()获得原对象的ref：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.refs.addition.getWrappedInstance().addHandler()</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>啦啦啦~ 这样就好啦</p>
-<p>More info: <a href="maimai123.github.io">麦麦</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/26/daily2020/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/26/2019/">又一日常整理</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/26/2019/" class="archive-article-date">
-  	<time datetime="2019-09-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>絮絮叨叨的我又来了~~~ 这两年懒了都没有写博客了，真是对不起还在看我博客的你们，日常也还是会有积累一些想分享的东西，但是就是没有把他记录下来，现在也只能靠自己的脑子再摸索摸索…</p>
-<h1 id="let’s-start"><a href="#let’s-start" class="headerlink" title="let’s start!"></a>let’s start!</h1><p><font size=1><strong>如有转载，请注明出处。</strong></font><br>生成一个sku商品信息录用生成生产组合列表，因为那时候是做一个电商平台嘛！就是要上产品啊，根据你上的商品规格生成规格表。示例图如下：</p>
-<p><img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/spec.png?raw=true" /></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">// 原数据</span></span><br><span class="line">  <span class="keyword">const</span> arr = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">'颜色'</span>, <span class="attr">spec_values</span>: [&#123; <span class="attr">value</span>: <span class="string">'白'</span> &#125;, &#123; <span class="attr">value</span>: <span class="string">'黑'</span> &#125;] &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">'尺寸'</span>, <span class="attr">spec_values</span>: [&#123; <span class="attr">value</span>: <span class="string">'S'</span> &#125;, &#123; <span class="attr">value</span>: <span class="string">'M'</span> &#125;] &#125;,</span><br><span class="line">  ];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 方法</span></span><br><span class="line">  <span class="keyword">const</span> infolist = [];</span><br><span class="line">  arr.forEach(<span class="function">(<span class="params">&#123; name, spec_values &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (infolist.length === <span class="number">0</span>) &#123;</span><br><span class="line">    spec_values.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> arr = [];</span><br><span class="line">      item.key = name;</span><br><span class="line">      arr.push(item);</span><br><span class="line">      infolist.push(arr);</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    infolist.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">      spec_values.forEach(<span class="function">(<span class="params">el</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> arr = [...item];</span><br><span class="line">        el.key = name;</span><br><span class="line">        arr.push(el);</span><br><span class="line">        infolist.push(arr);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> spec_info = infolist.filter(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> item.length === arr.length;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 排列后数据</span></span><br><span class="line">[</span><br><span class="line">  [&#123; <span class="attr">value</span>: <span class="string">'白'</span>, <span class="attr">key</span>: <span class="string">'颜色'</span> &#125;,&#123; <span class="attr">value</span>: <span class="string">'S'</span>, <span class="attr">key</span>: <span class="string">'尺寸'</span> &#125;],</span><br><span class="line">  [&#123; <span class="attr">value</span>: <span class="string">'白'</span>, <span class="attr">key</span>: <span class="string">'颜色'</span> &#125;,&#123; <span class="attr">value</span>: <span class="string">'M'</span>, <span class="attr">key</span>: <span class="string">'尺寸'</span> &#125;],</span><br><span class="line">  [&#123; <span class="attr">value</span>: <span class="string">'黑'</span>, <span class="attr">key</span>: <span class="string">'颜色'</span> &#125;,&#123; <span class="attr">value</span>: <span class="string">'S'</span>, <span class="attr">key</span>: <span class="string">'尺寸'</span> &#125;],</span><br><span class="line">  [&#123; <span class="attr">value</span>: <span class="string">'黑'</span>, <span class="attr">key</span>: <span class="string">'颜色'</span> &#125;,&#123; <span class="attr">value</span>: <span class="string">'M'</span>, <span class="attr">key</span>: <span class="string">'尺寸'</span> &#125;],</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果你需要让一个工具函数在每个组件可用，可以把方法挂载到 Vue.prototype上。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Multimedia <span class="keyword">from</span> <span class="string">'@/components/common/multimedia'</span>; <span class="comment">// 全局引入这个组件</span></span><br><span class="line"></span><br><span class="line">Multimedia.store = store;</span><br><span class="line"><span class="keyword">const</span> multimedia = <span class="keyword">new</span> Vue(Multimedia).$mount();</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(multimedia.$el);</span><br><span class="line">Vue.prototype.$multimedia = multimedia.open;</span><br><span class="line"></span><br><span class="line">用<span class="keyword">this</span>.$multimedia()调用方法。</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="maimai123.github.io">麦麦</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/26/2019/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1083,7 +1112,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 麦麦
+    		&copy; 2022 麦麦
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1211,6 +1240,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssr</a>
               </li>
             
             <div class="clearfix"></div>

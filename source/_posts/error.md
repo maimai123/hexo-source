@@ -21,6 +21,7 @@ Update on Feb 14th, 2021: the previous reply is outdated. Hexo is compatible wit
 
 所以我检查了下我的 node 版本是14.x, hexo 版本是3.9.x。是node版本太高了！！！hexo 还不支持。所以我就升级了hexo的版本到 4.2.1 及以上。
 
-
+## 总结 ##
+还是得多翻issue，好多解决办法都藏在issue里面~~
 
 More info: [麦麦](https://github.com/maimai123)
