@@ -19,8 +19,8 @@ tags: React
 <img src="https://github.com/maimai123/maimai123.github.io/blob/master/img/return.png?raw=true" />
 > 后来找到了解决方法 如下 (ps:千万不要忘了给数组加上key，否则控制台会提示哦)
 ```javascript
-return files.map((file,index)=>{
-  return <a key={index} href=""><Icon type="paper-clip" /> {file} </a>
+return files.map((file)=>{
+  return <a key={file.id} href=""><Icon type="paper-clip" /> {file} </a>
 })
 ```
 
